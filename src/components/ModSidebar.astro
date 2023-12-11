@@ -29,7 +29,12 @@ const sortedGuides = allGuides.sort((a, b) => {
     <ul class="menu p-0 rounded-box mb-2 text-lg">
         <li>
             <a href={`/${game}/${mod}`}>
-                {modData && 'item' in modData.data && modData.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8" />}
+                {modData?.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8" />}
+                {modData?.data.icon && (
+                    <div class="w-8 flex items-center justify-center">
+                        <Icon name={modData.data.icon} class="w-6" />
+                    </div>
+                )}
                 {modData?.data.title}
             </a>
         </li>
