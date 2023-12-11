@@ -7,7 +7,6 @@ cover: ./crafting-for-blockheads.png
 icon: mdi:anvil
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
-curseForgeSlug: crafting-for-blockheads
 ---
 
 Crafting for Blockheads is a customizable workbench mod that combines ideas from Cooking for Blockheads and opens them up to wider areas of crafting.
