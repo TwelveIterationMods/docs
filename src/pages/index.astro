@@ -13,7 +13,7 @@ const allGames = await getCollection('games');
         <div class="grid grid-cols-2 lg:grid-cols-3 justify-center items-center gap-4 mb-4">
             <CountingStat client:idle label="Total Downloads" count={800} unit="M" />
             <CountingStat client:idle label="Daily Downloads" count={500} unit="K" />
-            <CountingStat class="max-lg:hidden" client:idle label="Released Mods" count={25} unit="+" />
+            <CountingStat class:list="max-lg:hidden" client:idle label="Released Mods" count={25} unit="+" />
         </div>
 
         <div class="divider"></div>
