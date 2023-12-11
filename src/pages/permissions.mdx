@@ -1,0 +1,108 @@
+---
+title: Permissions
+layout: ../layouts/MarkdownLayout.astro
+---
+import PermissionBadge from '../components/PermissionBadge.astro'
+import PermissionCard from '../components/PermissionCard.astro'
+
+# Permissions
+
+**Last Update:** April 20, 2023
+
+<div class="grid lg:grid-cols-3 gap-2">
+
+<PermissionBadge label="Modpacks" icon="mdi:check-circle" iconClass="text-green-600">
+Use in modpacks is allowed on all platforms.
+
+- Attribution is not required.
+- Do not use the mods' names in your pack title.
+- Do not ask for express permission.
+</PermissionBadge>
+
+<PermissionBadge label="Media" icon="mdi:check-circle" iconClass="text-green-600">
+Use in videos or similar media is allowed on all platforms.
+
+- Attribution is not required.
+- Do not miscredit the mods.
+- Do not link to unauthorized repost sites.
+</PermissionBadge>
+
+<PermissionBadge label="Republishing" icon="mdi:cancel" iconClass="text-red-600">
+Generally, republishing mod files or associated material is not allowed.
+
+- See below for exceptions.
+</PermissionBadge>
+
+</div>
+
+<div class="grid gap-4 mt-4">
+<PermissionCard label="Republishing on Localized Platforms (such as Chinese mod forums)" icon="mdi:translate" iconClass="text-yellow-600" class="mt-5">
+You are allowed to translate the mod description and repost it on your local platform, under the following conditions:
+
+- You indicate that it is an unofficial repost not associated with the original author
+- You do not re-upload any actual mod files and instead link back to the original sources (CurseForge or Modrinth)
+- You do so non-commercially, i.e. without direct or indirect monetary gain or purpose
+</PermissionCard>
+
+<PermissionCard label="Rehosting mod files as part of a modpack" icon="mdi:archive-refresh" iconClass="text-yellow-600" class="mt-5">
+Some modpack platforms do not have the ability to download mods from their official sources (CurseForge, Modrinth) and
+may require bundling the actual mod files directly.
+
+In these cases, you are allowed to bundle the mod files as part of your modpack, as long as you do so in good faith,
+i.e. don't attempt to abuse this exception to plainly republish the mods under the guise of a modpack that doesn't
+offer anything else of value.
+
+Platforms that do have the ability to download mods from their official sources should make use of those instead of
+bundling the mod files directly.
+</PermissionCard>
+
+<PermissionCard label="Publishing Forks" icon="mdi:source-fork" iconClass="text-yellow-600" class="mt-5">
+I allow forks to be published as long as they meet some requirements:
+
+- You are maintaining a version that I've chosen to stop supporting, or you want to implement a spin-off feature that I have rejected. Essentially, there should be a reason you're forking the mod.
+- You choose a name that is not easily confused with the original mod's name
+  - Do not name it the exact same (e.g. "Waystones")
+  - Do not use "edition-style" prefixes or suffixes (e.g. "Waystones (Bedrock Edition)" or "Bedrock Waystones")
+  - Do not use any prefixes or suffixes that seem like an enhancement or endorsed spin-off (e.g. "Waystones: Reloaded" or "Waystones: Carrot Edition")
+- You design a logo that is not easily confused with the original mod's logo
+- Your name and logo should not give an impression of being an official version related to the original mod
+
+Contact me ([Discord](https://discord.gg/VAfZ2Nau6j), [Twitter](https://twitter.com/BlayTheNinth), [CurseForge](https://legacy.curseforge.com/members/blaytheninth/projects)) if you intend to publish a fork. 
+Mod Hosting platforms generally require the original author's permission for publishing forks, and I would also like to know about them just in case any problems come up.
+
+Sometimes a fork may not even be the best solution, and we could instead find a way to extend my mods' API and have you release an addon instead!
+</PermissionCard>
+
+<PermissionCard label="Versions prior to Minecraft 1.17" icon="mdi:folder-open" iconClass="text-yellow-600" class="mt-5">
+Versions prior to Minecraft 1.17 were licensed under different licenses (mainly the MIT License) and are therefore
+exempt from many of the rules outlined here. Review the terms of the license the version was released under
+(which should still be traceable on GitHub).
+
+However, while I cannot enforce these rules on those versions, I do
+ask that you respect them to the extent possible. The rules are mainly in place to avoid plain misleading
+re-uploads by uncaring parties and to avoid confusion for users trying to find the correct mod to download or report
+issues to.
+</PermissionCard>
+
+<PermissionCard label="Asset Exceptions" icon="mdi:file-image" iconClass="text-yellow-600" class="mt-5">
+Some assets are exempt from the above rules.
+
+- Obviously I cannot claim ownership of any textures that are clearly derivatives of Minecraft's own textures.
+- The Return Scroll and Warp Stone item icons in Waystones are by [@JoeCreates](https://twitter.com/JoeCreates)
+  and were publicly released under the CC-BY-SA 3.0 license [here](https://opengameart.org/content/roguelikerpg-items).
+- The Bound Scroll and Warp Scroll are derivatives of those item icons and therefore fall under the same license.
+</PermissionCard>
+
+<PermissionCard label="I found something breaking these guidelines" icon="mdi:hand-pointing-up" iconClass="text-yellow-200" class="mt-5">
+I don't have time nor do I want to spend the effort and drama of getting people to respect these terms. This is more so
+an outline for platforms to follow in their moderation when it comes to my mods, or for developers to follow if they
+want to stay friends with me. 😊
+
+If you actually find a blatant violation you can let me know, but there's also a good chance that it stems from before
+these terms came into effect (pre Minecraft 1.17).
+
+Don't act on my behalf! If something is actually posing an issue, I will likely find out about it anyways and try to
+get it resolved.
+</PermissionCard>
+
+</div>

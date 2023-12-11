@@ -1,0 +1,109 @@
+---
+import { getEntry } from 'astro:content';
+import MinecraftItem from './MinecraftItem.vue';
+
+const { recipe } = Astro.props; 
+
+const recipeEntry = await getEntry('recipes', 'mc/' + recipe.replace(':', '/'));
+const recipeData = recipeEntry?.data;
+
+const matrix = (() => {
+    const matrix: string[][] = [[], [], []];
+    if (!recipeData) {
+        return matrix;
+    }
+
+    const type = recipeData.type;
+    if (type === 'minecraft:crafting_shaped' || type === 'crafting_shaped') {
+        const pattern = recipeData.pattern;
+        for (let i = 0; i < pattern.length; i++) {
+            const row = pattern[i];
+            for (let j = 0; j < row.length; j++) {
+                const col = row[j];
+                if (col !== ' ') {
+                    const ingredient = recipeData.key[col];
+                    if ('item' in ingredient) {
+                        matrix[i][j] = ingredient.item ?? '';
+                    } else if (ingredient.tag) {
+                        matrix[i][j] = '#' + ingredient.tag;
+                    }
+                }
+            }
+        }
+    } else if (type === 'minecraft:crafting_shapeless' || type === 'crafting_shapeless') {
+        const ingredients = recipeData.ingredients;
+        for (let i = 0; i < ingredients.length; i++) {
+            const row = Math.floor(i / 3);
+            const col = i % 3;
+            const ingredient = ingredients[i];
+            if ('item' in ingredient) {
+                matrix[row][col] = ingredient.item ?? '';
+            } else if (ingredient.tag) {
+                matrix[row][col] = '#' + ingredient.tag;
+            }
+        }
+    }
+    return matrix;
+})();
+
+const result = typeof recipeData?.result === 'object' && recipeData?.result?.item;
+---
+
+<div class="minecraft-crafting mt-3">
+    {
+        [0, 1, 2].map((col) => (
+            <>
+                {[0, 1, 2].map((row) => (
+                    <>{matrix[row][col] && <MinecraftItem class:list={'recipe-row-' + row + ' recipe-col-' + col} item={matrix[row][col]} />}</>
+                ))}
+            </>
+        ))
+    }
+    {result && <MinecraftItem class:list="recipe-result" item={result} />}
+</div>
+
+<style is:global lang="scss">
+    .minecraft-crafting {
+        background-image: url('/img/mc/crafting.png');
+        width: 260px;
+        height: 136px;
+        position: relative;
+        margin-bottom: 20px;
+        margin-right: 10px;
+
+        .minecraft-item {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+        }
+
+        .recipe-row-0 {
+            top: 16px;
+        }
+
+        .recipe-row-1 {
+            top: 52px;
+        }
+
+        .recipe-row-2 {
+            top: 88px;
+        }
+
+        .recipe-col-0 {
+            left: 16px;
+        }
+
+        .recipe-col-1 {
+            left: 52px;
+        }
+
+        .recipe-col-2 {
+            left: 88px;
+        }
+
+        .recipe-result {
+            left: 204px;
+            top: 52px;
+        }
+    }
+</style>

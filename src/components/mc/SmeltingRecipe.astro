@@ -1,0 +1,45 @@
+---
+import { getEntry } from 'astro:content';
+import MinecraftItem from './MinecraftItem.vue';
+
+const { recipe } = Astro.props;
+
+const recipeEntry = await getEntry('recipes', 'mc/' + recipe.replace(':', '/'));
+const recipeData = recipeEntry?.data;
+
+const input = recipeData?.ingredient?.item;
+const result = recipeData?.result as string;
+---
+
+<div class="minecraft-smelting mt-3">
+    {input && <MinecraftItem class:list="smelting-input" item={input} />}
+    {result && <MinecraftItem class:list="smelting-result" item={result} />}
+</div>
+
+<style is:global lang="scss">
+    .minecraft-smelting {
+        background-image: url('/img/mc/smelting.png');
+        width: 196px;
+        height: 106px;
+        position: relative;
+        margin-bottom: 20px;
+        margin-right: 10px;
+        float: left;
+    }
+
+    .minecraft-item {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+    }
+
+    .smelting-input {
+        left: 20px;
+        top: 26px;
+    }
+
+    .smelting-result {
+        left: 140px;
+        top: 28px;
+    }
+</style>

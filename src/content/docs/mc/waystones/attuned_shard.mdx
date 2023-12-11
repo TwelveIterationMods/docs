@@ -1,0 +1,30 @@
+---
+title: Attuned Shard
+type: item
+item: waystones:attuned_shard
+---
+
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import MinecraftItem from '../../../../components/mc/MinecraftItem.vue';
+import warpPlateImage from './warp_plate.png';
+
+Attuned Shards are attuned to a specific [Warp Plate](warp_plate) and form the connection between two Warp Plates
+when inserted into one another.
+
+Each newly placed Warp Plate comes with one Attuned Shard by default, but you can create
+additional shards by placing another set of ingredients into the Warp Plate.
+
+---
+
+### Crafting
+
+Additional attuned shards can be created within a Warp Plate by placing a piece of Flint in the center and four pieces
+of [Warp Dust](warp_dust) around it.
+
+<InterfaceScreen name="Warp Plate Screen" screen={warpPlateImage.src}>
+    <MinecraftItem item="waystones:warp_dust" class="left-[160px] top-[34px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[104px] top-[90px]" />
+    <MinecraftItem item="minecraft:flint" class="left-[160px] top-[90px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[216px] top-[90px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[160px] top-[146px]" />
+</InterfaceScreen>

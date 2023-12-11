@@ -1,0 +1,83 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import getGameImage from '../utils/image';
+import { Icon } from 'astro-icon';
+
+const { entry } = Astro.props;
+
+const game = entry.slug.split('/')[0];
+const mod = entry.slug.split('/')[1];
+
+const modData = await getEntry('mods', game + '/' + mod);
+
+const allItems = await getCollection('docs', (it) => {
+    return it.data.type === 'item' && it.slug.startsWith(game + '/' + mod);
+});
+const sortedItems = allItems.sort((a, b) => {
+    return b.data.priority - a.data.priority;
+});
+
+const allGuides = await getCollection('docs', (it) => {
+    return it.data.type === 'guide' && it.slug.startsWith(game + '/' + mod);
+});
+const sortedGuides = allGuides.sort((a, b) => {
+    return b.data.priority - a.data.priority;
+});
+---
+
+<div class="w-full">
+    <ul class="menu p-0 rounded-box mb-2 text-lg">
+        <li>
+            <a href={`/${game}/${mod}`}>
+                {modData && 'item' in modData.data && modData.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8" />}
+                {modData?.data.title}
+            </a>
+        </li>
+    </ul>
+
+    {
+        sortedItems.length > 0 && (
+            <>
+                <ul class="menu bg-base-200 rounded-box">
+                    {sortedItems.map((item) => (
+                        <li>
+                            <a href={`/${item.slug}`} class={item.slug === entry.slug ? 'active' : ''}>
+                                {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-8" />}
+                                {item.data.icon && (
+                                    <div class="w-8 flex items-center justify-center">
+                                        <Icon name={item.data.icon} class="w-6" />
+                                    </div>
+                                )}
+                                {item.data.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <div class="divider" />
+            </>
+        )
+    }
+    {
+        sortedGuides.length > 0 && (
+            <>
+                <ul class="menu bg-base-200 rounded-box">
+                    {sortedGuides.map((guide) => (
+                        <li>
+                            <a href={`/${guide.slug}`} class={guide.slug === entry.slug ? 'active' : ''}>
+                                {guide.data.item && <img src={getGameImage(game, guide.data.item)} class="w-8" />}
+                                {guide.data.icon && (
+                                    <div class="w-8 flex items-center justify-center">
+                                        <Icon name={guide.data.icon} class="w-6" />
+                                    </div>
+                                )}
+                                {guide.data.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <div class="divider" />
+            </>
+        )
+    }
+    <a href={`/${game}`} class="btn btn-block btn-sm">Back to Mods</a>
+</div>

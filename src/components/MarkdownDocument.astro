@@ -1,0 +1,67 @@
+<div class="markdown">
+    <slot />
+</div>
+
+<style is:global lang="scss">
+    .markdown {
+        h1:not(.escape) {
+            @apply text-5xl;
+            @apply pb-4;
+        }
+
+        h2:not(.escape) {
+            @apply text-4xl;
+            @apply pb-2;
+        }
+
+        h3:not(.escape) {
+            @apply text-3xl;
+            @apply pb-2;
+        }
+
+        h4:not(.escape) {
+            @apply text-2xl;
+            @apply pb-2;
+        }
+
+        h5:not(.escape) {
+            @apply text-xl;
+            @apply pb-2;
+        }
+
+        ul:not(.escape) {
+            @apply list-disc;
+            @apply list-inside;
+            @apply py-2;
+        }
+
+        ol:not(.escape) {
+            @apply list-decimal;
+            @apply list-inside;
+        }
+
+        p:not(.escape) {
+            @apply pb-2;
+        }
+
+        pre:not(.escape) {
+            @apply my-2;
+            @apply p-4;
+        }
+
+        hr:not(.escape) {
+            @apply my-4;
+            border-width: 0.0625rem;
+            border-color: var(--fallback-bc, oklch(var(--bc) / 0.1));
+        }
+
+        table {
+            @apply table;
+        }
+
+        a:link:not(.escape),
+        a:visited:not(.escape) {
+            @apply link-primary;
+        }
+    }
+</style>

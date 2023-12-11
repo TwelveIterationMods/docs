@@ -1,0 +1,73 @@
+---
+title: Frequently Asked Questions
+layout: ../layouts/MarkdownLayout.astro
+---
+
+import FAQ from '../components/FAQ.astro';
+
+### Frequently Asked Questions
+
+---
+
+<FAQ question="Modpack Permissions etc." icon="mdi:list-status" iconClass="text-green-600">
+    See the new [Permissions Overview](/permissions) for information on how my mods can be used and redistributed.
+</FAQ>
+
+---
+
+<div class="grid gap-4">
+
+<FAQ question="Mod Ideas and Feature Requests" icon="mdi:lightbulb" iconClass="text-yellow-600" class="mt-5">
+Feel free to post ideas on Discord or in GitHub discussions. Once an idea has been fleshed out, it can be submitted
+as a feature request on the issue tracker.
+
+Please do not send me mod ideas or feature requests via DM.
+
+</FAQ>
+
+<FAQ question="Commissions and Hiring" icon="mdi:currency-usd" iconClass="text-lime-600" class="mt-5">
+I do not accept commissions from users or content creators (e.g. YouTubers).
+
+<span>If you are a business with a use-case involving Minecraft, feel free to reach out at
+<a href="mailto:info@twelveiterations.com">info@twelveiterations.com</a>.</span>
+</FAQ>
+
+<FAQ question="Updates and Porting" icon="mdi:chevron-double-up" iconClass="text-orange-600" class="mt-5">
+Generally, I always target the latest version of Minecraft. I also provide long-term-support (LTS) for the latest
+minor release of the previous major version.
+
+**The current LTS version is 1.19.2**. This is an exception to the rule, as 1.19.2 marks the last version before
+Mojang's recent version policy change. I additionally backport to 1.20.1 and 1.18.2 on rare exceptions.
+
+There currently is a backlog of mods still waiting to be ported to newer Minecraft versions, and there is no ETA on
+when that will happen. Mods that I no longer plan to update will have "Discontinued" in their title.
+
+</FAQ>
+
+<FAQ question="Configuration" icon="mdi:gear" iconClass="text-gray-600" class="mt-5">
+The configuration files for my mods can be found in the config folder of your Minecraft instance. I do not use Forge's
+world configs, instead, server-side configs are included in the normal `-common.toml` file.
+
+To edit configurations ingame, you can install [Configured](https://www.curseforge.com/minecraft/mc-mods/configured)
+on Forge, or [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config) on Fabric.
+
+When editing config files for Forge at runtime, do not use Notepad++, as it currently leads to issues with Forge's
+config reloading and is likely to corrupt your config file.
+
+</FAQ>
+
+<FAQ question="Love and Support" icon="mdi:heart" iconClass="text-red-600" class="mt-5">
+    If you would like to support the continued development of my mods, I currently offer the following ways to do so:
+</FAQ>
+
+<FAQ question="Further Help" icon="mdi:help" iconClass="text-cyan-600" class="mt-5">
+If your question is related to a specific mod, check the information on the mod's page.
+
+If that still does not answer your question, you have the following options:
+
+-   If you are getting a crash or a bug, report it to the mod's GitHub repository (`Submit Issues & Feedback` link on mod page).
+-   If you need support in general or have a short question needing a simple answer, you can use the `#help` or `#support` channel in [our Discord](https://discord.gg/VAfZ2Nau6j).
+
+</FAQ>
+
+</div>

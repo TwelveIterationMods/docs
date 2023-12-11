@@ -1,0 +1,41 @@
+---
+title: Auto Compressed Hammer
+type: item
+item: excompressum:auto_compressed_hammer
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import autoCompressedHammerImage from './auto_compressed_hammer.png'
+
+The Auto Compressed Hammer will automatically hammer [Compressed Blocks](#compressed_block) in its inventory as long as its provided with some energy.
+
+It can be powered using any Forge Energy compatible mod.
+
+## Crafting
+
+<RecipeContainer>
+  <CraftingRecipe recipe="excompressum:auto_compressed_hammer_without_steel" />
+  <CraftingRecipe recipe="excompressum:auto_compressed_hammer_with_steel" />
+</RecipeContainer>
+
+If a mod adding steel is loaded, the recipe will require steel ingots instead of iron blocks.
+
+## Interface
+
+<InterfaceScreen screen={autoCompressedHammerImage.src}>
+  <InterfaceArea x="12" y="66" width="40" height="40" name="Input Slot" color="aqua" />
+  <InterfaceArea x="12" y="120" width="40" height="40" name="Upgrade Slot" color="orange" />
+  <InterfaceArea x="60" y="120" width="40" height="40" name="Upgrade Slot" color="orange" />
+  <InterfaceArea x="110" y="12" width="184" height="148" name="Output Slots" color="lime" />
+  <InterfaceArea x="300" y="12" width="40" height="148" name="Energy" color="red" />
+  <InterfaceArea x="12" y="164" width="328" height="112" name="Player Inventory" color="purple" />
+  <InterfaceArea x="12" y="280" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>
+
+
+## Upgrades
+
+To speed up an Auto Compressed Hammer, you can insert additional Compressed Diamond Hammers into the two upgrade slots available. 
+These hammers can also be enchanted with either Unbreaking, Fortune or Efficiency.

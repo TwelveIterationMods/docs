@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "refinedrelocation:sorting_diamond_chest"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    "GGG",
+    "ICI",
+    "GGG"
+  ],
+  "key": {
+    "C": {
+      "item": "refinedrelocation:sorting_gold_chest"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  }
+}

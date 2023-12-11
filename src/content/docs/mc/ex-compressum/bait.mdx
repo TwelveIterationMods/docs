@@ -1,0 +1,77 @@
+---
+title: Bait
+type: item
+item: excompressum:wolf_bait
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import MinecraftItem from '../../../../components/mc/MinecraftItem.vue'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+
+Ex Compressum adds a bunch of Baits that can each be placed to force an animal spawn, as long as some environmental conditions are fulfilled.
+
+## Crafting
+
+<RecipeContainer>
+  <CraftingRecipe recipe="excompressum:wolf_bait" />
+  <CraftingRecipe recipe="excompressum:ocelot_bait" />
+  <CraftingRecipe recipe="excompressum:cow_bait" />
+  <CraftingRecipe recipe="excompressum:pig_bait" />
+  <CraftingRecipe recipe="excompressum:chicken_bait" />
+  <CraftingRecipe recipe="excompressum:squid_bait" />
+  <CraftingRecipe recipe="excompressum:rabbit_bait" />
+  <CraftingRecipe recipe="excompressum:horse_bait" />
+  <CraftingRecipe recipe="excompressum:donkey_bait" />
+  <CraftingRecipe recipe="excompressum:llama_bait" />
+  <CraftingRecipe recipe="excompressum:polar_bear_bait" />
+  <CraftingRecipe recipe="excompressum:parrot_bait" />
+  <CraftingRecipe recipe="excompressum:fox_bait" />
+  <CraftingRecipe recipe="excompressum:turtle_bait" />
+  <CraftingRecipe recipe="excompressum:cat_bait" />
+  <CraftingRecipe recipe="excompressum:mooshroom_bait" />
+</RecipeContainer>
+
+<RecipeContainer>
+  <CraftingRecipe recipe="excompressum:sheep_bait_without_grass_seeds" />
+  <CraftingRecipe recipe="excompressum:sheep_bait_with_grass_seeds" />
+</RecipeContainer>
+
+If the Ex Nihilo mod used adds grass seeds, the Sheep Bait will require Grass Seeds rather than Wheat Seeds.
+
+## Spawn Conditions
+
+For a bait to result in an animal spawn, a few conditions must be fulfilled. You can see whether your environment is suitable by right-clicking the bait.
+
+Baits that are ready to spawn an animal will also have smoke particles going off from them.
+
+Even once the conditions are fulfilled, it can take anywhere up to three minutes (or longer if you're really unlucky) for the spawn to occur.
+
+* At least 10 blocks from the animal's home environment must be in a 5x3x5 area around the bait
+* At least one block of water must be in an area of 5x5 blocks around the bait
+* There must not be more than 2 animals in a 10x10 area around the bait - animals are shy creatures, you know
+* There must be no player in an area of 6x6 blocks around the bait - you will scare the animals away!
+
+## Home Environment
+
+### Wolf, Cow, Pig, Chicken, Sheep and Rabbit
+
+<RecipeContainer>
+  <MinecraftItem item="#minecraft:logs" />
+  <MinecraftItem item="#minecraft:saplings" />
+  <MinecraftItem item="minecraft:grass_block" />
+  <MinecraftItem item="minecraft:grass" />
+</RecipeContainer>
+
+### Ocelot
+
+<RecipeContainer>
+  <MinecraftItem item="minecraft:jungle_log" />
+  <MinecraftItem item="minecraft:jungle_sapling" />
+  <MinecraftItem item="minecraft:vines" />
+  <MinecraftItem item="minecraft:lily_pad" />
+</RecipeContainer>
+
+### Squid
+
+<RecipeContainer>
+  <MinecraftItem item="minecraft:water_bucket" />
+</RecipeContainer>

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "refinedrelocation:sorting_gold_chest"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    "III",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "C": {
+      "item": "refinedrelocation:sorting_iron_chest"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  }
+}

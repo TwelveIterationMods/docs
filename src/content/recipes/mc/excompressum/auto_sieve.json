@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "excompressum:auto_sieve"
+  },
+  "pattern": [
+    "BGB",
+    "GSG",
+    "IGI"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:glass_panes/colorless"
+    },
+    "S": {
+      "type": "excompressum:nihilo_item",
+      "value": "SIEVE"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "tag": "forge:storage_blocks/iron"
+    }
+  },
+  "conditions": [
+    {
+      "type": "excompressum:has_nihilo_item",
+      "value": "SIEVE"
+    }
+  ]
+}

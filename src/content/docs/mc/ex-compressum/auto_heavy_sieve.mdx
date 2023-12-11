@@ -1,0 +1,41 @@
+---
+title: Auto Heavy Sieve
+type: item
+item: excompressum:auto_heavy_sieve
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import autoHeavySieveImage from './auto_sieve.png'
+
+The Auto Heavy Sieve will automatically sift [compressed blocks](#compressed_block) in its inventory as long as its provided with a [mesh](iron_mesh) and some energy.
+
+It can be powered using any Forge Energy compatible mod.
+
+## Crafting
+
+<RecipeContainer>
+  <CraftingRecipe recipe="excompressum:auto_heavy_sieve_without_steel" />
+  <CraftingRecipe recipe="excompressum:auto_heavy_sieve_with_steel" />
+</RecipeContainer>
+
+If a mod adding steel is loaded, the recipe will require steel instead of iron.
+
+## Interface
+
+<InterfaceScreen screen={autoHeavySieveImage.src}>
+  <InterfaceArea x="12" y="40" width="40" height="40" name="Input Slot" color="aqua" />
+  <InterfaceArea x="12" y="94" width="40" height="40" name="Mesh Slot" color="orange" />
+  <InterfaceArea x="110" y="12" width="184" height="148" name="Output Slots" color="lime" />
+  <InterfaceArea x="300" y="12" width="40" height="148" name="Energy" color="red" />
+  <InterfaceArea x="12" y="164" width="328" height="112" name="Player Inventory" color="purple" />
+  <InterfaceArea x="12" y="280" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>
+
+## Upgrades
+
+To speed up an Auto Heavy Sieve, one can feed the tiny person inside to make them work faster.
+Any food will work; the tastier the food, the more it motivates your sifter to work faster.
+
+Additionally, the mesh used inside the sieve can be enchanted with either Unbreaking, Fortune or Efficiency.

@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon'
+
+const {label, icon, iconClass} = Astro.props
+---
+
+<div class="permission-card card bg-base-200">
+    <div class="card-body">
+        <div class="card-title">
+            { icon && <Icon name={icon} class="mr-2 w-8" class:list={iconClass}/>}
+            <span class="text-lg font-bold">{label}</span>
+        </div>
+        <slot></slot>
+    </div>
+</div>

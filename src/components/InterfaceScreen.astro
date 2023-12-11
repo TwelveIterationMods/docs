@@ -1,0 +1,18 @@
+---
+const { name, screen } = Astro.props;
+---
+
+<div class="relative mt-3 mb-3 interface-screen">
+    <img src={screen} alt={name} />
+    <slot />
+</div>
+
+<style is:global lang="scss">
+    .interface-screen {
+        .minecraft-item {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+        }
+    }
+</style>

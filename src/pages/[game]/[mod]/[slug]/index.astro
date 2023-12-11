@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../../layouts/Layout.astro';
+import MarkdownDocument from '../../../../components/MarkdownDocument.astro';
+import ModSidebar from '../../../../components/ModSidebar.astro';
+import getGameImage from '../../../../utils/image';
+import { Icon } from 'astro-icon';
+
+export async function getStaticPaths() {
+    const modEntries = await getCollection('docs');
+    return modEntries.map((entry) => {
+        const parts = entry.slug.split('/');
+        return {
+            params: { game: parts[0], mod: parts[1], slug: parts[2] },
+            props: { entry },
+        };
+    });
+}
+
+const { entry } = Astro.props;
+const game = entry.slug.split('/')[0];
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+    <div class="flex items-center gap-4">
+        {entry.data.item && <img src={getGameImage(game, entry.data.item)} />}
+        {entry.data.icon && <Icon name={entry.data.icon} class="w-8" />}
+        <h1 class="text-3xl font-bold">{entry.data.title}</h1>
+    </div>
+    <div class="divider"></div>
+    <MarkdownDocument data={entry.data}>
+        <Content />
+    </MarkdownDocument>
+
+    <div class="mt-8 flex justify-end">
+        <a href={`https://github.com/TwelveIterationMods/docs/edit/main/src/content/docs/${entry.id}`} class="btn btn-sm btn-ghost">
+            <Icon name="mdi:edit" class="w-4" />
+             Edit this page
+        </a>
+    </div>
+
+    <ModSidebar entry={entry} slot="sidebar" />
+</Layout>

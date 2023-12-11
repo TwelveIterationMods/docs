@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mods.twelveiterations.com/sitemap-index.xml

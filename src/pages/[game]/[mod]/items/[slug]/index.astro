@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const modEntries = await getCollection('docs');
+    return modEntries.map((entry) => {
+        const parts = entry.slug.split('/');
+        return {
+            params: { game: parts[0], mod: parts[1], slug: parts[2] },
+            props: { entry },
+        };
+    });
+}
+
+const { entry } = Astro.props;
+return Astro.redirect('/' + entry.slug);
+---
