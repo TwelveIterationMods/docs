@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../../layouts/Layout.astro';
+import MarkdownDocument from '../../../components/MarkdownDocument.astro';
+import ModSidebar from '../../../components/ModSidebar.astro';
+import getGameImage from '../../../utils/image';
+import ForgeBadge from '../../../components/mc/ForgeBadge.astro';
+import FabricBadge from '../../../components/mc/FabricBadge.astro';
+import NeoForgeBadge from '../../../components/mc/NeoForgeBadge.astro';
+import curseForgeLogo from './curseforge.svg';
+import discordLogo from './discord.svg';
+import githubLogo from './github.svg';
+import steamLogo from './github.svg';
+import { Icon } from 'astro-icon';
+import BecomePatronButton from '../../../components/BecomePatronButton.astro';
+
+export async function getStaticPaths() {
+    const modEntries = await getCollection('mods');
+    return modEntries.map((entry) => {
+        const parts = entry.slug.split('/');
+        return {
+            params: { game: parts[0], mod: parts[1] },
+            props: { entry },
+        };
+    });
+}
+
+const { entry } = Astro.props;
+const game = entry.slug.split('/')[0];
+const { Content } = await entry.render();
+
+const allItems = await getCollection('docs', (it) => {
+    return it.slug.startsWith(entry.slug + '/') && it.data.type === 'item';
+});
+const sortedItems = allItems.sort((a, b) => {
+    return b.data.priority - a.data.priority;
+});
+
+const allGuides = await getCollection('docs', (it) => {
+    return it.slug.startsWith(entry.slug + '/') && it.data.type === 'guide';
+});
+const sortedGuides = allGuides.sort((a, b) => {
+    return b.data.priority - a.data.priority;
+});
+
+const totalDocs = sortedItems.length + sortedGuides.length;
+
+const githubUrl = entry.data.github ? `https://github.com/${entry.data.github}` : null;
+const curseForgeId = entry.data.curseForgeId;
+const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
+
+const steamUrl = entry.data.steamId ? `https://steamcommunity.com/sharedfiles/filedetails/?id=${entry.data.steamId}` : null;
+---
+
+<Layout title={entry.data.title}>
+    <h1 class="text-5xl">{entry.data.title}</h1>
+
+    {
+        'loaders' in entry.data && (
+            <div class="flex gap-1 mt-4">
+                {entry.data.loaders.includes('Forge') && <ForgeBadge />}
+                {entry.data.loaders.includes('Fabric') && <FabricBadge />}
+                {entry.data.loaders.includes('NeoForge') && <NeoForgeBadge />}
+            </div>
+        )
+    }
+
+    <div class="divider"></div>
+
+    <MarkdownDocument data={entry.data}>
+        <Content />
+    </MarkdownDocument>
+
+    {
+        curseForgeUrl && curseForgeId && (
+            <div class="flex items-center gap-1 mt-2">
+                <a href={curseForgeUrl}>
+                    <img src={`https://cf.way2muchnoise.eu/full_${curseForgeId}_downloads.svg?badge_style=flat`} alt="Downloads" />
+                </a>
+                <a href={curseForgeUrl}>
+                    <img src={`https://cf.way2muchnoise.eu/versions/${curseForgeId}_latest.svg?badge_style=flat`} alt="Versions" />
+                </a>
+            </div>
+        )
+    }
+
+    <div class="divider"></div>
+
+    <div class="flex max-lg:flex-wrap items-start gap-2">
+        <ul class="menu menu-sm grid bg-base-200 rounded-box w-full lg:w-1/2" class:list={({'lg:grid-cols-2': totalDocs > 5})}>
+            {
+                sortedItems.map((item) => (
+                    <li>
+                        <a href={`/${item.slug}`}>
+                            {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-12" />}
+                            {item.data.icon && (
+                                <div class="w-12 flex justify-center items-center">
+                                    <Icon name={item.data.icon} class="w-8" />
+                                </div>
+                            )}
+                            {item.data.title}
+                        </a>
+                    </li>
+                ))
+            }
+            {
+                sortedGuides.map((guide) => (
+                    <li>
+                        <a href={`/${guide.slug}`}>
+                            {guide.data.item && <img src={getGameImage(game, guide.data.item)} class="w-12" />}
+                            {guide.data.icon && (
+                                <div class="w-12 flex justify-center items-center">
+                                    <Icon name={guide.data.icon} class="w-8" />
+                                </div>
+                            )}
+                            {guide.data.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="divider divider-horizontal max-lg:hidden"></div>
+        <div>
+            <div class="flex flex-wrap gap-2">
+                {
+                    curseForgeUrl && (
+                        <a class="btn btn-curseforge max-lg:btn-block" href={curseForgeUrl}>
+                            <Image src={curseForgeLogo} alt="" class="w-6" />
+                            Download on CurseForge
+                        </a>
+                    )
+                }
+
+                {
+                    steamUrl && (
+                        <a class="btn btn-steam" href={steamUrl}>
+                            <Image src={steamLogo} alt="" class="w-6" />
+                            Download on Steam
+                        </a>
+                    )
+                }
+
+                <a class="btn btn-discord max-lg:btn-block" href="https://discord.gg/VAfZ2Nau6j">
+                    <Image src={discordLogo} alt="" class="w-6" />
+                     Chat & Support
+                </a>
+                {
+                    githubUrl && (
+                        <a class="btn btn-github max-lg:btn-block" href={githubUrl}>
+                            <Image src={githubLogo} alt="" class="w-6" />
+                            Source Code
+                        </a>
+                    )
+                }
+            </div>
+
+            <div class="mt-6">
+                <div class="text-xl font-bold mb-2 lg:hidden">Support the Development</div>
+                <div class="text-xl font-bold mb-2 max-lg:hidden">Support the Development on Patreon</div>
+                <p class="mb-1">Developing mods takes a lot of time and effort.</p>
+                <p class="mb-4">If you enjoy my work, consider supporting me on Patreon.</p>
+                <BecomePatronButton />
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <ModSidebar entry={entry} slot="sidebar" />
+</Layout>

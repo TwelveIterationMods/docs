@@ -1,0 +1,17 @@
+{
+  "block.refinedrelocation.sorting_chest": "Sorting Chest",
+  "block.refinedrelocation.sorting_iron_chest": "Sorting Iron Chest",
+  "block.refinedrelocation.sorting_gold_chest": "Sorting Gold Chest",
+  "block.refinedrelocation.sorting_diamond_chest": "Sorting Diamond Chest",
+  "block.refinedrelocation.block_extender": "Block Extender",
+  "block.refinedrelocation.fast_hopper": "Fast Hopper",
+  "block.refinedrelocation.filtered_hopper": "Filtered Hopper",
+  "block.refinedrelocation.buffer": "Buffer",
+  "block.refinedrelocation.sorting_connector": "Sorting Connector",
+  "block.refinedrelocation.sorting_interface": "Sorting Interface",
+  "item.refinedrelocation.sorting_upgrade": "Sorting Upgrade",
+  "item.refinedrelocation.stack_limiter": "Stack Limiter",
+  "item.refinedrelocation.slot_lock": "Slot Lock",
+  "item.refinedrelocation.input_filter": "Input Filter",
+  "item.refinedrelocation.output_filter": "Output Filter"
+}

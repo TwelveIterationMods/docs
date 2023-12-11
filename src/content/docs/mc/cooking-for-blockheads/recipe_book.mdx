@@ -1,0 +1,52 @@
+---
+title: Recipe Book
+type: item
+item: cookingforblockheads:recipe_book
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import SmeltingRecipe from '../../../../components/mc/SmeltingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import recipeBookImage from './recipe_book.png'
+
+The Recipe Book is the main component of the Cooking Table, but it can also be used by itself. 
+Right-clicking it will bring up its interface, in which you can quickly view (and in the upgraded version, craft) items using the ingredients you have in your inventory.
+
+## Crafting
+
+<SmeltingRecipe recipe="cookingforblockheads:recipe_book_smelting" />
+
+<RecipeContainer>
+<CraftingRecipe recipe="cookingforblockheads:crafting_book" />
+<CraftingRecipe recipe="cookingforblockheads:no_filter_edition" />
+</RecipeContainer>
+
+## Used to craft
+
+<CraftingRecipe recipe="cookingforblockheads:cooking_table" />
+
+## Interface
+
+<InterfaceScreen screen={recipeBookImage.src}>
+<InterfaceArea x="12" y="32" width="176" height="162" name="Recipe Display" color="aqua" />
+<InterfaceArea x="192" y="32" width="148" height="162" name="Recipe Slots" color="orange" />
+<InterfaceArea x="192" y="8" width="148" height="24" name="Search Bar" color="yellow" />
+<InterfaceArea x="350" y="34" width="40" height="120" name="Sorting Buttons" color="red" />
+<InterfaceArea x="12" y="200" width="328" height="112" name="Player Inventory" color="purple" />
+<InterfaceArea x="12" y="316" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>
+
+## Usage
+
+Right-click the book to open its interface.
+
+On the right you will see the foods you can craft with what ingredients you have available in your inventory. Some of them may require additional tools, as will be indicated in the recipe display on the left and the tooltip.
+
+Click on a food once to see its recipe. If you have the upgraded book (Cooking for Blockheads II), click another time to craft one of it. In order to craft a stack, shift-click instead.
+
+For recipes with multiple possible variations, you can click the arrow buttons that appear on the left to navigate between them.
+
+For recipes with ingredients that utilize tags (e.g. "any raw fish"), the items in the recipe grid will flash up one after another. In order to lock it to a specific item, you can click the slot in the recipe grid or use your scroll wheel on it.
+
+The #NoFilter Edition will show all available food recipes regardless of what ingredients you carry.

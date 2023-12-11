@@ -1,0 +1,15 @@
+---
+const { x, y, width, height, color, name } = Astro.props;
+
+const styleObject = {
+    left: x + 'px',
+    top: y + 'px',
+    width: width + 'px',
+    height: height + 'px',
+    "border-color": color || "transparent"
+};
+---
+
+<div class="absolute border-2" style={styleObject}>
+    <div class="w-full h-full" title={name}></div>
+</div>

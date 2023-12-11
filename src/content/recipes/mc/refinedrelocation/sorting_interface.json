@@ -1,0 +1,28 @@
+{
+  "result": {
+    "item": "refinedrelocation:sorting_interface"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    "IGI",
+    "FCO",
+    "IGI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "C": {
+      "item": "refinedrelocation:sorting_connector"
+    },
+    "F": {
+      "item": "refinedrelocation:input_filter"
+    },
+    "O": {
+      "item": "refinedrelocation:output_filter"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+---
+title: Market
+type: item
+item: farmingforblockheads:market
+---
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import marketImage from './market.png'
+
+The Market allows you to spend emeralds on things like seeds and saplings.
+
+It is completely configurable through data packs, so it can also be used to sell custom items.
+
+## Crafting
+
+<CraftingRecipe recipe="farmingforblockheads:market"/>
+
+## Interface
+
+<InterfaceScreen screen={marketImage.src}>
+    <InterfaceArea x="42" y="94" width="40" height="40" name="Payment Slot" color="aqua"/>
+    <InterfaceArea x="118" y="94" width="40" height="40" name="Purchase Slot" color="lime"/>
+    <InterfaceArea x="192" y="32" width="148" height="162" name="Market Slots" color="orange"/>
+    <InterfaceArea x="192" y="8" width="148" height="24" name="Search Bar" color="yellow"/>
+    <InterfaceArea x="350" y="34" width="40" height="120" name="Filter Buttons" color="red"/>
+    <InterfaceArea x="12" y="200" width="328" height="112" name="Player Inventory" color="purple"/>
+    <InterfaceArea x="12" y="316" width="328" height="40" name="Player Hotbar" color="purple"/>
+</InterfaceScreen>
+
+## Usage
+
+To use the market, place it down somewhere and right-click it.
+
+You can select an item to buy on the right, put your payment in the slot on the left, and take out however many you want to buy from the center slot.

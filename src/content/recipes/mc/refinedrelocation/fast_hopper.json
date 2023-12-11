@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "refinedrelocation:fast_hopper"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    "RHR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    }
+  }
+}

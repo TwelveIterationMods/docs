@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "result": {
+    "item": "minecraft:coal"
+  },
+  "ingredients": [
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    },
+    {
+      "item": "excompressum:uncompressed_coal"
+    }
+  ]
+}

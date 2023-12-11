@@ -1,0 +1,34 @@
+---
+title: Cow in a Jar
+type: item
+item: cookingforblockheads:cow_jar
+---
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import cowJarRecipeImage from './cow_jar_recipe.png'
+
+The Cow in a Jar is a genius invention based on the [Milk Jar](milk_jar).
+
+Inside is a tiny cow that will continuously produce milk over time.
+
+Check the [Cooking Table](cooking_table) for more information on multi-block Kitchens.
+
+## Crafting (in-world)
+
+<InterfaceScreen screen={cowJarRecipeImage.src}>
+<InterfaceArea x="272" y="94" width="64" height="68" name="Empty Space" />
+<InterfaceArea x="280" y="20" width="56" height="64" name="Anvil" />
+<InterfaceArea x="248" y="172" width="112" height="136" name="Cow" />
+<InterfaceArea x="282" y="324" width="52" height="60" name="Milk Jar" />
+</InterfaceScreen>
+
+If the above image is not clear enough, I've also made a short instructional video visualizing the process:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KpUsTOQbr1Y" frameborder="0" allowfullscreen></iframe>
+
+<font size="1">Drop an anvil block on a cow above a milk jar.</font>
+
+## Usage
+
+- Right-click with a bucket of milk to put milk into the milk jar.
+- Right-click with an empty bucket to take it back out.

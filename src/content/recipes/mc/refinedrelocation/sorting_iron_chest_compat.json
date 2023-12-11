@@ -1,0 +1,31 @@
+{
+  "result": {
+    "item": "refinedrelocation:sorting_iron_chest"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    " B ",
+    "RCR",
+    " H "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:writable_book"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "ironchest:iron_chest"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ironchest"
+    }
+  ]
+}

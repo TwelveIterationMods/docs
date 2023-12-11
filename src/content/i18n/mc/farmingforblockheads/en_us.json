@@ -1,0 +1,13 @@
+{
+  "block.farmingforblockheads.market": "Market",
+  "block.farmingforblockheads.chicken_nest": "Chicken Nest",
+  "block.farmingforblockheads.feeding_trough": "Feeding Trough",
+  "block.farmingforblockheads.fertilized_farmland_rich": "Fertilized Farmland",
+  "block.farmingforblockheads.fertilized_farmland_healthy": "Fertilized Farmland",
+  "block.farmingforblockheads.fertilized_farmland_stable": "Fertilized Farmland",
+  "block.farmingforblockheads.fertilized_farmland_rich_stable": "Fertilized Farmland",
+  "block.farmingforblockheads.fertilized_farmland_healthy_stable": "Fertilized Farmland",
+  "item.farmingforblockheads.red_fertilizer": "Red Fertilizer",
+  "item.farmingforblockheads.green_fertilizer": "Green Fertilizer",
+  "item.farmingforblockheads.yellow_fertilizer": "Yellow Fertilizer"
+}

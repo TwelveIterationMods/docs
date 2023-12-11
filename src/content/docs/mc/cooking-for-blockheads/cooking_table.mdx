@@ -1,0 +1,46 @@
+---
+title: Cooking Table
+type: item
+item: cookingforblockheads:cooking_table
+---
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import recipeBookImage from './recipe_book.png'
+
+The Cooking Table is the core of a multi-block kitchen. Right-clicking it will bring up the interface of the [Recipe Book](recipe_book), in which you can quickly craft items using the ingredients in your kitchen.
+
+In order for a kitchen to count as connected, blocks must be touching each other. The [Kitchen Floor](kitchen_floor) can be used to connect blocks that are further apart.
+
+## Crafting
+
+<CraftingRecipe recipe="cookingforblockheads:cooking_table"/>
+
+## Interface
+
+<InterfaceScreen screen={recipeBookImage.src}>
+<InterfaceArea x="12" y="32" width="176" height="162" name="Recipe Display" color="aqua"/>
+<InterfaceArea x="192" y="32" width="148" height="162" name="Recipe Slots" color="orange"/>
+<InterfaceArea x="192" y="8" width="148" height="24" name="Search Bar" color="yellow"/>
+<InterfaceArea x="350" y="34" width="40" height="120" name="Sorting Buttons" color="red"/>
+<InterfaceArea x="12" y="200" width="328" height="112" name="Player Inventory" color="purple"/>
+<InterfaceArea x="12" y="316" width="328" height="40" name="Player Hotbar" color="purple"/>
+</InterfaceScreen>
+
+## Usage
+
+Place the cooking table down and connect it with other kitchen blocks, such as the [Fridge](fridge) or [Kitchen Counters](counter). 
+
+Place your ingredients into the Fridge (or another kitchen block) and right-click the cooking table. The Cooking Table will also consider ingredients that you have in your inventory right now.
+
+On the right you will see the foods you can craft with what you have available. Some of them may require additional tools, as will be indicated in the recipe display on the left and the tooltip.
+
+Click on a food once to see its recipe, click another time to craft one of it. In order to craft a stack, shift-click instead.
+
+For recipes with multiple possible variations, you can click the arrow buttons that appear on the left to navigate between them.
+
+For recipes with ingredients that utilize tags (e.g. "any raw fish"), the items in the recipe grid will flash up one after another. In order to lock it to a specific item, you can click the slot in the recipe grid or use your scroll wheel on it.
+
+The Cooking Table, like many kitchen blocks, can be dyed by right-clicking it with a dye.
+
+Right-clicking the cooking table with a #NoFilter edition will turn it into a #NoFilter Cooking Table, making it so it always shows all recipes rather than just the ones you can cook right now.

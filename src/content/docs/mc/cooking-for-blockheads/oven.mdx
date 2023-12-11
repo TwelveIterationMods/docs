@@ -1,0 +1,37 @@
+---
+title: Oven
+type: item
+item: cookingforblockheads:oven
+---
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import ovenImage from './oven.png'
+
+The Oven can cook large amounts of food efficiently and fast. When used as part of a Multiblock Kitchen, it will unlock smelting recipes in the Cooking Table.
+
+It also provides slots for four tools that will be available within the Multiblock Kitchen (visually, they're for Pam's Harvestcraft tools, but you can place anything there).
+
+Check the [Cooking Table](cooking_table) for more information on Multiblock Kitchens.
+
+## Crafting
+
+<CraftingRecipe recipe="cookingforblockheads:oven"/>
+
+## Interface
+
+<InterfaceScreen screen={ovenImage.src}>
+<InterfaceArea x="12" y="34" width="40" height="148" name="Tool Slots" color="orange"/>
+<InterfaceArea x="164" y="34" width="112" height="40" name="Input Slots" color="aqua"/>
+<InterfaceArea x="118" y="114" width="40" height="40" name="Fuel Slots" color="red"/>
+<InterfaceArea x="280" y="78" width="40" height="112" name="Output Slots" color="lime"/>
+<InterfaceArea x="164" y="78" width="112" height="112" name="Buffer Slots" color="yellow"/>
+<InterfaceArea x="56" y="218" width="328" height="112" name="Player Inventory" color="purple"/>
+<InterfaceArea x="56" y="334" width="328" height="40" name="Player Hotbar" color="purple"/>
+</InterfaceScreen>
+
+## Usage
+
+Place coal in the fuel slot on the left. Place uncooked food in the three slots at the top. The oven will automatically pull nine items into its internal buffer, cook them, and them move them over to the output slots on the right.
+
+If you shift-right-click the door it will open the oven without opening the interface, allowing you to put items in by simply right-clicking them into the front side.

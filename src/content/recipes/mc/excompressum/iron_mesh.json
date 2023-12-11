@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "excompressum:iron_mesh"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "excompressum:has_nihilo_item",
+        "value": "IRON_MESH"
+      }
+    }
+  ]
+}

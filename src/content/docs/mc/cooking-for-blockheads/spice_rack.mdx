@@ -1,0 +1,33 @@
+---
+title: Spice Rack
+type: item
+item: cookingforblockheads:spice_rack
+---
+
+import RecipeContainer from '../../../../components/RecipeContainer.astro';
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import spiceRackImage from './spice_rack.png';
+
+The Spice Rack holds up to nine ingredients that will be made available to your multi-block kitchen.
+
+Check the [Cooking Table](cooking_table) for more information on multi-block Kitchens.
+
+## Crafting
+
+<CraftingRecipe recipe="cookingforblockheads:spice_rack" />
+
+## Interface
+
+<InterfaceScreen screen={spiceRackImage.src}>
+    <InterfaceArea x="12" y="32" width="328" height="40" name="Storage" color="lime" />
+    <InterfaceArea x="12" y="96" width="328" height="112" name="Player Inventory" color="purple" />
+    <InterfaceArea x="12" y="212" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>
+
+## Usage
+
+Right-click the spice rack with an item in your hand to put the item on the spice rack. Right-clicking the spice rack when it already has an item in that spot will retrieve or swap the item out.
+
+You can also open the interface of the spice rack by right-clicking it with an empty hand and manage its content that way.

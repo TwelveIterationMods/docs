@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon'
+
+const { question, icon, iconClass } = Astro.props;
+const slug = question.toLowerCase().replace(/ /g, '-');
+---
+
+<div class="card bg-base-200">
+    <div class="card-body gap-0">
+        <div class="card-title mb-2">
+            <Icon name={icon} class="mr-2 w-6" class:list={iconClass} />
+            <h5 id={slug} class="escape"><a class="escape" href={`#${slug}`}>{question}</a></h2>
+        </div>
+        <slot />
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "result": {
+    "item": "exnihilosequentia:crushed_end_stone",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "excompressum:compressed_ender_gravel"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:item_exists",
+      "item": "exnihilosequentia:crushed_end_stone"
+    }
+  ]
+}

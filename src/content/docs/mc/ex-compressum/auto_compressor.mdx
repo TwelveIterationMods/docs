@@ -1,0 +1,33 @@
+---
+title: Auto Compressor
+type: item
+item: excompressum:auto_compressor
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import autoCompressorImage from './auto_compressor.png'
+
+The Auto Compressor will automatically craft blocks and items into their compressed forms, as long as either a 2x2 or 3x3 recipe is available.
+
+It can be powered using any Forge Energy compatible mod.
+
+It can be upgraded into a "Rationing" Auto Compressor through crafting, which will prevent it from emptying out slots completely. For example, it would only start compressing cobblestone if the input slot has at least 10 cobblestone inside. This can be useful for automation, allowing for dedicated slots for certain items.
+
+## Crafting
+
+<RecipeContainer>
+  <CraftingRecipe recipe="excompressum:auto_compressor" />
+  <CraftingRecipe recipe="excompressum:rationing_auto_compressor" />
+</RecipeContainer>
+
+## Interface
+
+<InterfaceScreen screen={autoCompressorImage.src}>
+  <InterfaceArea x="12" y="12" width="112" height="148" name="Input Slots" color="aqua" />
+  <InterfaceArea x="182" y="12" width="112" height="148" name="Output Slots" color="lime" />
+  <InterfaceArea x="300" y="12" width="40" height="148" name="Energy" color="red" />
+  <InterfaceArea x="12" y="164" width="328" height="112" name="Player Inventory" color="purple" />
+  <InterfaceArea x="12" y="280" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "refinedrelocation:slot_lock"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:planks"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ]
+}

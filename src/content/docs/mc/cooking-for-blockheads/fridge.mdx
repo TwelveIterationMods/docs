@@ -1,0 +1,37 @@
+---
+title: Fridge
+type: item
+item: cookingforblockheads:fridge
+---
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import fridgeImage from './fridge.png'
+
+
+The Fridge is a storage block for multi-block Kitchens, similar to the [Kitchen Counter](counter).
+Ingredients within the fridge will be made available for recipes in the Cooking Table.
+
+Check the [Cooking Table](cooking_table) for more information on multi-block Kitchens.
+
+## Crafting
+
+<CraftingRecipe recipe="cookingforblockheads:fridge"/>
+
+## Interface
+
+<InterfaceScreen screen={fridgeImage.src}>
+<InterfaceArea x="12" y="32" width="328" height="112" name="Storage" color="lime"/>
+<InterfaceArea x="12" y="166" width="328" height="112" name="Player Inventory" color="purple"/>
+<InterfaceArea x="12" y="282" width="328" height="40" name="Player Hotbar" color="purple"/>
+</InterfaceScreen>
+
+## Usage
+
+Right-click to open the fridge's interface. It's basically like a chest.
+
+If you shift-right-click the door it will open the fridge without opening the interface, allowing you to put items in by simply right-clicking them into the front side.
+
+The Fridge, just like the Sink and Kitchen Counter, will be flipped horizontally based on the angle you place it from.
+
+The Fridge, like many kitchen blocks, can be dyed by right-clicking it with a dye.

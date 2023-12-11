@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "refinedrelocation:sorting_chest"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    " B ",
+    "RCR",
+    " H "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:writable_book"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "tag": "forge:chests/wooden"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    }
+  }
+}

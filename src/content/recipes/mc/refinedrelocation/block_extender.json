@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "refinedrelocation:block_extender"
+  },
+  "type": "crafting_shaped",
+  "pattern": [
+    "IGI",
+    "GHG",
+    "IGI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "H": {
+      "item": "refinedrelocation:fast_hopper"
+    }
+  }
+}

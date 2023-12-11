@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import AboutMe from '../components/AboutMe.astro';
+import CountingStat from '../components/CountingStat.vue';
+
+const allGames = await getCollection('games');
+---
+
+<Layout title="">
+    <main>
+        <div class="grid grid-cols-2 lg:grid-cols-3 justify-center items-center gap-4 mb-4">
+            <CountingStat client:idle label="Total Downloads" count={800} unit="M" />
+            <CountingStat client:idle label="Daily Downloads" count={500} unit="K" />
+            <CountingStat class="max-lg:hidden" client:idle label="Released Mods" count={25} unit="+" />
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid lg:grid-cols-3 gap-2">
+            {
+                allGames.map((game) => (
+                    <a href={game.slug} class="card bg-base-200 shadow-xl">
+                        {game.data.cover && (
+                                <figure>
+                                    <Image src={game.data.cover} alt="" />
+                                </figure>
+                        )}
+
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                {game.data.title}
+                                {game.data.badge && <div class="badge badge-secondary">{game.data.badge}</div>}
+                            </h2>
+                            <p>{game.data.description}</p>
+                            <div class="card-actions justify-end">
+                                {game.data.categories.map((category) => (
+                                    <div class="badge badge-outline">{category}</div>
+                                ))}
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+
+        <div class="divider"></div>
+
+        <AboutMe />
+    </main>
+</Layout>

@@ -1,0 +1,44 @@
+---
+title: Customization
+type: guide
+icon: mdi:puzzle-edit
+---
+import NoteBox from '../../../../components/NoteBox.astro'
+
+## Table of Contents
+
+## Changing the Attuned Shard Recipe
+
+The warp plate allows creating additional attuned shards. The recipe is configurable and can be changed by overriding 
+the `waystones/recipes/attuned_shard.json` file in a data pack.
+
+```json
+{
+    "type": "waystones:warp_plate",
+    "result": {
+        "item": "waystones:attuned_shard",
+        "count": 1
+    },
+    "primary": {
+        "item": "minecraft:flint"
+    },
+    "secondary": [
+        {
+            "item": "waystones:warp_dust"
+        },
+        {
+            "item": "waystones:warp_dust"
+        },
+        {
+            "item": "waystones:warp_dust"
+        },
+        {
+            "item": "waystones:warp_dust"
+        }
+    ]
+}
+```
+
+<NoteBox title="Note">
+You can use this recipe type to create additional custom recipes for the warp plate as well.
+</NoteBox>

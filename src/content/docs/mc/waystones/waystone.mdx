@@ -1,0 +1,32 @@
+---
+title: Waystone
+type: item
+item: waystones:waystone
+---
+
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
+import RecipeContainer from '../../../../components/RecipeContainer.astro';
+
+The waystone is a block that can be crafted and placed, or found in the world. Players can activate waystones, which
+will allow them to teleport back to those waystones using items such as the Warp Stone or Warp Scrolls. Waystones can
+also be used to travel between each other.
+
+Players in Creative Mode can configure a Waystone to be "global". This means the Waystone will be automatically
+activated for every other player and is useful for Server Hubs.
+
+Waystones can be broken with a Silk Touch enchanted pickaxe to be able to move them without everyone losing access to
+it.
+
+## Crafting
+
+<RecipeContainer>
+    <CraftingRecipe recipe="waystones:waystone" />
+    <CraftingRecipe recipe="waystones:sandy_waystone" />
+    <CraftingRecipe recipe="waystones:mossy_waystone" />
+</RecipeContainer>
+
+## Usage
+
+-   Right-click a waystone to activate it.
+-   Right-click an activated waystone to choose a Waystone to teleport to.
+-   Shift-right-click a waystone to edit its name.

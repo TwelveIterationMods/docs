@@ -1,0 +1,34 @@
+---
+title: Auto Hammer
+type: item
+item: excompressum:auto_hammer
+---
+import RecipeContainer from '../../../../components/RecipeContainer.astro'
+import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import InterfaceArea from '../../../../components/InterfaceArea.astro';
+import autoHammerImage from './auto_hammer.png'
+
+The Auto Hammer will automatically hammer blocks in its inventory as long as it's provided with some energy.
+
+It can be powered using any Forge Energy compatible mod.
+
+## Crafting
+
+<CraftingRecipe recipe="excompressum:auto_hammer" />
+
+## Interface
+
+<InterfaceScreen screen={autoHammerImage.src}>
+  <InterfaceArea x="12" y="66" width="40" height="40" name="Input Slot" color="aqua" />
+  <InterfaceArea x="12" y="120" width="40" height="40" name="Upgrade Slot" color="orange" />
+  <InterfaceArea x="60" y="120" width="40" height="40" name="Upgrade Slot" color="orange" />
+  <InterfaceArea x="110" y="12" width="184" height="148" name="Output Slots" color="lime" />
+  <InterfaceArea x="300" y="12" width="40" height="148" name="Energy" color="red" />
+  <InterfaceArea x="12" y="164" width="328" height="112" name="Player Inventory" color="purple" />
+  <InterfaceArea x="12" y="280" width="328" height="40" name="Player Hotbar" color="purple" />
+</InterfaceScreen>
+
+## Upgrades
+
+To speed up an Auto Hammer, you can insert additional diamond hammers into the two upgrade slots available. These hammers can also be enchanted with either Unbreaking, Fortune or Efficiency.
