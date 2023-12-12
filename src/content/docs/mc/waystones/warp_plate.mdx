@@ -6,10 +6,14 @@ item: waystones:warp_plate
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
 import InterfaceScreen from '../../../../components/InterfaceScreen.astro'
 import InterfaceArea from '../../../../components/InterfaceArea.astro'
+import MinecraftItem from '../../../../components/mc/MinecraftItem.vue';
 import warpPlateImage from './warp_plate.png'
 
-Warp Plates can be compared to teleporting pressure plates. Stand on one and you will get teleported to another warp
-plate. Warp Plates are attuned to each other by inserting the [Attuned Shard](attuned_shard) of another warp plate.
+Warp Plates are akin to teleporting pressure plates. Stand on one and you will get teleported to another warp plate. 
+
+Warp Plates are attuned to each other by inserting the [Attuned Shard](attuned_shard) of another warp plate.
+
+---
 
 ## Crafting
 
@@ -22,13 +26,40 @@ plate. Warp Plates are attuned to each other by inserting the [Attuned Shard](at
 <InterfaceArea x={248} y={6} width={98} height={24} name="Identifying Runes" color="yellow"/>
 <InterfaceArea x={12} y={204} width={328} height={112} name="Player Inventory" color="purple"/>
 <InterfaceArea x={12} y={320} width={328} height={40} name="Player Hotbar" color="purple"/>
+<InterfaceArea x={100} y={86} width={40} height={40} name="Auxiliary Slots" color="orange"/>
+<InterfaceArea x={212} y={86} width={40} height={40} name="Auxiliary Slots" color="orange"/>
+<InterfaceArea x={156} y={30} width={40} height={40} name="Auxiliary Slots" color="orange"/>
+<InterfaceArea x={156} y={142} width={40} height={40} name="Auxiliary Slots" color="orange"/>
 </InterfaceScreen>
 
 ## Usage
 
-After placing a warp plate, right-click, and you will see it creating an [Attuned Shard](attuned_shard). This shard
-is bound to this warp plate, which means you should take it with you to another warp plate. To create a two-way
-connection between two warp plates, simply swap their attuned shards with each other, so that Warp Plate A contains the
+- After placing a warp plate, right-click, and you will see it creating an [Attuned Shard](attuned_shard).
+- This shard is bound to this warp plate, which means you should take it with you to another warp plate.
+- To create a two-way connection between two warp plates, simply swap their attuned shards with each other, so that Warp Plate A contains the
 Attuned Shard of Warp Plate B, and vice-versa.
+- Once a warp plate has been bound to another warp plate, you can simply stand on it to get teleported to its counterpart.
 
-Once a warp plate has been bound to another warp plate, you can simply stand on it to get teleported to its counterpart.
+## Auxiliary Slots
+
+Warp Plates have 4 auxiliary slots. These slots can be used to alter the teleporting behaviour of the warp plate.
+
+|Item|Effect|
+|---|---|
+|<MinecraftItem item="minecraft:blaze_powder" />|Sets the user on the fire for one second (stackable).|
+|<MinecraftItem item="minecraft:poisonous_potato" />|Poisons the user for one second (stackable).|
+|<MinecraftItem item="minecraft:ink_sac" />|Blinds the user for one second (stackable).|
+|<MinecraftItem item="minecraft:wither_rose" />|Applies withering to the user for one second (stackable).|
+|<MinecraftItem item="minecraft:feather" />|Grants feather fall to the user for one second (stackable).|
+|<MinecraftItem item="minecraft:magma_cream" />|Grants fire resistance to the user for one second (stackable).|
+|<MinecraftItem item="waystones:attuned_shard" />|Acts as an alternate teleport target for this warp plate (randomly picked).|
+|<MinecraftItem item="waystones:crumbling_attuned_shard" />|Acts as an alternate single-use teleport target for this warp plate (randomly picked).|
+|<MinecraftItem item="minecraft:nether_quartz" />|Enforces round robin behaviour for shards instead of being picked at random.|
+|<MinecraftItem item="minecraft:spider_eye" />|Prioritizes single-use shards instead of being picked at random.|
+|<MinecraftItem item="minecraft:milk_bucket" />|Cures the user of negative effects.|
+|<MinecraftItem item="minecraft:honey_block" />|Cures the user of negative effects.|
+|<MinecraftItem item="minecraft:diamond" />|Increases the potency of other auxiliary slots (stackable up to 4)|
+
+## Customization
+
+Warp Plate recipes (i.e. the creation of attuned shards) can be customized. See the [Customization](customization#changing-the-attuned-shard-recipe) page for more information.

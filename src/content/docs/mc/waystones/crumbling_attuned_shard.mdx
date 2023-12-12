@@ -1,0 +1,29 @@
+---
+title: Crumbling Attuned Shard
+type: item
+item: waystones:crumbling_attuned_shard
+---
+
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import MinecraftItem from '../../../../components/mc/MinecraftItem.vue';
+import warpPlateImage from './warp_plate.png';
+
+Crumbling Attuned Shards are like regular [Attuned Shards](attuned_shard), except they are consumed once used in a [Warp Plate](warp_plate).
+
+---
+
+### Crafting
+
+Crumbling attuned shards can be created within a Warp Plate by placing an ender pearl in the center and four Amethyst Shards around it.
+
+<InterfaceScreen name="Warp Plate Screen" screen={warpPlateImage.src}>
+    <MinecraftItem item="minecraft:amethyst_shard" class="left-[160px] top-[34px]" />
+    <MinecraftItem item="minecraft:amethyst_shard" class="left-[104px] top-[90px]" />
+    <MinecraftItem item="minecraft:ender_pearl" class="left-[160px] top-[90px]" />
+    <MinecraftItem item="minecraft:amethyst_shard" class="left-[216px] top-[90px]" />
+    <MinecraftItem item="minecraft:amethyst_shard" class="left-[160px] top-[146px]" />
+</InterfaceScreen>
+
+### Usage
+
+- Place the attuned shard from one Warp Plate into another Warp Plate's center slot.
