@@ -10,6 +10,17 @@ const configData = configEntry?.data ?? [];
 const filteredConfigData = properties ? configData.filter((config) => properties.includes(config.name)) : configData;
 ---
 
+{
+    !properties && (
+        <div class="alert alert-neutral">
+            <Icon name="mdi:information-outline" class="w-6" />
+            <span>
+                For information on how to edit the mod's config, see <a href="/faq#configuration">here</a>.
+            </span>
+        </div>
+    )
+}
+
 <table class="table">
     <thead>
         <tr>
