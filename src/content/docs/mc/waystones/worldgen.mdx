@@ -1,0 +1,28 @@
+---
+title: World Generation
+type: guide
+icon: mdi:earth-box-plus
+---
+
+import ConfigTable from '../../../../components/ConfigTable.astro';
+
+Waystones will spawn both randomly in the wilderness, as well as in villages.
+
+---
+
+### Configuration
+
+<ConfigTable
+    game="mc"
+    mod="waystones"
+    properties={[
+        'worldGenStyle',
+        'frequency',
+        'dimensionAllowList',
+        'dimensionDenyList',
+        'nameGenerationMode',
+        'customWaystoneNames',
+        'spawnInVillages',
+        'forceSpawnInVillages',
+    ]}
+/>
