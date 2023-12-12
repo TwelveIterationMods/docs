@@ -1,0 +1,29 @@
+---
+title: Inventory Button
+type: guide
+icon: mdi:cursor-default-click
+---
+
+import ConfigTable from '../../../../components/ConfigTable.astro';
+
+Waystones adds an optional button to the player inventory screen that allows players to teleport to specific waystones depending on the configuration.
+
+This button is disabled by default.
+
+---
+
+### Configuration
+
+<ConfigTable
+    game="mc"
+    mod="waystones"
+    properties={[
+        'inventoryButton',
+        'inventoryButtonCooldown',
+        'inventoryButtonXpCostMultiplier',
+        'warpButtonX',
+        'warpButtonY',
+        'creativeWarpButtonX',
+        'creativeWarpButtonY',
+    ]}
+/>
