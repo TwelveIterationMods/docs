@@ -4,6 +4,7 @@ type: item
 item: waystones:portstone
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The port stone is like a one-way waystone. You can use it to teleport to any other activated [Waystone](waystone), but it can not be teleported to itself.
 
@@ -17,3 +18,8 @@ The port stone is like a one-way waystone. You can use it to teleport to any oth
 
 - Right-click a portstone to open the waystone selection screen.
 - Select a waystone to teleport to it.
+---
+
+## Configuration
+
+<ConfigTable game="mc" mod="waystones" properties={['portstoneXpCostMultiplier']} />

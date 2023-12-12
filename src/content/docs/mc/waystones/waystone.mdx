@@ -6,6 +6,7 @@ item: waystones:waystone
 
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
 import RecipeContainer from '../../../../components/RecipeContainer.astro';
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The waystone is a block that can be crafted and placed, or found in the world. Players can activate waystones, which
 will allow them to teleport back to those waystones using items such as the Warp Stone or Warp Scrolls. Waystones can
@@ -32,3 +33,9 @@ it.
 -   Right-click a waystone to activate it.
 -   Right-click an activated waystone to choose a Waystone to teleport to.
 -   Shift-right-click a waystone to edit its name.
+
+---
+
+## Configuration
+
+<ConfigTable game="mc" mod="waystones" properties={['waystoneXpCostMultiplier', 'globalWaystoneXpCostMultiplier', 'allowWaystoneToWaystoneTeleport', 'globalWaystoneSetupRequiresCreativeMode']} />
