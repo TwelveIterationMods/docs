@@ -4,6 +4,7 @@ layout: ../layouts/MarkdownLayout.astro
 ---
 
 import FAQ from '../components/FAQ.astro';
+import BecomePatronButton from '../components/BecomePatronButton.astro';
 
 ### Frequently Asked Questions
 
@@ -58,6 +59,11 @@ config reloading and is likely to corrupt your config file.
 
 <FAQ question="Love and Support" icon="mdi:heart" iconClass="text-red-600" class="mt-5">
     If you would like to support the continued development of my mods, I currently offer the following ways to do so:
+
+    <div class="flex gap-4">
+    <BecomePatronButton />
+    </div>
+
 </FAQ>
 
 <FAQ question="Further Help" icon="mdi:help" iconClass="text-cyan-600" class="mt-5">
