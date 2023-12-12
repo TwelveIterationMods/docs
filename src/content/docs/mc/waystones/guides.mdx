@@ -14,11 +14,15 @@ Dimensional warps will still cost XP as governed by the `dimensionalWarpXpCost` 
 
 Set `maximumBaseXpCost` and `dimensionalWarpXpCost` to 0 in the config file.
 
+---
+
 ### How to enable xp cost?
 
 Set `waystoneXpCostMultiplier` to `1` and ensure `maximumBaseXpCost` is not set to `0` in the config file.
 
 There are more xpCostMultiplier options for the different types of teleportation, so read through the config file to understand all possible options.
+
+---
 
 ### Warp Stone stuck at millions of seconds
 
@@ -34,11 +38,15 @@ the only way to reset the cooldown is by right-clicking the warp stone while in 
 The data in question will be located in `world/playerdata/<uuid>.dat`, can be opened using an NBT Editor, and the fields in question are located at `/BalmData/WaystonesData`.
 Removing the cooldown fields or setting them to 0 will reset the cooldown.
 
+---
+
 ### Waystones disappear when placed
 
 Either you are a non-op within the spawn protection area, or Waystones is not properly installed on your server.
 
 Note that Waystones is a mod for Forge/Fabric/NeoForge. Your server needs to be running one of those mod loaders for Waystones to work.
+
+---
 
 ### Waystones cannot be crafted
 
@@ -48,15 +56,21 @@ I recommend installing a mod like [JEI](https://www.curseforge.com/minecraft/mc-
 
 Note that Waystones is a mod for Forge/Fabric/NeoForge. Your server needs to be running one of those mod loaders for Waystones to work.
 
+---
+
 ### Waystones cannot be used
 
 You are most likely a non-op within the spawn protection area. Minecraft blocks all player interaction within the spawn protection area.
 
 Contact your server administrator to change the spawn protection area or to move the waystone out of the protected area.
 
+---
+
 ### How do I move a waystone to the start or end of the list?
 
 You can hold shift while clicking the up/down button to instantly move a waystone to the start or end of the list.
+
+---
 
 ### How do I remove Waystones that no longer exist from the list?
 
@@ -67,6 +81,8 @@ For global waystones, you need to be in creative mode to do the above, and the r
 For sharestones, the only way to remove a corrupt entry is by removing it from the `waystones.dat` file using an NBT editor.
     The file is located in the world folder at `data/waystones.dat`. In multiplayer, this will be in the server's world folder.
 
+---
+
 ### Waystones are not generating in villages
 
 Waystones only generate in villages generated through Vanilla Minecraft or certain supported mods (e.g. Repurposed Structures).
@@ -74,11 +90,15 @@ Other generation mods may interfere with the generation of waystones in villages
 
 Due to Minecraft limitations, it is not possible for Waystones to reliably generate in all modded village types.
 
+---
+
 ### How do I disable or change the crafting recipes?
 
 Crafting recipes can be overwritten through data packs or through the use of mods like [CraftTweaker](https://www.curseforge.com/minecraft/mc-mods/crafttweaker).
 
 Refer to the respective guides (e.g. Minecraft Wiki for data packs, or CraftTweaker documentation) to learn the details.
+
+---
 
 ### How do I export a waystone in a structure?
 
