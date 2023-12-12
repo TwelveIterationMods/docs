@@ -7,6 +7,7 @@ import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
 import InterfaceScreen from '../../../../components/InterfaceScreen.astro'
 import InterfaceArea from '../../../../components/InterfaceArea.astro'
 import MinecraftItem from '../../../../components/mc/MinecraftItem.vue';
+import ConfigTable from '../../../../components/ConfigTable.astro'
 import warpPlateImage from './warp_plate.png'
 
 Warp Plates are akin to teleporting pressure plates. Stand on one and you will get teleported to another warp plate. 
@@ -63,3 +64,9 @@ Warp Plates have 4 auxiliary slots. These slots can be used to alter the telepor
 ## Customization
 
 Warp Plate recipes (i.e. the creation of attuned shards) can be customized. See the [Customization](customization#changing-the-attuned-shard-recipe) page for more information.
+
+---
+
+## Configuration
+
+<ConfigTable game="mc" mod="waystones" properties={['warpPlateXpCostMultiplier', 'warpPlateUseTime']} />

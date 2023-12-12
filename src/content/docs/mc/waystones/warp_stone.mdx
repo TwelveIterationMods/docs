@@ -4,6 +4,7 @@ type: item
 item: waystones:warp_stone
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The warp stone allows you to teleport to any of your activated waystones.
 
@@ -27,3 +28,9 @@ This cooldown is tied to your player, not the warp stone itself, so there is no 
 
 - Hold right-click to open the Waystone selection screen.
 - Select a waystone to teleport to it.
+
+---
+
+## Configuration
+
+<ConfigTable game="mc" mod="waystones" properties={['warpStoneCooldown', 'warpStoneUseTime', 'globalWaystoneCooldownMultiplier']} />

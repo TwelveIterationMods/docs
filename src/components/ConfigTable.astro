@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { Icon } from 'astro-icon';
+const { game, mod, properties } = Astro.props;
+
+const configEntry = await getEntry('configs', `${game}/${mod}`);
+const configData = configEntry?.data ?? [];
+
+const filteredConfigData = properties ? configData.filter((config) => properties.includes(config.name)) : configData;
+---
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        {
+            filteredConfigData.map((config) => (
+                <tr>
+                    <td>{config.name}</td>
+                    <td>{config.description}</td>
+                    <td>
+                        {() => {
+                            switch (config.type) {
+                                case 'boolean':
+                                    return config.defaultValue ? (
+                                        <Icon name="mdi:check" class="w-6 text-success" />
+                                    ) : (
+                                        <Icon name="mdi:cancel" class="w-6 text-error" />
+                                    );
+                                case 'int':
+                                case 'double':
+                                case 'String':
+                                case 'ResourceLocation':
+                                    return <code class="bg-base-300 p-1">{config.defaultValue}</code>;
+                                case 'List':
+                                case 'Set':
+                                    return config.defaultValue.length ? (
+                                        <div class="flex flex-wrap gap-2">
+                                            {config.defaultValue.map((value: any) => (
+                                                <div class="badge badge-primary">{value}</div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <div class="badge badge-neutral">none</div>
+                                    );
+                                default:
+                                    return <div class="badge badge-primary">{config.defaultValue}</div>;
+                            }
+                        }}
+                    </td>
+                </tr>
+            ))
+        }
+    </tbody>
+    {
+        properties && (
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-center">
+                        <a class="btn btn-sm btn-ghost escape" href={`/${game}/${mod}/config`}>
+                            View More
+                        </a>
+                    </td>
+                </tr>
+            </tfoot>
+        )
+    }
+</table>

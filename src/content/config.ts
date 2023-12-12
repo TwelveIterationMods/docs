@@ -49,16 +49,20 @@ const recipesCollection = defineCollection({
     type: 'data',
     schema: z.object({
         type: z.enum(['minecraft:crafting_shaped', 'crafting_shaped', 'minecraft:crafting_shapeless', 'crafting_shapeless', 'minecraft:smelting', 'smelting']),
-        result: z.object({
-            item: z.string(),
-            count: z.number().default(1),
-        }).or(z.string()),
-        ingredient: z.object({
-            item: z.string().optional(),
-            tag: z.string().optional(),
-            type: z.string().optional(),
-            value: z.string().optional(),
-        }).default({}),
+        result: z
+            .object({
+                item: z.string(),
+                count: z.number().default(1),
+            })
+            .or(z.string()),
+        ingredient: z
+            .object({
+                item: z.string().optional(),
+                tag: z.string().optional(),
+                type: z.string().optional(),
+                value: z.string().optional(),
+            })
+            .default({}),
         ingredients: z
             .array(
                 z.object({
@@ -89,10 +93,24 @@ const i18nCollection = defineCollection({
     schema: z.record(z.string()),
 });
 
+const configCollection = defineCollection({
+    type: 'data',
+    schema: z.array(
+        z.object({
+            name: z.string(),
+            type: z.string(),
+            description: z.string(),
+            defaultValue: z.any(),
+            validValues: z.array(z.any()).optional(),
+        })
+    ),
+});
+
 export const collections = {
     games: gamesCollection,
     mods: modsCollection,
     docs: docsCollection,
     recipes: recipesCollection,
+    configs: configCollection,
     i18n: i18nCollection,
 };

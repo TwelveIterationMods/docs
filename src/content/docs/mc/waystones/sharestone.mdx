@@ -6,6 +6,7 @@ item: waystones:sharestone
 
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
 import RecipeContainer from '../../../../components/RecipeContainer.astro';
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The sharestone is a block that can be used to teleport to other sharestones of the same color. 
 
@@ -41,3 +42,9 @@ All sharestones are always available to all players, making them a great tool fo
 
 -   Right-click a sharestone to choose a sharestone of the same color to teleport to.
 -   Shift-right-click a sharestone to edit its name.
+
+---
+
+## Configuration
+
+<ConfigTable game="mc" mod="waystones" properties={['sharestoneXpCostMultiplier']} />
