@@ -65,8 +65,6 @@ const image = computed(() => getGameImage('mc', currentItem.value))
 
 <template>
     <a :href="itemUrl" class="minecraft-item" :title="label">
-        <img :src="image" :alt="item" v-bind="props" class="w-full h-full max-w-16 max-h-16" />
+        <img :src="image" :alt="item" v-bind="props" class="w-full h-full max-w-16 max-h-16 object-contain" />
     </a>
 </template>
-
-<style scoped></style>

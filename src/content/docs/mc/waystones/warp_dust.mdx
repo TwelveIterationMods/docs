@@ -4,9 +4,26 @@ type: item
 item: waystones:warp_dust
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
+import MinecraftItem from '../../../../components/mc/MinecraftItem.vue';
+import warpPlateImage from './warp_plate.png';
 
 Warp Dust is an ingredient used to craft [Warp Plates](warp_plate) as well as additional [Attuned Shards](attuned_shard).
+
+---
 
 ## Crafting
 
 <CraftingRecipe recipe="waystones:warp_dust"/>
+
+## Used to craft
+
+<CraftingRecipe recipe="waystones:warp_plate"/>
+
+<InterfaceScreen name="Warp Plate Screen" screen={warpPlateImage.src}>
+    <MinecraftItem item="waystones:warp_dust" class="left-[160px] top-[34px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[104px] top-[90px]" />
+    <MinecraftItem item="minecraft:flint" class="left-[160px] top-[90px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[216px] top-[90px]" />
+    <MinecraftItem item="waystones:warp_dust" class="left-[160px] top-[146px]" />
+</InterfaceScreen>
