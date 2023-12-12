@@ -95,7 +95,7 @@ const steamUrl = entry.data.steamId ? `https://steamcommunity.com/sharedfiles/fi
                         <a href={`/${item.slug}`}>
                             {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-12" />}
                             {item.data.icon && (
-                                <div class="w-12 flex justify-center items-center">
+                                <div class="w-12 h-12 flex justify-center items-center">
                                     <Icon name={item.data.icon} class="w-8" />
                                 </div>
                             )}
@@ -110,7 +110,7 @@ const steamUrl = entry.data.steamId ? `https://steamcommunity.com/sharedfiles/fi
                         <a href={`/${guide.slug}`}>
                             {guide.data.item && <img src={getGameImage(game, guide.data.item)} class="w-12" />}
                             {guide.data.icon && (
-                                <div class="w-12 flex justify-center items-center">
+                                <div class="w-12 h-12 flex justify-center items-center">
                                     <Icon name={guide.data.icon} class="w-8" />
                                 </div>
                             )}
