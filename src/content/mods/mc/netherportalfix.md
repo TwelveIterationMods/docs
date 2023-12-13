@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: netherportalfix
 curseForgeId: 241160
+github: TwelveIterationMods/NetherPortalFix
 ---
 
 Ever played on a multiplayer server, built near other players and when returning from the Nether, surprisingly found yourself in another player's base?
