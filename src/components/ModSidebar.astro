@@ -29,9 +29,9 @@ const sortedGuides = allGuides.sort((a, b) => {
     <ul class="menu p-0 rounded-box mb-2 text-lg">
         <li>
             <a href={`/${game}/${mod}`}>
-                {modData?.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8" />}
+                {modData?.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8 h-8" />}
                 {modData?.data.icon && (
-                    <div class="w-8 flex items-center justify-center">
+                    <div class="w-8 h-8 flex items-center justify-center">
                         <Icon name={modData.data.icon} class="w-6" />
                     </div>
                 )}
@@ -47,9 +47,9 @@ const sortedGuides = allGuides.sort((a, b) => {
                     {sortedItems.map((item) => (
                         <li>
                             <a href={`/${item.slug}`} class={item.slug === entry.slug ? 'active' : ''}>
-                                {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-8" />}
+                                {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-8 h-8" />}
                                 {item.data.icon && (
-                                    <div class="w-8 flex items-center justify-center">
+                                    <div class="w-8 h-8 flex items-center justify-center">
                                         <Icon name={item.data.icon} class="w-6" />
                                     </div>
                                 )}

@@ -24,8 +24,8 @@ const { Content } = await entry.render();
 
 <Layout title={entry.data.title}>
     <div class="flex items-center gap-4">
-        {entry.data.item && <img src={getGameImage(game, entry.data.item)} />}
-        {entry.data.icon && <Icon name={entry.data.icon} class="w-8" />}
+        {entry.data.item && <img src={getGameImage(game, entry.data.item)} class="w-12 h-12" />}
+        {entry.data.icon && <Icon name={entry.data.icon} class="w-8 h-8" />}
         <h1 class="text-3xl font-bold">{entry.data.title}</h1>
     </div>
     <div class="divider"></div>
