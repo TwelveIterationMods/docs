@@ -7,17 +7,22 @@ import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
 import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
 import InterfaceArea from '../../../../components/InterfaceArea.astro';
 import counterImage from './counter.png'
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The Kitchen Counter is a storage block for multi-block Kitchens, similar to the [Fridge](fridge).
 Ingredients within the counter will be made available for recipes in the Cooking Table.
 
 Check the [Cooking Table](cooking_table) for more information on multi-block Kitchens.
 
-## Crafting
+The door hinge of the counter will be placed depending on what direction you place it from.
+
+The Kitchen Counter can be dyed by right-clicking it with a dye.
+
+### Crafting
 
 <CraftingRecipe recipe="cookingforblockheads:kitchen_counter"/>
 
-## Interface
+### Interface
 
 <InterfaceScreen screen={counterImage.src}>
   <InterfaceArea x="12" y="32" width="328" height="112" name="Storage" color="lime"/>
@@ -25,7 +30,7 @@ Check the [Cooking Table](cooking_table) for more information on multi-block Kit
   <InterfaceArea x="12" y="282" width="328" height="40" name="Player Hotbar" color="purple"/>
 </InterfaceScreen>
 
-## Usage
+### Usage
 
 Right-click to open the kitchen counter's interface. It's basically like a chest.
 
@@ -34,3 +39,9 @@ If you shift-right-click the door it will open the counter without opening the i
 The Kitchen Counter, just like the Sink and Fridge, will be flipped horizontally based on the angle you place it from.
 
 The Kitchen Counter, like many kitchen blocks, can be dyed by right-clicking it with a dye.
+
+---
+
+### Configuration
+
+<ConfigTable game="mc" mod="cooking-for-blockheads" properties={['largeCounters']} />
