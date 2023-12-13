@@ -7,6 +7,7 @@ import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
 import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
 import InterfaceArea from '../../../../components/InterfaceArea.astro';
 import ovenImage from './oven.png'
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The Oven can cook large amounts of food efficiently and fast. When used as part of a Multiblock Kitchen, it will unlock smelting recipes in the Cooking Table.
 
@@ -14,11 +15,11 @@ It also provides slots for four tools that will be available within the Multiblo
 
 Check the [Cooking Table](cooking_table) for more information on Multiblock Kitchens.
 
-## Crafting
+### Crafting
 
 <CraftingRecipe recipe="cookingforblockheads:oven"/>
 
-## Interface
+### Interface
 
 <InterfaceScreen screen={ovenImage.src}>
 <InterfaceArea x="12" y="34" width="40" height="148" name="Tool Slots" color="orange"/>
@@ -30,8 +31,14 @@ Check the [Cooking Table](cooking_table) for more information on Multiblock Kitc
 <InterfaceArea x="56" y="334" width="328" height="40" name="Player Hotbar" color="purple"/>
 </InterfaceScreen>
 
-## Usage
+### Usage
 
 Place coal in the fuel slot on the left. Place uncooked food in the three slots at the top. The oven will automatically pull nine items into its internal buffer, cook them, and them move them over to the output slots on the right.
 
 If you shift-right-click the door it will open the oven without opening the interface, allowing you to put items in by simply right-clicking them into the front side.
+
+---
+
+### Configuration
+
+<ConfigTable game="mc" mod="cooking-for-blockheads" properties={['ovenFuelTimeMultiplier', 'ovenCookTimeMultiplier', 'ovenRequiresCookingOil', 'disallowOvenAutomation']} />

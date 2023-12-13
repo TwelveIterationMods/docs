@@ -1,0 +1,63 @@
+[
+    {
+        "name": "cowJarEnabled",
+        "type": "boolean",
+        "description": "If true, a cow can be squished into a Milk Jar by dropping an anvil on top.",
+        "defaultValue": true
+    },
+    { "name": "cowJarMilkPerTick", "type": "int", "description": "The amount of milk the cow in a jar generates per tick.", "defaultValue": 1 },
+    {
+        "name": "compressedCowJarMilkMultiplier",
+        "type": "double",
+        "description": "Ex Compressum compatibility. Multiplier applied to the milk per tick for Compressed Cow in a Jar.",
+        "defaultValue": 9.0
+    },
+    {
+        "name": "sinkRequiresWater",
+        "type": "boolean",
+        "description": "Set this to true if you\u0027d like the sink to require water to be piped in, instead of providing infinite of it.",
+        "defaultValue": false
+    },
+    {
+        "name": "largeCounters",
+        "type": "boolean",
+        "description": "Enabling this will make the kitchen counters have twice as much inventory space.",
+        "defaultValue": false
+    },
+    {
+        "name": "disallowOvenAutomation",
+        "type": "boolean",
+        "description": "Set this to true if you\u0027d like to disallow automation of the oven (pipes and such won\u0027t be able to insert/extract)",
+        "defaultValue": false
+    },
+    {
+        "name": "ovenFuelTimeMultiplier",
+        "type": "double",
+        "description": "The fuel multiplier for the cooking oven. Higher values means fuel lasts longer, 1.0 is furnace default.",
+        "defaultValue": 0.33000001311302185
+    },
+    {
+        "name": "ovenCookTimeMultiplier",
+        "type": "double",
+        "description": "The cooking time multiplier for the cooking oven. Higher values means it will take longer.",
+        "defaultValue": 1.0
+    },
+    {
+        "name": "ovenRequiresCookingOil",
+        "type": "boolean",
+        "description": "Set this to true if you\u0027d like the oven to only accept cooking oil as fuel (requires Pam\u0027s Harvestcraft)",
+        "defaultValue": false
+    },
+    {
+        "name": "showIngredientIcon",
+        "type": "boolean",
+        "description": "Set to false if you don\u0027t want ingredients to be marked with a special icon in the recipe book.",
+        "defaultValue": true
+    },
+    {
+        "name": "allowVeryToastedBread",
+        "type": "boolean",
+        "description": "Toasting toasted bread again will turn into charcoal (only if no other mod adding toast is present). Set to false to disable.",
+        "defaultValue": true
+    }
+]

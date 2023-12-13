@@ -8,11 +8,12 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: cooking-for-blockheads
 curseForgeId: 231484
+github: TwelveIterationMods/CookingForBlockheads
 ---
 
 Cooking for Blockheads allows you to build a functional kitchen in your Minecraft world and eases the pain of complex cooking recipes.
 At its core is a recipe book that only shows you the foods you can currently make with the ingredients you have available.
-For that it takes into account your inventory, but also all connected kitchen blocks (such as fridges and cupboard), so you can have all your food ingredients in one place.
+For that it takes into account your inventory, but also all connected kitchen blocks (such as fridges and cupboards), so you can have all your food ingredients in one place.
 By expanding your kitchen with additional blocks, you unlock new functionality, such as infinite water for recipes from the sink.
 
-It comes with support for a bunch of popular food mods, such as Pam's Harvestcraft.
+It comes with support for a bunch of popular food mods, such as Pam's Harvestcraft, but it generally works with any food items.

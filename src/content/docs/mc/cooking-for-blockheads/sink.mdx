@@ -5,20 +5,29 @@ item: cookingforblockheads:sink
 ---
 
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
+import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The Sink comes with two functions: by itself, it can be right-clicked to fill buckets with water, clean dyed wool or armor, or just make fun water splashes.
 When it is used as part of a multi-block kitchen, recipes that require water buckets (or Pam's Fresh Water) will automatically use water from the sink (some may still require a bucket though).
 
+The sink can be dyed by right-clicking it with a dye.
+
 Check the [Cooking Table](cooking_table) for more information on multi-block Kitchens.
 
-## Crafting
+### Crafting
 
 <CraftingRecipe recipe="cookingforblockheads:sink"/>
 
-## Usage
+### Usage
 
 Right-click with a bucket to fill the bucket with water. Right-click with dyed wool or armor to clean the color off.
 
 Some mod packs may require you to pump water into the sink for it to be functional.
 
 The Sink, like many kitchen blocks, can be dyed by right-clicking it with a dye.
+
+---
+
+### Configuration
+
+<ConfigTable game="mc" mod="cooking-for-blockheads" properties={['sinkRequiresWater']} />
