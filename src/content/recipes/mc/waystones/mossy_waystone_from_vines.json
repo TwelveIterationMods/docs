@@ -1,8 +1,6 @@
 {
-  "result": {
-    "item": "waystones:mossy_waystone"
-  },
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "waystones:waystone"
@@ -16,5 +14,8 @@
     {
       "item": "minecraft:vine"
     }
-  ]
+  ],
+  "result": {
+    "item": "waystones:mossy_waystone"
+  }
 }

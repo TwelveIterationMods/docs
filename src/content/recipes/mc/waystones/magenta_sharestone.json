@@ -1,14 +1,15 @@
 {
-  "result": {
-    "item": "waystones:magenta_sharestone"
-  },
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
-      "tag": "balm:magenta_dyes"
+      "tag": "waystones:sharestones"
     },
     {
-      "tag": "waystones:sharestone"
+      "tag": "c:magenta_dyes"
     }
-  ]
+  ],
+  "result": {
+    "item": "waystones:magenta_sharestone"
+  }
 }

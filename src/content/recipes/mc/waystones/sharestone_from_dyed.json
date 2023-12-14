@@ -1,14 +1,15 @@
 {
-  "result": {
-    "item": "waystones:sharestone"
-  },
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "minecraft:bone_meal"
     },
     {
-      "tag": "waystones:dyed_sharestone"
+      "tag": "waystones:dyed_sharestones"
     }
-  ]
+  ],
+  "result": {
+    "item": "waystones:sharestone"
+  }
 }

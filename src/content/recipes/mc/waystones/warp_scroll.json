@@ -1,26 +1,28 @@
 {
-  "result": {
-    "item": "waystones:warp_scroll",
-    "count": 3
-  },
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "c:purple_dyes"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "G": {
+      "tag": "c:gold_nuggets"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
   "pattern": [
     "GDG",
     "GEG",
     "PPP"
   ],
-  "key": {
-    "G": {
-      "tag": "balm:gold_nuggets"
-    },
-    "E": {
-      "item": "minecraft:ender_pearl"
-    },
-    "P": {
-      "item": "minecraft:paper"
-    },
-    "D": {
-      "tag": "balm:purple_dyes"
-    }
-  }
+  "result": {
+    "count": 3,
+    "item": "waystones:warp_scroll"
+  },
+  "show_notification": true
 }

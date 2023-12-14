@@ -1,14 +1,15 @@
 {
-  "result": {
-    "item": "waystones:gray_sharestone"
-  },
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
-      "tag": "balm:gray_dyes"
+      "tag": "waystones:sharestones"
     },
     {
-      "tag": "waystones:sharestone"
+      "tag": "c:gray_dyes"
     }
-  ]
+  ],
+  "result": {
+    "item": "waystones:gray_sharestone"
+  }
 }

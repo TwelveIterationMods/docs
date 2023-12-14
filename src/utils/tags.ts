@@ -269,13 +269,55 @@ const tagMappings: {[key: string]: string[]} = {
         "refinedrelocation:sorting_gold_chest",
         "refinedrelocation:sorting_diamond_chest",
     ],
+    "waystones:waystones": [
+        "waystones:waystone",
+        "waystones:sandy_waystone",
+        "waystones:mossy_waystone"
+    ],
     "waystones:waystone": [
         "waystones:waystone",
         "waystones:sandy_waystone",
         "waystones:mossy_waystone"
     ],
+    "waystones:sharestones": [
+        "waystones:sharestone",
+        "waystones:black_sharestone",
+        "waystones:blue_sharestone",
+        "waystones:brown_sharestone",
+        "waystones:cyan_sharestone",
+        "waystones:gray_sharestone",
+        "waystones:green_sharestone",
+        "waystones:light_blue_sharestone",
+        "waystones:light_gray_sharestone",
+        "waystones:lime_sharestone",
+        "waystones:magenta_sharestone",
+        "waystones:orange_sharestone",
+        "waystones:pink_sharestone",
+        "waystones:purple_sharestone",
+        "waystones:red_sharestone",
+        "waystones:white_sharestone",
+        "waystones:yellow_sharestone"
+    ],
     "waystones:sharestone": [
         "waystones:sharestone",
+        "waystones:black_sharestone",
+        "waystones:blue_sharestone",
+        "waystones:brown_sharestone",
+        "waystones:cyan_sharestone",
+        "waystones:gray_sharestone",
+        "waystones:green_sharestone",
+        "waystones:light_blue_sharestone",
+        "waystones:light_gray_sharestone",
+        "waystones:lime_sharestone",
+        "waystones:magenta_sharestone",
+        "waystones:orange_sharestone",
+        "waystones:pink_sharestone",
+        "waystones:purple_sharestone",
+        "waystones:red_sharestone",
+        "waystones:white_sharestone",
+        "waystones:yellow_sharestone"
+    ],
+    "waystones:dyed_sharestones": [
         "waystones:black_sharestone",
         "waystones:blue_sharestone",
         "waystones:brown_sharestone",
@@ -346,7 +388,62 @@ const tagMappings: {[key: string]: string[]} = {
     ],
     "balm:gold_nuggets": [
         "minecraft:gold_nugget"
+    ],
+    "c:purple_dyes": [
+        "minecraft:purple_dye"
+    ],
+    "c:black_dyes": [
+        "minecraft:black_dye"
+    ],
+    "c:lime_dyes": [
+        "minecraft:lime_dye"
+    ],
+    "c:green_dyes": [
+        "minecraft:green_dye"
+    ],
+    "c:brown_dyes": [
+        "minecraft:brown_dye"
+    ],
+    "c:blue_dyes": [
+        "minecraft:blue_dye"
+    ],
+    "c:cyan_dyes": [
+        "minecraft:cyan_dye"
+    ],
+    "c:light_blue_dyes": [
+        "minecraft:light_blue_dye"
+    ],
+    "c:gray_dyes": [
+        "minecraft:gray_dye"
+    ],
+    "c:light_gray_dyes": [
+        "minecraft:light_gray_dye"
+    ],
+    "c:red_dyes": [
+        "minecraft:red_dye"
+    ],
+    "c:white_dyes": [
+        "minecraft:white_dye"
+    ],
+    "c:yellow_dyes": [
+        "minecraft:yellow_dye"
+    ],
+    "c:orange_dyes": [
+        "minecraft:orange_dye"
+    ],
+    "c:pink_dyes": [
+        "minecraft:pink_dye"
+    ],
+    "c:magenta_dyes": [
+        "minecraft:magenta_dye"
+    ],
+    "c:emeralds": [
+        "minecraft:emerald"
+    ],
+    "c:gold_nuggets": [
+        "minecraft:gold_nugget"
     ]
+
 };
 
 export default tagMappings
