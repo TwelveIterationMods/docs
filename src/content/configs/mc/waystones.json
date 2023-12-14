@@ -256,6 +256,12 @@
         "validValues": ["PRESET_FIRST", "RANDOM_ONLY", "PRESET_ONLY", "MIXED"]
     },
     {
+        "name": "nameGenerationTemplate",
+        "type": "String",
+        "description": "The template to use when generating new names. Supported placeholders are {Biome} (english biome name) and {MrPork} (the default name generator).",
+        "defaultValue": "{MrPork}"
+    },
+    {
         "name": "customWaystoneNames",
         "type": "List",
         "description": "These names will be used for the PRESET name generation mode. See the nameGenerationMode option for more info.",
