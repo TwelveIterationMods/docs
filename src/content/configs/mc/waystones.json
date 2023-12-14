@@ -102,6 +102,13 @@
         "defaultValue": false
     },
     {
+        "name": "transportPets",
+        "type": "TransportPets",
+        "description": "Set to ENABLED to have nearby pets teleport with you. Set to SAME_DIMENSION to have nearby pets teleport with you only if you're not changing dimensions. Set to DISABLED to disable.",
+        "defaultValue": "SAME_DIMENSION",
+        "validValues": ["ENABLED", "SAME_DIMENSION", "DISABLED"]
+    },
+    {
         "name": "transportLeashed",
         "type": "boolean",
         "description": "If enabled, leashed mobs will be teleported with you",
