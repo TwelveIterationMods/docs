@@ -1,281 +1,287 @@
 [
     {
-      "name": "inverseXpCost",
-      "type": "boolean",
-      "description": "Set to true if experience cost should be inverted, meaning the shorter the distance, the more expensive. Can be used to encourage other methods for short-distance travel.",
-      "defaultValue": false
+        "name": "xpCostsFullLevels",
+        "type": "boolean",
+        "description": "Set to true if experience cost should cost full levels rather than experience points. Make sure to also adjust blocksPerXpLevel, maximumBaseXpCost and dimensionalWarpXpCost appropriately.",
+        "defaultValue": true
     },
     {
-      "name": "blocksPerXpLevel",
-      "type": "int",
-      "description": "The amount of blocks per xp level requirement. If set to 500, the base xp cost for travelling 1000 blocks will be 2 levels.",
-      "defaultValue": 1000
+        "name": "inverseXpCost",
+        "type": "boolean",
+        "description": "Set to true if experience cost should be inverted, meaning the shorter the distance, the more expensive. Can be used to encourage other methods for short-distance travel.",
+        "defaultValue": false
     },
     {
-      "name": "minimumBaseXpCost",
-      "type": "double",
-      "description": "The minimum base xp cost (may be subceeded by multipliers defined below)",
-      "defaultValue": 0.0
+        "name": "blocksPerXpLevel",
+        "type": "int",
+        "description": "The amount of blocks per xp level requirement. If set to 500, the base xp cost for travelling 1000 blocks will be 2 levels.",
+        "defaultValue": 1000
     },
     {
-      "name": "maximumBaseXpCost",
-      "type": "double",
-      "description": "The maximum base xp cost (may be exceeded by multipliers defined below), set to 0 to disable all distance-based XP costs",
-      "defaultValue": 3.0
+        "name": "minimumBaseXpCost",
+        "type": "double",
+        "description": "The minimum base xp cost (may be subceeded by multipliers defined below)",
+        "defaultValue": 0.0
     },
     {
-      "name": "xpCostPerLeashed",
-      "type": "int",
-      "description": "How much xp is needed per leashed animal to travel with you",
-      "defaultValue": 0
+        "name": "maximumBaseXpCost",
+        "type": "double",
+        "description": "The maximum base xp cost (may be exceeded by multipliers defined below), set to 0 to disable all distance-based XP costs",
+        "defaultValue": 3.0
     },
     {
-      "name": "dimensionalWarpXpCost",
-      "type": "int",
-      "description": "The base xp level cost when travelling between dimensions. Ignores block distance.",
-      "defaultValue": 3
+        "name": "xpCostPerLeashed",
+        "type": "int",
+        "description": "How much xp is needed per leashed animal to travel with you",
+        "defaultValue": 0
     },
     {
-      "name": "globalWaystoneXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting to a global waystone through any method.",
-      "defaultValue": 0.0
+        "name": "dimensionalWarpXpCost",
+        "type": "int",
+        "description": "The base xp level cost when travelling between dimensions. Ignores block distance.",
+        "defaultValue": 3
     },
     {
-      "name": "warpStoneXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting using a Warp Stone item (not the Waystone block, Konstantin)",
-      "defaultValue": 0.0
+        "name": "globalWaystoneXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting to a global waystone through any method.",
+        "defaultValue": 0.0
     },
     {
-      "name": "waystoneXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting from one waystone to another.",
-      "defaultValue": 0.0
+        "name": "warpStoneXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting using a Warp Stone item (not the Waystone block, Konstantin)",
+        "defaultValue": 0.0
     },
     {
-      "name": "sharestoneXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting from one sharestone to another.",
-      "defaultValue": 0.0
+        "name": "waystoneXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting from one waystone to another.",
+        "defaultValue": 0.0
     },
     {
-      "name": "portstoneXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting from a portstone.",
-      "defaultValue": 0.0
+        "name": "sharestoneXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting from one sharestone to another.",
+        "defaultValue": 0.0
     },
     {
-      "name": "warpPlateXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting from one warp plate to another.",
-      "defaultValue": 0.0
+        "name": "portstoneXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting from a portstone.",
+        "defaultValue": 0.0
     },
     {
-      "name": "inventoryButtonXpCostMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the base xp cost when teleporting via the inventory button.",
-      "defaultValue": 0.0
+        "name": "warpPlateXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting from one warp plate to another.",
+        "defaultValue": 0.0
     },
     {
-      "name": "restrictToCreative",
-      "type": "boolean",
-      "description": "If enabled, only creative players can place, edit or break waystones. This does NOT disable the crafting recipe.",
-      "defaultValue": false
+        "name": "inventoryButtonXpCostMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the base xp cost when teleporting via the inventory button.",
+        "defaultValue": 0.0
     },
     {
-      "name": "restrictRenameToOwner",
-      "type": "boolean",
-      "description": "If enabled, only the owner of a waystone (the one who placed it) can rename it.",
-      "defaultValue": false
+        "name": "restrictToCreative",
+        "type": "boolean",
+        "description": "If enabled, only creative players can place, edit or break waystones. This does NOT disable the crafting recipe.",
+        "defaultValue": false
     },
     {
-      "name": "generatedWaystonesUnbreakable",
-      "type": "boolean",
-      "description": "If enabled, waystones generated in worldgen are unbreakable.",
-      "defaultValue": false
+        "name": "restrictRenameToOwner",
+        "type": "boolean",
+        "description": "If enabled, only the owner of a waystone (the one who placed it) can rename it.",
+        "defaultValue": false
     },
     {
-      "name": "transportLeashed",
-      "type": "boolean",
-      "description": "If enabled, leashed mobs will be teleported with you",
-      "defaultValue": true
+        "name": "generatedWaystonesUnbreakable",
+        "type": "boolean",
+        "description": "If enabled, waystones generated in worldgen are unbreakable.",
+        "defaultValue": false
     },
     {
-      "name": "transportLeashedDimensional",
-      "type": "boolean",
-      "description": "Whether to take leashed mobs with you when teleporting between dimensions",
-      "defaultValue": true
+        "name": "transportLeashed",
+        "type": "boolean",
+        "description": "If enabled, leashed mobs will be teleported with you",
+        "defaultValue": true
     },
     {
-      "name": "leashedDenyList",
-      "type": "List",
-      "description": "List of leashed mobs that cannot be taken with you when teleporting",
-      "defaultValue": ["minecraft:wither"]
+        "name": "transportLeashedDimensional",
+        "type": "boolean",
+        "description": "Whether to take leashed mobs with you when teleporting between dimensions",
+        "defaultValue": true
     },
     {
-      "name": "dimensionalWarp",
-      "type": "DimensionalWarp",
-      "description": "Set to \u0027ALLOW\u0027 to allow dimensional warp in general. Set to \u0027GLOBAL_ONLY\u0027 to restrict dimensional warp to global waystones. Set to \u0027DENY\u0027 to disallow all dimensional warps.",
-      "defaultValue": "ALLOW",
-      "validValues": ["ALLOW", "GLOBAL_ONLY", "DENY"]
+        "name": "leashedDenyList",
+        "type": "List",
+        "description": "List of leashed mobs that cannot be taken with you when teleporting",
+        "defaultValue": ["minecraft:wither"]
     },
     {
-      "name": "dimensionalWarpAllowList",
-      "type": "List",
-      "description": "List of dimensions that players are allowed to warp cross-dimension from and to. If left empty, all dimensions except those in dimensionalWarpDenyList are allowed.",
-      "defaultValue": []
+        "name": "dimensionalWarp",
+        "type": "DimensionalWarp",
+        "description": "Set to \u0027ALLOW\u0027 to allow dimensional warp in general. Set to \u0027GLOBAL_ONLY\u0027 to restrict dimensional warp to global waystones. Set to \u0027DENY\u0027 to disallow all dimensional warps.",
+        "defaultValue": "ALLOW",
+        "validValues": ["ALLOW", "GLOBAL_ONLY", "DENY"]
     },
     {
-      "name": "dimensionalWarpDenyList",
-      "type": "List",
-      "description": "List of dimensions that players are not allowed to warp cross-dimension from and to. Only used if dimensionalWarpAllowList is empty.",
-      "defaultValue": []
+        "name": "dimensionalWarpAllowList",
+        "type": "List",
+        "description": "List of dimensions that players are allowed to warp cross-dimension from and to. If left empty, all dimensions except those in dimensionalWarpDenyList are allowed.",
+        "defaultValue": []
     },
     {
-      "name": "allowWaystoneToWaystoneTeleport",
-      "type": "boolean",
-      "description": "Set to true if players should be able to teleport between waystones by simply right-clicking a waystone.",
-      "defaultValue": true
+        "name": "dimensionalWarpDenyList",
+        "type": "List",
+        "description": "List of dimensions that players are not allowed to warp cross-dimension from and to. Only used if dimensionalWarpAllowList is empty.",
+        "defaultValue": []
     },
     {
-      "name": "globalWaystoneSetupRequiresCreativeMode",
-      "type": "boolean",
-      "description": "Set to false to allow non-creative players to make waystones globally activated for all players.",
-      "defaultValue": true
+        "name": "allowWaystoneToWaystoneTeleport",
+        "type": "boolean",
+        "description": "Set to true if players should be able to teleport between waystones by simply right-clicking a waystone.",
+        "defaultValue": true
     },
     {
-      "name": "globalWaystoneCooldownMultiplier",
-      "type": "double",
-      "description": "The multiplier applied to the cooldown when teleporting to a global waystone via inventory button or warp stone.",
-      "defaultValue": 1.0
+        "name": "globalWaystoneSetupRequiresCreativeMode",
+        "type": "boolean",
+        "description": "Set to false to allow non-creative players to make waystones globally activated for all players.",
+        "defaultValue": true
     },
     {
-      "name": "warpStoneCooldown",
-      "type": "int",
-      "description": "The cooldown between usages of the warp stone in seconds. This is bound to the player, not the item, so multiple warp stones share the same cooldown.",
-      "defaultValue": 30
+        "name": "globalWaystoneCooldownMultiplier",
+        "type": "double",
+        "description": "The multiplier applied to the cooldown when teleporting to a global waystone via inventory button or warp stone.",
+        "defaultValue": 1.0
     },
     {
-      "name": "warpStoneUseTime",
-      "type": "int",
-      "description": "The time in ticks that it takes to use a warp stone. This is the charge-up time when holding right-click.",
-      "defaultValue": 32
+        "name": "warpStoneCooldown",
+        "type": "int",
+        "description": "The cooldown between usages of the warp stone in seconds. This is bound to the player, not the item, so multiple warp stones share the same cooldown.",
+        "defaultValue": 30
     },
     {
-      "name": "warpPlateUseTime",
-      "type": "int",
-      "description": "The time in ticks that it takes to use a warp plate. This is the time the player has to stand on top for.",
-      "defaultValue": 20
+        "name": "warpStoneUseTime",
+        "type": "int",
+        "description": "The time in ticks that it takes to use a warp stone. This is the charge-up time when holding right-click.",
+        "defaultValue": 32
     },
     {
-      "name": "scrollUseTime",
-      "type": "int",
-      "description": "The time in ticks it takes to use a scroll. This is the charge-up time when holding right-click.",
-      "defaultValue": 32
+        "name": "warpPlateUseTime",
+        "type": "int",
+        "description": "The time in ticks that it takes to use a warp plate. This is the time the player has to stand on top for.",
+        "defaultValue": 20
     },
     {
-      "name": "inventoryButtonCooldown",
-      "type": "int",
-      "description": "The cooldown between usages of the inventory button in seconds.",
-      "defaultValue": 300
+        "name": "scrollUseTime",
+        "type": "int",
+        "description": "The time in ticks it takes to use a scroll. This is the charge-up time when holding right-click.",
+        "defaultValue": 32
     },
     {
-      "name": "inventoryButton",
-      "type": "String",
-      "description": "Set to \u0027NONE\u0027 for no inventory button. Set to \u0027NEAREST\u0027 for an inventory button that teleports to the nearest waystone. Set to \u0027ANY\u0027 for an inventory button that opens the waystone selection menu. Set to a waystone name for an inventory button that teleports to a specifically named waystone.",
-      "defaultValue": ""
+        "name": "inventoryButtonCooldown",
+        "type": "int",
+        "description": "The cooldown between usages of the inventory button in seconds.",
+        "defaultValue": 300
     },
     {
-      "name": "warpButtonX",
-      "type": "int",
-      "description": "The x position of the warp button in the inventory.",
-      "defaultValue": 58
+        "name": "inventoryButton",
+        "type": "String",
+        "description": "Set to \u0027NONE\u0027 for no inventory button. Set to \u0027NEAREST\u0027 for an inventory button that teleports to the nearest waystone. Set to \u0027ANY\u0027 for an inventory button that opens the waystone selection menu. Set to a waystone name for an inventory button that teleports to a specifically named waystone.",
+        "defaultValue": ""
     },
     {
-      "name": "warpButtonY",
-      "type": "int",
-      "description": "The y position of the warp button in the inventory.",
-      "defaultValue": 60
+        "name": "warpButtonX",
+        "type": "int",
+        "description": "The x position of the warp button in the inventory.",
+        "defaultValue": 58
     },
     {
-      "name": "creativeWarpButtonX",
-      "type": "int",
-      "description": "The y position of the warp button in the creative menu.",
-      "defaultValue": 88
+        "name": "warpButtonY",
+        "type": "int",
+        "description": "The y position of the warp button in the inventory.",
+        "defaultValue": 60
     },
     {
-      "name": "creativeWarpButtonY",
-      "type": "int",
-      "description": "The y position of the warp button in the creative menu.",
-      "defaultValue": 33
+        "name": "creativeWarpButtonX",
+        "type": "int",
+        "description": "The y position of the warp button in the creative menu.",
+        "defaultValue": 88
     },
     {
-      "name": "worldGenStyle",
-      "type": "WorldGenStyle",
-      "description": "Set to \u0027DEFAULT\u0027 to only generate the normally textured waystones. Set to \u0027MOSSY\u0027 or \u0027SANDY\u0027 to generate all as that variant. Set to \u0027BIOME\u0027 to make the style depend on the biome it is generated in.",
-      "defaultValue": "BIOME",
-      "validValues": ["DEFAULT", "MOSSY", "SANDY", "BIOME"]
+        "name": "creativeWarpButtonY",
+        "type": "int",
+        "description": "The y position of the warp button in the creative menu.",
+        "defaultValue": 33
     },
     {
-      "name": "frequency",
-      "type": "int",
-      "description": "Approximate chunk distance between waystones generated freely in world generation. Set to 0 to disable generation.",
-      "defaultValue": 25
+        "name": "worldGenStyle",
+        "type": "WorldGenStyle",
+        "description": "Set to \u0027DEFAULT\u0027 to only generate the normally textured waystones. Set to \u0027MOSSY\u0027 or \u0027SANDY\u0027 to generate all as that variant. Set to \u0027BIOME\u0027 to make the style depend on the biome it is generated in.",
+        "defaultValue": "BIOME",
+        "validValues": ["DEFAULT", "MOSSY", "SANDY", "BIOME"]
     },
     {
-      "name": "dimensionAllowList",
-      "type": "List",
-      "description": "List of dimensions that waystones are allowed to spawn in through world gen. If left empty, all dimensions except those in worldGenDimensionDenyList are used.",
-      "defaultValue": ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"]
+        "name": "frequency",
+        "type": "int",
+        "description": "Approximate chunk distance between waystones generated freely in world generation. Set to 0 to disable generation.",
+        "defaultValue": 25
     },
     {
-      "name": "dimensionDenyList",
-      "type": "List",
-      "description": "List of dimensions that waystones are not allowed to spawn in through world gen. Only used if worldGenDimensionAllowList is empty.",
-      "defaultValue": []
+        "name": "dimensionAllowList",
+        "type": "List",
+        "description": "List of dimensions that waystones are allowed to spawn in through world gen. If left empty, all dimensions except those in worldGenDimensionDenyList are used.",
+        "defaultValue": ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"]
     },
     {
-      "name": "nameGenerationMode",
-      "type": "NameGenerationMode",
-      "description": "Set to \u0027PRESET_FIRST\u0027 to first use names from the custom names list. Set to \u0027PRESET_ONLY\u0027 to use only those custom names. Set to \u0027MIXED\u0027 to have some waystones use custom names, and others random names.",
-      "defaultValue": "PRESET_FIRST",
-      "validValues": ["PRESET_FIRST", "RANDOM_ONLY", "PRESET_ONLY", "MIXED"]
+        "name": "dimensionDenyList",
+        "type": "List",
+        "description": "List of dimensions that waystones are not allowed to spawn in through world gen. Only used if worldGenDimensionAllowList is empty.",
+        "defaultValue": []
     },
     {
-      "name": "customWaystoneNames",
-      "type": "List",
-      "description": "These names will be used for the PRESET name generation mode. See the nameGenerationMode option for more info.",
-      "defaultValue": []
+        "name": "nameGenerationMode",
+        "type": "NameGenerationMode",
+        "description": "Set to \u0027PRESET_FIRST\u0027 to first use names from the custom names list. Set to \u0027PRESET_ONLY\u0027 to use only those custom names. Set to \u0027MIXED\u0027 to have some waystones use custom names, and others random names.",
+        "defaultValue": "PRESET_FIRST",
+        "validValues": ["PRESET_FIRST", "RANDOM_ONLY", "PRESET_ONLY", "MIXED"]
     },
     {
-      "name": "spawnInVillages",
-      "type": "boolean",
-      "description": "Set to true if waystones should be added to the generation of villages. Some villages may still spawn without a waystone.",
-      "defaultValue": true
+        "name": "customWaystoneNames",
+        "type": "List",
+        "description": "These names will be used for the PRESET name generation mode. See the nameGenerationMode option for more info.",
+        "defaultValue": []
     },
     {
-      "name": "forceSpawnInVillages",
-      "type": "boolean",
-      "description": "Ensures that pretty much every village will have a waystone, by spawning it as early as possible. In addition, this means waystones will generally be located in the center of the village.",
-      "defaultValue": false
+        "name": "spawnInVillages",
+        "type": "boolean",
+        "description": "Set to true if waystones should be added to the generation of villages. Some villages may still spawn without a waystone.",
+        "defaultValue": true
     },
     {
-      "name": "disableTextGlow",
-      "type": "boolean",
-      "description": "If enabled, the text overlay on waystones will no longer always render at full brightness.",
-      "defaultValue": false
+        "name": "forceSpawnInVillages",
+        "type": "boolean",
+        "description": "Ensures that pretty much every village will have a waystone, by spawning it as early as possible. In addition, this means waystones will generally be located in the center of the village.",
+        "defaultValue": false
     },
     {
-      "name": "displayWaystonesOnJourneyMap",
-      "type": "boolean",
-      "description": "If enabled, JourneyMap waypoints will be created for each activated waystone.",
-      "defaultValue": true
+        "name": "disableTextGlow",
+        "type": "boolean",
+        "description": "If enabled, the text overlay on waystones will no longer always render at full brightness.",
+        "defaultValue": false
     },
     {
-      "name": "preferJourneyMapIntegration",
-      "type": "boolean",
-      "description": "If enabled, JourneyMap waypoints will only be created if the mod \u0027JourneyMap Integration\u0027 is not installed",
-      "defaultValue": true
+        "name": "displayWaystonesOnJourneyMap",
+        "type": "boolean",
+        "description": "If enabled, JourneyMap waypoints will be created for each activated waystone.",
+        "defaultValue": true
+    },
+    {
+        "name": "preferJourneyMapIntegration",
+        "type": "boolean",
+        "description": "If enabled, JourneyMap waypoints will only be created if the mod \u0027JourneyMap Integration\u0027 is not installed",
+        "defaultValue": true
     }
-  ]
+]
