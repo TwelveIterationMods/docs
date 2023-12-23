@@ -1,7 +1,6 @@
 ---
 title: Chat Tweaks
 cover: ./chat-tweaks.png
-badge: new
 description: Adds a selection of different chat message formats as well as fully customizable coloring of messages. 
 loaders: ['Steam']
 category: Utilities
