@@ -6,6 +6,7 @@ description: Allows players to share YouTube links for music in an immersive man
 loaders: ['Steam']
 category: Utilities
 steamId: 3120715269
+github: TwelveZeds/MusicShare
 ---
 
 Allows players to share YouTube links for music in an immersive manner to those nearby.

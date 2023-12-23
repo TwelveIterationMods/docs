@@ -6,6 +6,7 @@ description: Addon for Roleplay Descriptors that lets players create them more e
 loaders: ['Steam']
 category: Utilities
 steamId: 3120687527
+github: TwelveZeds/ImmersiveRoleplayDescriptors
 ---
 
 Addon to Roleplay Descriptors that lets players create them more easily and shows popups in-world.
