@@ -6,6 +6,7 @@ description: Allows every player to rename all items, instead of just specific o
 loaders: ['Steam']
 category: Utilities
 steamId: 3120754047
+github: TwelveZeds/RenameAllItems
 ---
 
 This mod simply allows all players to rename all items.

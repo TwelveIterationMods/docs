@@ -6,6 +6,7 @@ description: Adds an admin menu option to clone items in your inventory.
 loaders: ['Steam']
 category: Utilities
 steamId: 3121164621
+github: TwelveZeds/CloneItems
 ---
 
 This mod simply allows admins to clone existing items.
