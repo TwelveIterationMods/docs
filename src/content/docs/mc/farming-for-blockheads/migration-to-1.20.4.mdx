@@ -3,8 +3,27 @@ title: Migration to 1.20.4
 type: guide
 icon: mdi:swap-horizontal
 ---
-import FarmingForBlockheadsRegistryToRecipe from '../../../../components/tools/mc/migrations/FarmingForBlockheadsRegistryToRecipe.vue'
+
+import NoteBox from '../../../../components/NoteBox.astro';
+
+import FarmingForBlockheadsRegistryToRecipe from '../../../../components/tools/mc/migrations/FarmingForBlockheadsRegistryToRecipe.vue';
 
 ### Farming for Blockheads Registry JSON files to 1.20.4+ Recipe Format
 
 <FarmingForBlockheadsRegistryToRecipe client:load />
+
+### How to migrate Group Overrides
+
+"Groups" have been replaced by presets, which included a renaming to be more consistent and guessable.
+
+Instead of "Pam's HarvestCraft 2 Trees Saplings" which has a million different ways of spelling and capitalizing it, the preset that represents this group is now called "pamhc2trees:saplings", where `pamhc2trees` is the mod id.
+
+If you want to simply enable or disable a preset, you can do so without an override now by adding it to either `enabledOptionalPresets` or `disabledDefaultPresets`.
+
+If you want to change the default price of a preset's items, you can override the preset's data just like you would override any other data in a data pack, i.e. by placing a json file at the same location.
+
+### How to migrate Entry Overrides
+
+Market Items are now defined using Minecraft's recipe system, with each item being defined in its own individual file.
+
+That means you can easily override these in a data pack by placing a file at the same location, or using a mod like CraftTweaker and its `addJsonRecipe()` function.
