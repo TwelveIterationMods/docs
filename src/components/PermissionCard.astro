@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon'
 const {label, icon, iconClass} = Astro.props
 ---
 
-<div class="permission-card card bg-base-200">
+<div class="permission-card card bg-base-200" id={label}>
     <div class="card-body">
         <div class="card-title">
             { icon && <Icon name={icon} class="mr-2 w-8" class:list={iconClass}/>}
