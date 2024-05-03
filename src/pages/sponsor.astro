@@ -1,3 +1,5 @@
 ---
-return Astro.redirect("https://patreon.com/BlayTheNinth");
+const sponsorUrl = 'https://patreon.com/BlayTheNinth'
+return Astro.redirect(sponsorUrl);
 ---
+<meta http-equiv="refresh" content={`0;url=${sponsorUrl}`} />
