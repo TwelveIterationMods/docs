@@ -8,8 +8,13 @@ import CountingStat from '../components/CountingStat.vue';
 const allGames = await getCollection('games');
 ---
 
-<Layout title="">
+<Layout title="Mods by Twelve Iterations">
     <main>
+        <div class="text-center mb-8">
+            <h1 class="text-4xl">Mods by BlayTheNinth</h1>
+            <span class="text-lg">for Minecraft and Project Zomboid</span>
+        </div>
+
         <div class="grid grid-cols-2 lg:grid-cols-3 justify-center items-center gap-4 mb-4">
             <CountingStat client:idle label="Total Downloads" count={1000000000} />
             <CountingStat client:idle label="Daily Downloads" count={600000} />
@@ -23,9 +28,9 @@ const allGames = await getCollection('games');
                 allGames.map((game) => (
                     <a href={game.slug} class="card bg-base-200 shadow-xl">
                         {game.data.cover && (
-                                <figure>
-                                    <Image src={game.data.cover} alt="" />
-                                </figure>
+                            <figure>
+                                <Image src={game.data.cover} alt={game.data.title} />
+                            </figure>
                         )}
 
                         <div class="card-body">
