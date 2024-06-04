@@ -40,7 +40,8 @@ const { title } = Astro.props;
         <script data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
 
         <script>
-            window['nitroAds'].createAd('ntr-sticky-side-rail', {
+            const nitroAds = 'nitroAds' in window ? window.nitroAds as any : null
+            nitroAds?.createAd('ntr-sticky-side-rail', {
                 refreshTime: 30,
                 format: 'rail',
                 rail: 'left',
@@ -59,7 +60,7 @@ const { title } = Astro.props;
                 },
                 mediaQuery: '(min-width: 1025px)',
             });
-            window['nitroAds'].createAd('ntr-anchor', {
+            nitroAds?.createAd('ntr-anchor', {
                 refreshTime: 30,
                 format: 'anchor',
                 anchor: 'bottom',
@@ -72,7 +73,7 @@ const { title } = Astro.props;
                 },
                 mediaQuery: '(min-width: 320px) and (max-width: 767px)',
             });
-            window['nitroAds'].createAd('ntr-video', {
+            nitroAds?.createAd('ntr-video', {
                 refreshTime: 30,
                 format: 'floating',
                 report: {
