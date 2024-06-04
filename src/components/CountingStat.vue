@@ -22,7 +22,7 @@ const props = defineProps({
 const current = ref(0);
 const intervalTime = 10; // Consistent update frequency
 const step = computed(() => Math.ceil(props.count / (props.time / intervalTime)));
-const showConfetti = computed(() => current.value >= 1e9);
+const showConfetti = computed(() => current.value >= 2e9);
 const zoomText = computed(() => current.value >= 1e9 && current.value < 1e9 + step.value);
 
 function formatNumber(num) {
