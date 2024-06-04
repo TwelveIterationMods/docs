@@ -8,6 +8,7 @@ priority: 1000
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro';
 import RecipeContainer from '../../../../components/RecipeContainer.astro';
 import ConfigTable from '../../../../components/ConfigTable.astro'
+import NoteBox from '../../../../components/NoteBox.astro'
 
 The waystone is a block that can be crafted and placed, or found in the world. Players can activate waystones, which
 will allow them to teleport back to those waystones using items such as the Warp Stone or Warp Scrolls. Waystones can
@@ -19,6 +20,10 @@ activated for every other player and is useful for Server Hubs. See also [Shares
 Waystones can be broken with a Silk Touch enchanted pickaxe to be able to move one without everyone losing access to
 it.
 
+<NoteBox>
+Between Minecraft 1.20.4 and 1.20.6, waystones have received a slot interface. This interface is only used for creating bound scrolls and is going to be removed in 1.21.
+</NoteBox>
+
 ---
 
 ### Crafting
@@ -27,6 +32,9 @@ it.
     <CraftingRecipe recipe="waystones:waystone" />
     <CraftingRecipe recipe="waystones:sandy_waystone" />
     <CraftingRecipe recipe="waystones:mossy_waystone" />
+    <CraftingRecipe recipe="waystones:deepslate_waystone" />
+    <CraftingRecipe recipe="waystones:end_stone_waystone" />
+    <CraftingRecipe recipe="waystones:blackstone_waystone" />
     <CraftingRecipe recipe="waystones:mossy_waystone_from_vines" />
 </RecipeContainer>
 

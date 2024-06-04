@@ -18,7 +18,7 @@
     "OOO"
   ],
   "result": {
-    "item": "waystones:waystone"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "waystones:waystone"
+  }
 }

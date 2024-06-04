@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "E": {
-      "tag": "c:purple_dyes"
+      "tag": "c:dyes/purple"
     },
     "G": {
-      "tag": "c:gold_nuggets"
+      "tag": "c:nuggets/gold"
     },
     "P": {
       "item": "minecraft:paper"
@@ -18,7 +18,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "waystones:return_scroll"
-  },
-  "show_notification": true
+    "id": "waystones:return_scroll"
+  }
 }

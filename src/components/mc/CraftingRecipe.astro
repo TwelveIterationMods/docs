@@ -46,7 +46,7 @@ const matrix = (() => {
     return matrix;
 })();
 
-const result = typeof recipeData?.result === 'object' && recipeData?.result?.item;
+const result = typeof recipeData?.result === 'object' && (recipeData?.result?.item ?? recipeData?.result?.id);
 ---
 
 <div class="minecraft-crafting mt-3">

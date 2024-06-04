@@ -5,20 +5,44 @@ item: waystones:portstone
 priority: 960
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import RecipeContainer from '../../../../components/RecipeContainer.astro';
 import ConfigTable from '../../../../components/ConfigTable.astro'
 
-The port stone is like a one-way waystone. You can use it to teleport to any other activated [Waystone](waystone), but it can not be teleported to itself.
+Portstones are essentially one-way waystones. 
+
+You can use them to teleport to any other activated [Waystone](waystone) or colored sharestone matching its color, but they can not be teleported to themselves.
+
+Only the white portstone can be used to teleport to regular waystones, all other portstones are linked to their respective sharestones instead.
 
 ---
 
 ### Crafting
 
-<CraftingRecipe recipe="waystones:portstone"/>
+<RecipeContainer>
+    <CraftingRecipe recipe="waystones:white_portstone"/>
+    <CraftingRecipe recipe="waystones:black_portstone" />
+    <CraftingRecipe recipe="waystones:blue_portstone" />
+    <CraftingRecipe recipe="waystones:brown_portstone" />
+    <CraftingRecipe recipe="waystones:cyan_portstone" />
+    <CraftingRecipe recipe="waystones:gray_portstone" />
+    <CraftingRecipe recipe="waystones:green_portstone" />
+    <CraftingRecipe recipe="waystones:light_blue_portstone" />
+    <CraftingRecipe recipe="waystones:light_gray_portstone" />
+    <CraftingRecipe recipe="waystones:lime_portstone" />
+    <CraftingRecipe recipe="waystones:magenta_portstone" />
+    <CraftingRecipe recipe="waystones:orange_portstone" />
+    <CraftingRecipe recipe="waystones:pink_portstone" />
+    <CraftingRecipe recipe="waystones:purple_portstone" />
+    <CraftingRecipe recipe="waystones:red_portstone" />
+    <CraftingRecipe recipe="waystones:white_portstone" />
+    <CraftingRecipe recipe="waystones:yellow_portstone" />
+</RecipeContainer>
 
 ### Usage
 
 - Right-click a portstone to open the waystone selection screen.
 - Select a waystone to teleport to it.
+
 ---
 
 ## Configuration
