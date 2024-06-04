@@ -18,7 +18,7 @@
     "SWS"
   ],
   "result": {
-    "item": "waystones:warp_plate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "waystones:warp_plate"
+  }
 }

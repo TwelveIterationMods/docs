@@ -5,6 +5,7 @@ item: waystones:warp_stone
 priority: 990
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import RecipeContainer from '../../../../components/RecipeContainer.astro';
 import ConfigTable from '../../../../components/ConfigTable.astro'
 
 The warp stone allows you to teleport to any of your activated waystones.
@@ -21,9 +22,12 @@ This cooldown is tied to your player, not the warp stone itself, so there is no 
 
 ### Used to craft
 
-<CraftingRecipe recipe="waystones:waystone"/>
-<CraftingRecipe recipe="waystones:sharestone"/>
-<CraftingRecipe recipe="waystones:portstone"/>
+
+<RecipeContainer>
+    <CraftingRecipe recipe="waystones:waystone" />
+    <CraftingRecipe recipe="waystones:red_sharestone" />
+    <CraftingRecipe recipe="waystones:white_portstone" />
+</RecipeContainer>
 
 ### Usage
 

@@ -2,8 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": {
-      "item": "minecraft:obsidian"
+    "B": {
+      "item": "minecraft:polished_andesite"
+    },
+    "D": {
+      "tag": "c:dyes/magenta"
     },
     "S": {
       "item": "minecraft:stone_bricks"
@@ -13,12 +16,12 @@
     }
   },
   "pattern": [
-    "SSS",
-    " W ",
-    "OOO"
+    "DSD",
+    "SWS",
+    "BBB"
   ],
   "result": {
-    "item": "waystones:sharestone"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "waystones:magenta_portstone"
+  }
 }

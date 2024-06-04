@@ -51,104 +51,6 @@ const tagMappings: {[key: string]: string[]} = {
         "minecraft:pufferfish",
         "minecraft:tropical_fish"
     ],
-    "forge:stone": [
-        "minecraft:andesite",
-        "minecraft:diorite",
-        "minecraft:granite",
-        "minecraft:infested_stone",
-        "minecraft:stone",
-        "minecraft:polished_andesite",
-        "minecraft:polished_diorite",
-        "minecraft:polished_granite"
-    ],
-    "forge:chests/wooden": [
-        "minecraft:chest",
-        "minecraft:trapped_chest"
-    ],
-    "forge:rods/wooden": [
-        "minecraft:stick"
-    ],
-    "forge:storage_blocks/iron": [
-        "minecraft:iron_block"
-    ],
-    "forge:storage_blocks/steel": [
-        "c:steel_block"
-    ],
-    "forge:ingots/steel": [
-        "c:steel_ingot"
-    ],
-    "forge:ingots/iron": [
-        "minecraft:iron_ingot"
-    ],
-    "forge:ingots/gold": [
-        "minecraft:gold_ingot"
-    ],
-    "forge:nuggets/iron": [
-        "minecraft:iron_nugget"
-    ],
-    "forge:nuggets/gold": [
-        "minecraft:gold_nugget"
-    ],
-    "forge:gems/diamond": [
-        "minecraft:diamond"
-    ],
-    "forge:gems/emerald": [
-        "minecraft:emerald"
-    ],
-    "forge:dusts/redstone": [
-        "minecraft:redstone"
-    ],
-    "forge:dusts/glowstone": [
-        "minecraft:glowstone_dust"
-    ],
-    "forge:dyes/orange": [
-        "minecraft:orange_dye"
-    ],
-    "forge:dyes/magenta": [
-        "minecraft:magenta_dye"
-    ],
-    "forge:dyes/light_blue": [
-        "minecraft:light_blue_dye"
-    ],
-    "forge:dyes/yellow": [
-        "minecraft:yellow_dye"
-    ],
-    "forge:dyes/lime": [
-        "minecraft:lime_dye"
-    ],
-    "forge:dyes/pink": [
-        "minecraft:pink_dye"
-    ],
-    "forge:dyes/gray": [
-        "minecraft:gray_dye"
-    ],
-    "forge:dyes/light_gray": [
-        "minecraft:light_gray_dye"
-    ],
-    "forge:dyes/cyan": [
-        "minecraft:cyan_dye"
-    ],
-    "forge:dyes/purple": [
-        "minecraft:purple_dye"
-    ],
-    "forge:dyes/blue": [
-        "minecraft:blue_dye"
-    ],
-    "forge:dyes/brown": [
-        "minecraft:brown_dye"
-    ],
-    "forge:dyes/green": [
-        "minecraft:green_dye"
-    ],
-    "forge:dyes/red": [
-        "minecraft:red_dye"
-    ],
-    "forge:dyes/black": [
-        "minecraft:black_dye"
-    ],
-    "forge:glass_panes/colorless": [
-        "minecraft:glass_pane"
-    ],
     "cookingforblockheads:kitchen_floor": [
         "cookingforblockheads:white_kitchen_floor",
         "cookingforblockheads:orange_kitchen_floor",
@@ -272,15 +174,12 @@ const tagMappings: {[key: string]: string[]} = {
     "waystones:waystones": [
         "waystones:waystone",
         "waystones:sandy_waystone",
-        "waystones:mossy_waystone"
-    ],
-    "waystones:waystone": [
-        "waystones:waystone",
-        "waystones:sandy_waystone",
-        "waystones:mossy_waystone"
+        "waystones:mossy_waystone",
+        "waystones:deepslate_waystone",
+        "waystones:end_stone_waystone",
+        "waystones:blackstone_waystone",
     ],
     "waystones:sharestones": [
-        "waystones:sharestone",
         "waystones:black_sharestone",
         "waystones:blue_sharestone",
         "waystones:brown_sharestone",
@@ -295,153 +194,82 @@ const tagMappings: {[key: string]: string[]} = {
         "waystones:pink_sharestone",
         "waystones:purple_sharestone",
         "waystones:red_sharestone",
-        "waystones:white_sharestone",
         "waystones:yellow_sharestone"
     ],
-    "waystones:sharestone": [
-        "waystones:sharestone",
-        "waystones:black_sharestone",
-        "waystones:blue_sharestone",
-        "waystones:brown_sharestone",
-        "waystones:cyan_sharestone",
-        "waystones:gray_sharestone",
-        "waystones:green_sharestone",
-        "waystones:light_blue_sharestone",
-        "waystones:light_gray_sharestone",
-        "waystones:lime_sharestone",
-        "waystones:magenta_sharestone",
-        "waystones:orange_sharestone",
-        "waystones:pink_sharestone",
-        "waystones:purple_sharestone",
-        "waystones:red_sharestone",
-        "waystones:white_sharestone",
-        "waystones:yellow_sharestone"
+    "waystones:portstone": [
+        "waystones:black_portstone",
+        "waystones:blue_portstone",
+        "waystones:brown_portstone",
+        "waystones:cyan_portstone",
+        "waystones:gray_portstone",
+        "waystones:green_portstone",
+        "waystones:light_blue_portstone",
+        "waystones:light_gray_portstone",
+        "waystones:lime_portstone",
+        "waystones:magenta_portstone",
+        "waystones:orange_portstone",
+        "waystones:pink_portstone",
+        "waystones:purple_portstone",
+        "waystones:red_portstone",
+        "waystones:white_portstone",
+        "waystones:yellow_portstone"
     ],
-    "waystones:dyed_sharestones": [
-        "waystones:black_sharestone",
-        "waystones:blue_sharestone",
-        "waystones:brown_sharestone",
-        "waystones:cyan_sharestone",
-        "waystones:gray_sharestone",
-        "waystones:green_sharestone",
-        "waystones:light_blue_sharestone",
-        "waystones:light_gray_sharestone",
-        "waystones:lime_sharestone",
-        "waystones:magenta_sharestone",
-        "waystones:orange_sharestone",
-        "waystones:pink_sharestone",
-        "waystones:purple_sharestone",
-        "waystones:red_sharestone",
-        "waystones:white_sharestone",
-        "waystones:yellow_sharestone"
-    ],
-    "balm:purple_dyes": [
+    "c:dyes/purple": [
         "minecraft:purple_dye"
     ],
-    "balm:black_dyes": [
+    "c:dyes/black": [
         "minecraft:black_dye"
     ],
-    "balm:lime_dyes": [
+    "c:dyes/lime": [
         "minecraft:lime_dye"
     ],
-    "balm:green_dyes": [
+    "c:dyes/green": [
         "minecraft:green_dye"
     ],
-    "balm:brown_dyes": [
+    "c:dyes/brown": [
         "minecraft:brown_dye"
     ],
-    "balm:blue_dyes": [
+    "c:dyes/blue": [
         "minecraft:blue_dye"
     ],
-    "balm:cyan_dyes": [
+    "c:dyes/cyan": [
         "minecraft:cyan_dye"
     ],
-    "balm:light_blue_dyes": [
+    "c:dyes/light_blue": [
         "minecraft:light_blue_dye"
     ],
-    "balm:gray_dyes": [
+    "c:dyes/gray": [
         "minecraft:gray_dye"
     ],
-    "balm:light_gray_dyes": [
+    "c:dyes/light_gray": [
         "minecraft:light_gray_dye"
     ],
-    "balm:red_dyes": [
+    "c:dyes/red": [
         "minecraft:red_dye"
     ],
-    "balm:white_dyes": [
+    "c:dyes/white": [
         "minecraft:white_dye"
     ],
-    "balm:yellow_dyes": [
+    "c:dyes/yellow": [
         "minecraft:yellow_dye"
     ],
-    "balm:orange_dyes": [
+    "c:dyes/orange": [
         "minecraft:orange_dye"
     ],
-    "balm:pink_dyes": [
+    "c:dyes/pink": [
         "minecraft:pink_dye"
     ],
-    "balm:magenta_dyes": [
+    "c:dyes/magenta": [
         "minecraft:magenta_dye"
     ],
-    "balm:emeralds": [
+    "c:gems/emerald": [
         "minecraft:emerald"
     ],
-    "balm:gold_nuggets": [
+    "c:nuggets/gold": [
         "minecraft:gold_nugget"
     ],
-    "c:purple_dyes": [
-        "minecraft:purple_dye"
-    ],
-    "c:black_dyes": [
-        "minecraft:black_dye"
-    ],
-    "c:lime_dyes": [
-        "minecraft:lime_dye"
-    ],
-    "c:green_dyes": [
-        "minecraft:green_dye"
-    ],
-    "c:brown_dyes": [
-        "minecraft:brown_dye"
-    ],
-    "c:blue_dyes": [
-        "minecraft:blue_dye"
-    ],
-    "c:cyan_dyes": [
-        "minecraft:cyan_dye"
-    ],
-    "c:light_blue_dyes": [
-        "minecraft:light_blue_dye"
-    ],
-    "c:gray_dyes": [
-        "minecraft:gray_dye"
-    ],
-    "c:light_gray_dyes": [
-        "minecraft:light_gray_dye"
-    ],
-    "c:red_dyes": [
-        "minecraft:red_dye"
-    ],
-    "c:white_dyes": [
-        "minecraft:white_dye"
-    ],
-    "c:yellow_dyes": [
-        "minecraft:yellow_dye"
-    ],
-    "c:orange_dyes": [
-        "minecraft:orange_dye"
-    ],
-    "c:pink_dyes": [
-        "minecraft:pink_dye"
-    ],
-    "c:magenta_dyes": [
-        "minecraft:magenta_dye"
-    ],
-    "c:emeralds": [
-        "minecraft:emerald"
-    ],
-    "c:gold_nuggets": [
-        "minecraft:gold_nugget"
+    "c:nuggets/iron": [
+        "minecraft:iron_nugget"
     ]
 
 };

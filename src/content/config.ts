@@ -51,7 +51,8 @@ const recipesCollection = defineCollection({
         type: z.enum(['minecraft:crafting_shaped', 'crafting_shaped', 'minecraft:crafting_shapeless', 'crafting_shapeless', 'minecraft:smelting', 'smelting']),
         result: z
             .object({
-                item: z.string(),
+                item: z.string().optional(),
+                id: z.string().optional(),
                 count: z.number().default(1),
             })
             .or(z.string()),
@@ -84,6 +85,7 @@ const recipesCollection = defineCollection({
                 })
             )
             .default({}),
+        category: z.string().optional(),
         conditions: z.array(z.any()).default([]),
     }),
 });

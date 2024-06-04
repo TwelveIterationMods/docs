@@ -2,23 +2,26 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": {
-      "item": "minecraft:obsidian"
+    "B": {
+      "item": "minecraft:polished_andesite"
+    },
+    "D": {
+      "tag": "c:dyes/white"
     },
     "S": {
-      "item": "minecraft:mossy_stone_bricks"
+      "item": "minecraft:stone_bricks"
     },
     "W": {
       "item": "waystones:warp_stone"
     }
   },
   "pattern": [
-    " S ",
+    "DSD",
     "SWS",
-    "OOO"
+    "BBB"
   ],
   "result": {
     "count": 1,
-    "id": "waystones:mossy_waystone"
+    "id": "waystones:white_portstone"
   }
 }

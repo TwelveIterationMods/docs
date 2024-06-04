@@ -5,6 +5,7 @@ item: waystones:bound_scroll
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
 import ConfigTable from '../../../../components/ConfigTable.astro'
+import NoteBox from '../../../../components/NoteBox.astro'
 
 The bound scroll is a special kind of warp scroll that can be tied to a specific [Waystone](waystone) by right-clicking the waystone
 with it.
@@ -16,7 +17,13 @@ easily get to the bound waystone even if they have not activated it yet.
 
 ### Crafting
     
-<CraftingRecipe recipe="waystones:bound_scroll"/>
+Bound scrolls are crafted by placing a warp scroll inside the center slot of a waystone.
+
+<NoteBox>
+On older versions, Bound Scrolls had a separate recipe and could be bound by right-clicking a waystone.
+
+Use a recipe viewing mod like JEI to see the correct recipe for your version.
+</NoteBox>
 
 ### Usage
 

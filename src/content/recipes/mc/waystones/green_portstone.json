@@ -5,6 +5,9 @@
     "B": {
       "item": "minecraft:polished_andesite"
     },
+    "D": {
+      "tag": "c:dyes/green"
+    },
     "S": {
       "item": "minecraft:stone_bricks"
     },
@@ -13,12 +16,12 @@
     }
   },
   "pattern": [
-    " S ",
+    "DSD",
     "SWS",
     "BBB"
   ],
   "result": {
-    "item": "waystones:portstone"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "waystones:green_portstone"
+  }
 }
