@@ -48,7 +48,7 @@ const { title } = Astro.props;
                 rail: 'right',
                 railOffsetTop: 200,
                 railOffsetBottom: 0,
-                railCollisionWhitelist: [],
+                railCollisionWhitelist: ['*'],
                 sizes: [
                     ['160', '600'],
                     ['300', '600'],
@@ -119,8 +119,9 @@ const { title } = Astro.props;
                 </div>
 
                 <div class="min-w-[300px]">
-                    <div id="ntr-sticky-side-rail"></div>
                     <div id="ntr-video"></div>
+                    <div class="mb-2"></div>
+                    <div id="ntr-sticky-side-rail"></div>
                 </div>
             </div>
         </div>
