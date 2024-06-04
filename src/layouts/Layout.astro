@@ -24,47 +24,102 @@ const { title } = Astro.props;
 
         <Tooltips interactive={false} delay={[15, 30]} placement="bottom" />
 
-        <script data-cfasync="false">window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+        <script data-cfasync="false">
+            window.nitroAds = window.nitroAds || {
+                createAd: function () {
+                    return new Promise((e) => {
+                        window.nitroAds.queue.push(['createAd', arguments, e]);
+                    });
+                },
+                addUserToken: function () {
+                    window.nitroAds.queue.push(['addUserToken', arguments]);
+                },
+                queue: [],
+            };
+        </script>
         <script data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
+
+        <script>
+            window['nitroAds'].createAd('ntr-sticky-side-rail', {
+                refreshTime: 30,
+                format: 'rail',
+                rail: 'left',
+                railOffsetTop: 0,
+                railOffsetBottom: 0,
+                railCollisionWhitelist: [],
+                sizes: [
+                    ['160', '600'],
+                    ['300', '600'],
+                ],
+                report: {
+                    enabled: true,
+                    icon: true,
+                    wording: 'Report Ad',
+                    position: 'top-right',
+                },
+                mediaQuery: '(min-width: 1025px)',
+            });
+            window['nitroAds'].createAd('ntr-anchor', {
+                refreshTime: 30,
+                format: 'anchor',
+                anchor: 'bottom',
+                anchorPersistClose: true,
+                report: {
+                    enabled: true,
+                    icon: true,
+                    wording: 'Report Ad',
+                    position: 'top-right',
+                },
+                mediaQuery: '(min-width: 320px) and (max-width: 767px)',
+            });
+            window['nitroAds'].createAd('ntr-video', {
+                refreshTime: 30,
+                format: 'floating',
+                report: {
+                    enabled: true,
+                    icon: true,
+                    wording: 'Report Ad',
+                    position: 'top-left',
+                },
+                mediaQuery: '(min-width: 1025px), (min-width: 768px) and (max-width: 1024px), (min-width: 320px) and (max-width: 767px)',
+            });
+        </script>
     </head>
-    <body>
-        <div class="dark:text-white">
-            <div class="navbar bg-base-200">
-                <div class="flex-1">
-                    <a class="flex items-center" href="/">
-                        <Image src={logoImage} alt="Logo of Twelve Iterations" class="w-12 mr-2" />
-                        <span class="text-2xl">Twelve Iterations</span>
-                    </a>
-                </div>
-
-                <!--            <div class="flex-1">-->
-                <!--                <SearchField/>-->
-                <!--            </div>-->
-
-                <nav class="flex-none">
-                    <ul class="menu menu-horizontal px-1">
-                        <li><a href="/faq">FAQ</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="pt-5 pb-10">
-                <div class="flex flex-col-reverse xl:flex-row gap-8 px-4">
-                    <div class="w-full xl:w-2/12 flex lg:flex-col gap-2">
-                        <slot name="sidebar" />
-                    </div>
-
-                    <div class="w-full xl:w-8/12 page-content">
-                        <slot />
-                    </div>
-
-                    <!--                <div class="w-full xl:w-2/12">-->
-                    <!--                    <Ad class="h-40 w-full xl:h-full" ad-slot="8316221095"/>-->
-                    <!--                </div>-->
-                </div>
-            </div>
-
-            <SiteFooter />
-        </div>
-    </body>
 </html>
+
+<body>
+    <div class="dark:text-white">
+        <div class="navbar bg-base-200">
+            <div class="flex-1">
+                <a class="flex items-center" href="/">
+                    <Image src={logoImage} alt="Logo of Twelve Iterations" class="w-12 mr-2" />
+                    <span class="text-2xl">Twelve Iterations</span>
+                </a>
+            </div>
+
+            <nav class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="pt-5 pb-10">
+            <div class="flex flex-col-reverse xl:flex-row gap-8 px-4">
+                <div class="w-full xl:w-2/12 flex lg:flex-col gap-2">
+                    <slot name="sidebar" />
+                </div>
+
+                <div class="w-full xl:w-8/12 page-content">
+                    <slot />
+                </div>
+
+                <div id="ntr-sticky-side-rail"></div>
+                <div id="ntr-video"></div>
+            </div>
+        </div>
+
+        <SiteFooter />
+        <div id="ntr-anchor"></div>
+    </div>
+</body>
