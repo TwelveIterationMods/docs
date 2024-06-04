@@ -40,12 +40,13 @@ const { title } = Astro.props;
         <script data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
 
         <script>
-            const nitroAds = 'nitroAds' in window ? window.nitroAds as any : null
+            const nitroAds = 'nitroAds' in window ? (window.nitroAds as any) : null;
             nitroAds?.createAd('ntr-sticky-side-rail', {
                 refreshTime: 30,
                 format: 'rail',
-                rail: 'left',
-                railOffsetTop: 0,
+                demo: import.meta.env.DEV,
+                rail: 'right',
+                railOffsetTop: 200,
                 railOffsetBottom: 0,
                 railCollisionWhitelist: [],
                 sizes: [
@@ -54,20 +55,21 @@ const { title } = Astro.props;
                 ],
                 report: {
                     enabled: true,
-                    icon: true,
+                    icon: false,
                     wording: 'Report Ad',
                     position: 'top-right',
                 },
-                mediaQuery: '(min-width: 1025px)',
+                mediaQuery: '(min-width: 1025px), (min-width: 768px) and (max-width: 1024px)',
             });
             nitroAds?.createAd('ntr-anchor', {
                 refreshTime: 30,
                 format: 'anchor',
+                demo: import.meta.env.DEV,
                 anchor: 'bottom',
                 anchorPersistClose: true,
                 report: {
                     enabled: true,
-                    icon: true,
+                    icon: false,
                     wording: 'Report Ad',
                     position: 'top-right',
                 },
@@ -76,9 +78,10 @@ const { title } = Astro.props;
             nitroAds?.createAd('ntr-video', {
                 refreshTime: 30,
                 format: 'floating',
+                demo: import.meta.env.DEV,
                 report: {
                     enabled: true,
-                    icon: true,
+                    icon: false,
                     wording: 'Report Ad',
                     position: 'top-left',
                 },
@@ -115,8 +118,10 @@ const { title } = Astro.props;
                     <slot />
                 </div>
 
-                <div id="ntr-sticky-side-rail"></div>
-                <div id="ntr-video"></div>
+                <div class="min-w-[300px]">
+                    <div id="ntr-sticky-side-rail"></div>
+                    <div id="ntr-video"></div>
+                </div>
             </div>
         </div>
 
