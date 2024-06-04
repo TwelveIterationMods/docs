@@ -1,6 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 
-const categories = ['Content Expansion', 'Quality of Life', 'Utilities'] as const;
+const categories = ['Content Expansion', 'Quality of Life', 'Utilities', 'Library'] as const;
 
 const gamesCollection = defineCollection({
     type: 'content',
