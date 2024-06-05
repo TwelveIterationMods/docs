@@ -23,7 +23,25 @@ export async function getStaticPaths() {
     );
 }
 
-async function searchMaven(repository: string, groupId: string, artifactId: string) {
+async function searchMaven(
+    repository: string,
+    groupId: string,
+    artifactId: string
+): Promise<
+    {
+        version: string;
+        assets: {
+            downloadUrl: string;
+            fileSize: number;
+            lastModified: string;
+            maven2: {
+                extension: string;
+                classifier?: string;
+            };
+            contentType: string;
+        }[];
+    }[]
+> {
     const nexusUrl = 'https://maven.twelveiterations.com/service/rest/v1/search';
     const queryParams = new URLSearchParams({
         repository: repository,
@@ -41,7 +59,7 @@ async function searchMaven(repository: string, groupId: string, artifactId: stri
         return data.items;
     } catch (error) {
         console.error('Error fetching artifact:', error);
-        return null;
+        return [];
     }
 }
 
@@ -51,16 +69,16 @@ const modId = entry.data.modId;
 const versions = await searchMaven(repository, 'net.blay09.mods', modId + '-' + loader);
 const jars = versions.map((version) => {
     const jarAsset = version.assets.find(
-        (asset: any) => (asset.contentType = 'application/java-archive' && asset.maven2.extension === 'jar' && !asset.maven2.classifier)
+        (asset) => asset.contentType == 'application/java-archive' && asset.maven2.extension === 'jar' && !asset.maven2.classifier
     );
     return {
         version: version.version,
-        downloadUrl: jarAsset.downloadUrl.replace('maven-snapshots', 'maven-public').replace('maven-releases', 'maven-public'),
-        fileSize: jarAsset.fileSize,
-        lastModified: jarAsset.lastModified,
+        downloadUrl: jarAsset?.downloadUrl.replace('maven-snapshots', 'maven-public').replace('maven-releases', 'maven-public') ?? '',
+        fileSize: jarAsset?.fileSize ?? 0,
+        lastModified: jarAsset?.lastModified,
     };
 });
-const filteredJars = jars.filter((jar) => jar.version.endsWith('+' + gameVersion));
+const filteredJars = jars.filter((jar) => jar?.version.endsWith('+' + gameVersion));
 const friendlyLoader = loader === 'neoforge' ? 'NeoForge' : loader.charAt(0).toUpperCase() + loader.slice(1);
 const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + friendlyLoader + ')';
 
@@ -71,13 +89,17 @@ const humanizeFileSize = (bytes: number) => {
     return parseFloat((bytes / Math.pow(1024, i)).toFixed(2)) + ' ' + sizes[i];
 };
 
-const humanizeTimestamp = (timestamp: string) => {
+const humanizeTimestamp = (timestamp?: string) => {
+    if (!timestamp) {
+        return 'Unknown';
+    }
+
     const date = new Date(timestamp);
     return date.toLocaleString();
 };
 
-const humanizeVersion = (version: string) => {
-    return version.split('+')[0];
+const humanizeVersion = (version?: string) => {
+    return version?.split('+')[0];
 };
 ---
 
@@ -105,7 +127,10 @@ const humanizeVersion = (version: string) => {
                         <td>{humanizeTimestamp(jar.lastModified)}</td>
                         <td>{humanizeFileSize(jar.fileSize)}</td>
                         <td>
-                            <a href={'/download?v=' + encodeURIComponent(Buffer.from(jar.downloadUrl).toString('base64'))} class="btn btn-square btn-sm btn-success">
+                            <a
+                                href={'/download?v=' + encodeURIComponent(Buffer.from(jar.downloadUrl).toString('base64'))}
+                                class="btn btn-square btn-sm btn-success"
+                            >
                                 <Icon name="mdi:download" class="w-6" />
                             </a>
                         </td>
