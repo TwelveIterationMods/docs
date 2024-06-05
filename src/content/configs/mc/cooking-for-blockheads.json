@@ -59,5 +59,6 @@
         "type": "boolean",
         "description": "Toasting toasted bread again will turn into charcoal (only if no other mod adding toast is present). Set to false to disable.",
         "defaultValue": true
-    }
+    },
+    { "name": "excludedRecipes", "type": "Set", "description": "List of recipe ids that should be excluded from the recipe book.", "defaultValue": [] }
 ]

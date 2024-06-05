@@ -3,7 +3,7 @@ title: Cooking for Blockheads
 description: Adds a cooking book and multi-block kitchens that only shows recipes you can make with what you currently have in your inventory.
 priority: 990
 cover: ./cooking-for-blockheads.png
-item: cookingforblockheads:oven
+item: cookingforblockheads:white_oven
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: cooking-for-blockheads
