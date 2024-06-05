@@ -104,9 +104,9 @@ const humanizeVersion = (version?: string) => {
 ---
 
 <Layout title={title}>
-    <h1 class="text-4xl">{title}</h1>
+    <h1 class="text-4xl text-center mb-4">{title}</h1>
 
-    <table class="table">
+    <table class="table mb-4">
         <thead>
             <tr>
                 <th>Version</th>
@@ -139,4 +139,10 @@ const humanizeVersion = (version?: string) => {
             }
         </tbody>
     </table>
+
+    <div class="divider"></div>
+
+    <div class="mb-4 flex justify-center">
+        <a href="/sponsor"><img src="https://mods.twelveiterations.com/img/sponsor.png" alt="Support the Development for only $2 a month." /></a>
+    </div>
 </Layout>
