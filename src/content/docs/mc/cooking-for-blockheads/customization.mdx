@@ -1,0 +1,30 @@
+---
+title: Customization
+type: guide
+icon: mdi:puzzle-edit
+---
+
+import NoteBox from '../../../../components/NoteBox.astro';
+
+<NoteBox title="Are you running Minecraft older than 1.20.4?">
+For versions before Minecraft 1.20.4, you can find the old version of this page [here](https://github.com/TwelveIterationMods/docs/blob/0cd74137049807f9a547a73cf3cc3b784203a073/src/content/docs/mc/cooking-for-blockheads/customization.md).
+</NoteBox>
+
+### Customization via Block and Item Tags
+
+Mod compatibility with Cooking for Blockheads can be achieved using a variety of item tags. Tags can be added through data packs or mods such as CraftTweaker.
+
+|Tag|Type|Description|Example|
+|---|---|---|---|
+|`cookingforblockheads:kitchen_item_provider`|Block Tag|Inventory blocks whose content should be available to the cooking table.|`cookingforblockheads:counter` or other inventory blocks|
+|`cookingforblockheads:kitchen_connectors`|Block Tag|Blocks that should bridge the gap between kitchen blocks even if they're not directly touching.|`cookingforblockheads:kitchen_floor` or other kitchen-connecting blocks|
+|`cookingforblockheads:utensils`|Item Tag|Tool items that will show up differently in recipes when missing.|`minecraft:bucket` or other utensils like pots or knives|
+|`cookingforblockheads:food`|Item Tag|Food items that aren't edible directly, such as cakes that need to be placed down first.|`minecraft:cake` or other items that aren't directly edible|
+|`cookingforblockheads:ingredients`|Item Tag|Ingredient items that aren't edible directly but should be included in the cooking table.|`minecraft:sugar` or other items that aren't edible but should be craftable as ingredients|
+|`cookingforblockheads:milk`|Item Tag|Milk container items that should be provided by the Milk Jar.|`minecraft:milk_bucket` or other milk container items like milk bottles|
+|`cookingforblockheads:water`|Item Tag|Water container items that should be provided by the Sink.|`minecraft:water_bucket` or other water container items like water bottles|
+|`cookingforblockheads:excluded`|Item Tag|Items that should be excluded from showing up in the cooking table.|none by default|
+
+<NoteBox title="Item Providers">
+Be careful about what blocks you add as item providers and make sure to test them to avoid odd visual bugs, dupe bugs or even crashes.
+</NoteBox>
