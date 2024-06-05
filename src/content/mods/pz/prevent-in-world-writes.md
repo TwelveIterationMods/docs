@@ -7,6 +7,7 @@ loaders: ['Steam']
 category: Utilities
 steamId: 3121196793
 github: TwelveZeds/PreventInWorldWrites
+modId: PreventInWorldWrites
 ---
 
 Due to a Project Zomboid bug, writing to a notebook on the floor will not save its content unless the notebook is picked up and placed back down.

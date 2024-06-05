@@ -6,6 +6,7 @@ priority: 960
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Utilities
 curseForgeSlug: default-options
+modId: defaultoptions
 curseForgeId: 232131
 ---
 

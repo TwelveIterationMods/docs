@@ -6,6 +6,7 @@ priority: 890
 loaders: ['Forge']
 category: Content Expansion
 curseForgeSlug: ex-compressum
+modId: excompressum
 curseForgeId: 241967
 ---
 

@@ -6,6 +6,7 @@ priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: gravelminer
+modId: gravelminer
 curseForgeId: 244759
 ---
 

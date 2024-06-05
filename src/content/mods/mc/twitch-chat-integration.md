@@ -6,6 +6,7 @@ priority: 780
 loaders: ['Forge']
 category: Utilities
 curseForgeSlug: twitch-chat-integration
+modId: twitchintegration
 curseForgeId: 245491
 ---
 

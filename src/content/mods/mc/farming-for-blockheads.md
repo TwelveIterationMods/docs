@@ -7,6 +7,7 @@ item: farmingforblockheads:market
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: farming-for-blockheads
+modId: farmingforblockheads
 curseForgeId: 261924
 ---
 

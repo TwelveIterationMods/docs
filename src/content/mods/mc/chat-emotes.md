@@ -6,6 +6,7 @@ priority: 790
 loaders: ['Forge']
 category: Utilities
 curseForgeSlug: eiramoticons
+modId: eiramoticons
 curseForgeId: 230849
 ---
 

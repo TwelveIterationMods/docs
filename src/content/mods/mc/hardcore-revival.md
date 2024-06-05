@@ -6,6 +6,7 @@ priority: 880
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: hardcore-revival
+modId: hardcore-revival
 curseForgeId: 274036
 ---
 

@@ -6,5 +6,6 @@ priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Library
 curseForgeSlug: kuma
+modId: kuma
 curseForgeId: 1027078
 ---

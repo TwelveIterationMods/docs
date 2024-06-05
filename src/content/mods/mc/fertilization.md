@@ -6,6 +6,7 @@ priority: 840
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: fertilization
+modId: fertilization
 curseForgeId: 304095
 ---
 

@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: crafting-slots
 curseForgeId: 237581
+modId: craftingslots
 ---
 
 This mod adds an inventory crafting table as seen above, allowing you to craft straight from your inventory slots.

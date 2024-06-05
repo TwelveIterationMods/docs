@@ -6,6 +6,7 @@ priority: 820
 loaders: ['Forge']
 category: Quality of Life
 curseForgeSlug: thaumcraft-inventory-scanning
+modId: tcinventoryscan
 curseForgeId: 238003
 ---
 
