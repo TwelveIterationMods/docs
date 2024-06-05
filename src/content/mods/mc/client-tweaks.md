@@ -6,6 +6,7 @@ priority: 910
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: client-tweaks
+modId: clienttweaks
 curseForgeId: 251407
 ---
 

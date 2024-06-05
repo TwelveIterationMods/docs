@@ -6,6 +6,7 @@ priority: 920
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: kleeslabs
+modId: kleeslabs
 curseForgeId: 241895
 ---
 

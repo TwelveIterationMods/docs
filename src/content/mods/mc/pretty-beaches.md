@@ -6,6 +6,7 @@ priority: 870
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: pretty-beaches
+modId: prettybeaches
 curseForgeId: 290659
 ---
 

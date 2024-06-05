@@ -6,6 +6,7 @@ priority: 810
 loaders: ['Forge']
 category: Content Expansion
 curseForgeSlug: horse-tweaks
+modId: horsetweaks
 curseForgeId: 291218
 ---
 

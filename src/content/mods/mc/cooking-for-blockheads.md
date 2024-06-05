@@ -8,6 +8,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: cooking-for-blockheads
 curseForgeId: 231484
+modId: cookingforblockheads
 github: TwelveIterationMods/CookingForBlockheads
 ---
 

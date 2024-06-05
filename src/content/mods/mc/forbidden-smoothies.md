@@ -6,6 +6,7 @@ priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Library
 curseForgeSlug: forbidden-smoothies
+modId: forbiddensmoothies
 curseForgeId: 531761
 ---
 

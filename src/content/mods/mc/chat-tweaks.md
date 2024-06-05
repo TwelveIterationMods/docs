@@ -6,6 +6,7 @@ priority: 800
 loaders: ['Forge']
 category: Utilities
 curseForgeSlug: chat-tweaks
+modId: chattweaks
 curseForgeId: 243506
 ---
 

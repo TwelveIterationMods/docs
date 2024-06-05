@@ -6,6 +6,7 @@ loaders: ['Steam']
 category: Content Expansion
 steamId: 2804941576
 github: TwelveZeds/Polaroids
+modId: Polaroids
 ---
 
 Adds a Polaroid Camera and Printable Polaroids that can be viewed using the Steam Overlay or a Web Browser.

@@ -6,6 +6,7 @@ priority: 940
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: inventory-essentials
+modId: inventoryessentials
 curseForgeId: 368825
 ---
 

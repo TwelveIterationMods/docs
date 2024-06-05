@@ -7,6 +7,7 @@ loaders: ['Steam']
 category: Utilities
 steamId: 3121164621
 github: TwelveZeds/CloneItems
+modId: CloneItems
 ---
 
 This mod simply allows admins to clone existing items.

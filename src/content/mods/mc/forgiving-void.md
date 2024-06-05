@@ -6,6 +6,7 @@ priority: 900
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
 curseForgeSlug: forgiving-void
+modId: forgivingvoid
 curseForgeId: 271009
 ---
 

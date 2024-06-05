@@ -7,6 +7,7 @@ loaders: ['Steam']
 category: Utilities
 steamId: 3120754047
 github: TwelveZeds/RenameAllItems
+modId: RenameAllItems
 ---
 
 This mod simply allows all players to rename all items.

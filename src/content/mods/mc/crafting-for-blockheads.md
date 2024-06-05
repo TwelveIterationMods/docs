@@ -7,6 +7,7 @@ cover: ./crafting-for-blockheads.png
 icon: mdi:anvil
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Content Expansion
+modId: craftingforblockheads
 github: TwelveIterationMods/CraftingForBlockheads
 ---
 

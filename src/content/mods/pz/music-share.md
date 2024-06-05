@@ -7,6 +7,7 @@ loaders: ['Steam']
 category: Utilities
 steamId: 3120715269
 github: TwelveZeds/MusicShare
+modId: MusicShare
 ---
 
 Allows players to share YouTube links for music in an immersive manner to those nearby.

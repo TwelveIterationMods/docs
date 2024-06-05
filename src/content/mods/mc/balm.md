@@ -6,6 +6,7 @@ priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Library
 curseForgeSlug: balm
+modId: balm
 curseForgeId: 531761
 ---
 

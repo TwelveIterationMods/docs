@@ -6,6 +6,7 @@ priority: 770
 loaders: ['Forge']
 category: Utilities
 curseForgeSlug: subheads
+modId: subheads
 curseForgeId: 236798
 ---
 

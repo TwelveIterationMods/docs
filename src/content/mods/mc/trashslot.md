@@ -6,6 +6,7 @@ cover: ./trashslot.png
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: trashslot
+modId: trashslot
 curseForgeId: 235577
 github: TwelveIterationMods/TrashSlot
 ---

@@ -6,6 +6,7 @@ cover: ./crafting-tweaks.png
 loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: crafting-tweaks
+modId: craftingtweaks
 curseForgeId: 233071
 ---
 

@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 category: Quality of Life
 curseForgeSlug: netherportalfix
 curseForgeId: 241160
+modId: netherportalfix
 github: TwelveIterationMods/NetherPortalFix
 ---
 
