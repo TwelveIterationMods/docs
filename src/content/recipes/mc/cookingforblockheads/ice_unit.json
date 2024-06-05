@@ -1,21 +1,23 @@
 {
-  "result": {
-    "item": "cookingforblockheads:ice_unit"
-  },
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "S": {
+      "item": "minecraft:snowball"
+    }
+  },
   "pattern": [
     "SSS",
     "ICI"
   ],
-  "key": {
-    "S": {
-      "item": "minecraft:snowball"
-    },
-    "I": {
-      "tag": "forge:ingots/iron"
-    },
-    "C": {
-      "item": "minecraft:comparator"
-    }
+  "result": {
+    "count": 1,
+    "id": "cookingforblockheads:ice_unit"
   }
 }

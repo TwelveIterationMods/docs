@@ -1,11 +1,16 @@
 {
-  "result": {
-    "item": "cookingforblockheads:spice_rack"
-  },
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
       "tag": "minecraft:wooden_slabs"
     }
-  ]
+  },
+  "pattern": [
+    "SS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "cookingforblockheads:spice_rack"
+  }
 }

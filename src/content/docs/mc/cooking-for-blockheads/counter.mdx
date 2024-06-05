@@ -4,6 +4,7 @@ type: item
 item: cookingforblockheads:counter
 ---
 import CraftingRecipe from '../../../../components/mc/CraftingRecipe.astro'
+import RecipeContainer from '../../../../components/RecipeContainer.astro';
 import InterfaceScreen from '../../../../components/InterfaceScreen.astro';
 import InterfaceArea from '../../../../components/InterfaceArea.astro';
 import counterImage from './counter.png'
@@ -20,7 +21,26 @@ The Kitchen Counter can be dyed by right-clicking it with a dye.
 
 ### Crafting
 
-<CraftingRecipe recipe="cookingforblockheads:kitchen_counter"/>
+<RecipeContainer>
+    <CraftingRecipe recipe="cookingforblockheads:counter"/>
+    <CraftingRecipe recipe="cookingforblockheads:dye_white_counter"/>
+    <CraftingRecipe recipe="cookingforblockheads:dye_black_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_blue_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_brown_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_cyan_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_gray_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_green_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_light_blue_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_light_gray_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_lime_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_magenta_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_orange_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_pink_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_purple_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_red_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_white_counter" />
+    <CraftingRecipe recipe="cookingforblockheads:dye_yellow_counter" />
+</RecipeContainer>
 
 ### Interface
 

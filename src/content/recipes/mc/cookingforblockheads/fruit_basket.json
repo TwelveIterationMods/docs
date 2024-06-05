@@ -1,17 +1,19 @@
 {
-  "result": {
-    "item": "cookingforblockheads:fruit_basket"
-  },
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "minecraft:wooden_pressure_plates"
+    },
+    "S": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
   "pattern": [
     "SPS"
   ],
-  "key": {
-    "S": {
-      "tag": "wooden_slabs"
-    },
-    "P": {
-      "tag": "minecraft:wooden_pressure_plates"
-    }
+  "result": {
+    "count": 1,
+    "id": "cookingforblockheads:fruit_basket"
   }
 }
