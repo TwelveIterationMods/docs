@@ -49,10 +49,7 @@ onMounted(() => {
 <template>
     <div>
         <h1 class="text-2xl text-center mb-4">Preparing your download...</h1>
-        <div class="mb-4 flex justify-center">
-            <a href="/sponsor"><img src="https://mods.twelveiterations.com/img/sponsor.png" alt="Support the Development for only $2 a month." /></a>
-        </div>
-        <div class="mb-4">
+        <div class="mb-4 aspect-video">
             <div id="ntr-download-video"></div>
         </div>
         <div class="text-lg text-center mt-4">
