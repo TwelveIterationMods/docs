@@ -3,6 +3,7 @@ import { getEntry } from 'astro:content';
 import Tags from '../../utils/tags';
 import { ref, computed, onMounted, onUnmounted, watchEffect } from 'vue';
 import getGameImage from '../../utils/image';
+import { redirectMappings } from '../../utils/redirects';
 
 const props = defineProps<{
     item: string;
@@ -36,7 +37,9 @@ const itemUrl = computed(() => {
         return `/mc/${tagNamespace}/${tagPath}`;
     }
 
-    return '/mc/' + namespace.value + '/' + path.value;
+    const redirect = redirectMappings.get(path.value);
+
+    return '/mc/' + namespace.value + '/' + (redirect ?? path.value);
 });
 
 let variantTicker: ReturnType<typeof setInterval> | null = null;
