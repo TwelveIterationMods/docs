@@ -1,0 +1,39 @@
+[
+    {
+        "name": "compressRequiresCraftingGrid",
+        "type": "boolean",
+        "description": "Set this to false if you want the (de)compress feature to work outside of crafting GUIs (only works if installed on server while in the player inventory)",
+        "defaultValue": true
+    },
+    {
+        "name": "compressDenylist",
+        "type": "List",
+        "description": "A list of modid:name entries that will not be crafted by the compress key.",
+        "defaultValue": ["minecraft:sandstone", "minecraft:iron_trapdoor"]
+    },
+    {
+        "name": "rightClickCraftsStack",
+        "type": "boolean",
+        "description": "If set to true, right-clicking the result slot in a crafting table will craft a full stack.",
+        "defaultValue": true
+    },
+    {
+        "name": "hideVanillaCraftingGuide",
+        "type": "boolean",
+        "description": "We both know JEI is much better. This option hides Vanilla\u0027s crafting book button instead of moving it.",
+        "defaultValue": false
+    },
+    {
+        "name": "mode",
+        "type": "CraftingTweaksMode",
+        "description": "Set to \u0027DEFAULT\u0027 to enable both buttons and hotkeys. Set to \u0027BUTTONS\u0027 to enable buttons only. Set to \u0027HOTKEYS\u0027 to enable hotkeys only. Set to \u0027DISABLED\u0027 to disable completely.",
+        "defaultValue": "DEFAULT",
+        "validValues": ["DEFAULT", "BUTTONS", "HOTKEYS", "DISABLED"]
+    },
+    {
+        "name": "disabledAddons",
+        "type": "List",
+        "description": "Add mod ids here of mods that you wish to disable Crafting Tweaks support for.",
+        "defaultValue": []
+    }
+]
