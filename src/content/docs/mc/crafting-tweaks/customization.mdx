@@ -1,0 +1,79 @@
+---
+title: Customization
+type: guide
+icon: mdi:puzzle-edit
+---
+
+### Debugging Tools
+
+You can use the `/craftingtweaks debug` command to toggle Crafting Tweaks' debug mode. This mode will allow you to easily analyze a mod's crafting grid and output the necessary JSON for a data pack.
+
+After enabling the debug mode, open the mod's crafting menu screen and click-drag over the crafting grid slots (they should highlight in green).
+Once you let go, check your `latest.log` for the JSON output to paste into your data pack.
+
+Note that this may not always work correctly on all crafting grids, especially if they are more complex or dynamic. In those cases, the data pack API will most likely not be sufficient to support the mod.
+
+You can see an example of this feature on [this Twitter post](https://x.com/BlayTheNinth/status/1702708507558990333).
+
+### Custom Crafting Grids
+
+Crafting Tweaks supports loading data packs to extend its functionality onto crafting grids added by third party mods.
+
+Crafting Tweaks data packs are located in a folder called `craftingtweaks_compat` within your data pack and behave like any other data resource, i.e. they are namespaced and must be referenced as such.
+
+**Example:**
+
+```json
+{
+    "modid": "storagenetwork",
+    "silent": false,
+    "containerClass": "com.lothrazar.storagenetwork.block.request.ContainerNetworkCraftingTable",
+    "gridSlotNumber": 1,
+    "gridSize": 9,
+    "alignToGrid": "left",
+    "buttonStyle": "small_width",
+    "hideButtons": false,
+    "phantomItems": false,
+    "tweakRotate": {
+        "enabled": true,
+        "showButton": true
+    },
+    "tweakBalance": {
+        "enabled": true,
+        "showButton": true
+    },
+    "tweakClear": {
+        "enabled": true,
+        "showButton": true
+    }
+}
+```
+
+| Field            | Description                                                                                                                                     | Default     |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `modid`          | The mod ID of the mod that adds the crafting grid.                                                                                              | (required)  |
+| `enabled`        | Whether the data pack is enabled.                                                                                                               | `true`      |
+| `silent`         | Whether to suppress log messages when the data pack is loaded.                                                                                  | `false`     |
+| `containerClass` | The fully qualified class name of the container menu class.                                                                                     | (required)  |
+| `gridSlotNumber` | The slot number where the grid starts.                                                                                                          | `1`         |
+| `gridSize`       | The size of the crafting grid.                                                                                                                  | `9`         |
+| `alignToGrid`    | The alignment of the tweak buttons. Can be `left`, `right`, `top` or `bottom`.                                                                  | `left`      |
+| `buttonOffsetX`  | The X offset of the tweak buttons.                                                                                                              | `0`         |
+| `buttonOffsetY`  | The Y offset of the tweak buttons.                                                                                                              | `0`         |
+| `buttonStyle`    | The style of the tweak buttons. Can be `default`, `small_width`, `small_height` or `small`.                                                     | `default`   |
+| `hideButtons`    | Whether to show any tweak buttons. Without tweak buttons, only the key binds will work.                                                         | `false`     |
+| `phantomItems`   | Whether items in this crafting grid are phantom items. Will cause clearing the grid to void them instead of transferring them to the inventory. | `false`     |
+| `tweakRotate`    | Configuration for the rotate tweak.                                                                                                             | (see below) |
+| `tweakBalance`   | Configuration for the balance tweak.                                                                                                            | (see below) |
+| `tweakClear`     | Configuration for the clear tweak.                                                                                                              | (see below) |
+
+#### Tweak Configuration
+
+Each tweak configuration object has the following fields:
+
+| Field        | Description                           | Default |
+| ------------ | ------------------------------------- | ------- |
+| `enabled`    | Whether the tweak is enabled.         | `true`  |
+| `showButton` | Whether to show button for the tweak. | `true`  |
+| `buttonX`    | The X position of the button.         | `0`     |
+| `buttonY`    | The Y position of the button.         | `0`     |
