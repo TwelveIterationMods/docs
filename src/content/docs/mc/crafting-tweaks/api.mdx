@@ -18,6 +18,8 @@ You can learn about the available API methods on [our GitHub repository](https:/
 
 A good starting point is the `CraftingTweaksAPI` or `CraftingTweaksClientAPI` class. They will allow you to register a `CraftingGridProvider` to define crafting grids within a container menu, and optionally a `GridGuiHandler` to customize the placement of the tweak buttons.
 
+You can find an example of how `CraftingGridProvider` is implemented for Vanilla in the [`VanillaCraftingGridProvider` class](https://github.com/TwelveIterationMods/CraftingTweaks/blob/1.20.x/common/src/main/java/net/blay09/mods/craftingtweaks/compat/VanillaCraftingGridProvider.java).
+
 If you have any questions or need help, feel free to join our [Discord server](https://discord.gg/VAfZ2Nau6j).
 
 ---
@@ -27,7 +29,7 @@ If you have any questions or need help, feel free to join our [Discord server](h
 Most likely, you will want to implement your Crafting Tweaks support as a soft-dependency to prevent your mod from erroring if the user does not have Crafting Tweaks installed.
 
 The safest way of doing so is to load your Crafting Tweaks addon class only if the mod `craftingtweaks` is loaded.
-This should be done using reflection, as any direct reference to `new YourCraftingTweaksAddon()` directly would attempt to load the class even if the mod is not present.
+This should be done using reflection, as any direct reference to `new YourCraftingTweaksAddon()` would cause Java to preemptively load the class even if the mod is not present.
 
 Pseudo-code Example:
 
