@@ -4,6 +4,7 @@ description: Break only the half of a double slab that you're looking at.
 cover: ./kleeslabs.png
 priority: 920
 loaders: ['Forge', 'Fabric', 'NeoForge']
+gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: kleeslabs
 modId: kleeslabs

@@ -3,3 +3,110 @@ title: Developer API
 type: guide
 icon: mdi:code-tags
 ---
+
+Crafting Tweaks provides both a Java API for developers as well as [customization through datapacks](./customization).
+
+Both can be used to make crafting grids compatible with Crafting Tweaks. The data pack API is recommended for most cases - the Java API can be used for more complex dynamic crafting grids that cannot be represented in a data pack.
+
+This guide will help you get started with the Crafting Tweaks API.
+
+---
+
+### API Overview
+
+You can learn about the available API methods on [our GitHub repository](https://github.com/TwelveIterationMods/CraftingTweaks/tree/1.20.x/common/src/main/java/net/blay09/mods/craftingtweaks/api).
+
+A good starting point is the `CraftingTweaksAPI` or `CraftingTweaksClientAPI` class. They will allow you to register a `CraftingGridProvider` to define crafting grids within a container menu, and optionally a `GridGuiHandler` to customize the placement of the tweak buttons.
+
+If you have any questions or need help, feel free to join our [Discord server](https://discord.gg/VAfZ2Nau6j).
+
+---
+
+### Implementing a Soft Dependency
+
+Most likely, you will want to implement your Crafting Tweaks support as a soft-dependency to prevent your mod from erroring if the user does not have Crafting Tweaks installed.
+
+The safest way of doing so is to load your Crafting Tweaks addon class only if the mod `craftingtweaks` is loaded.
+This should be done using reflection, as any direct reference to `new YourCraftingTweaksAddon()` directly would attempt to load the class even if the mod is not present.
+
+Pseudo-code Example:
+
+```java
+@Mod("yourmod")
+public class YourMod {
+    public YourMod() {
+        // ...
+
+        if (ModList.get().isLoaded("craftingtweaks")) {
+            try {
+                Class.forName("net.yourmod.compat.YourCraftingTweaksAddon").getConstructor().newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class YourCraftingTweaksAddon {
+    public YourCraftingTweaksAddon() {
+        CraftingTweaksAPI.registerCraftingGridProvider(new YourCraftingGridProvider());
+    }
+}
+```
+
+### Adding Crafting Tweaks to your Development Environment
+
+#### Using CurseMaven
+
+```groovy
+repositories {
+    maven { url "https://www.cursemaven.com" }
+}
+
+dependencies {
+    // Replace ${craftingtweaks_file_id} with the id of the file you want to depend on. You can find it in the URL of the file on CurseForge (e.g. 5368374).
+
+    // NeoForge:
+    implementation "curse.maven:crafting-tweaks-235577:${craftingtweaks_file_id}"
+    // Fabric:
+    implementation "curse.maven:crafting-tweaks-fabric-547689:${craftingtweaks_file_id}"
+    // Forge after Minecraft 1.20.6:
+    implementation "curse.maven:crafting-tweaks-235577:${craftingtweaks_file_id}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("curse.maven:crafting-tweaks-235577:${craftingtweaks_file_id}")
+}
+```
+
+CurseMaven is great for building against officially released versions, but it does not provide access to snapshot versions or common jars (mojmap) for multi-loader environments.
+
+If you need access to those, you can use Twelve Iterations Maven instead.
+
+#### Using Twelve Iterations Maven
+
+```groovy
+repositories {
+    maven {
+        url "https://maven.twelveiterations.com/repository/maven-public/"
+
+        content {
+            includeGroup "net.blay09.mods"
+        }
+    }
+}
+
+dependencies {
+    // Replace ${craftingtweaks_version} with the version you want to depend on.
+    // You can find the latest version for a given Minecraft version at https://maven.twelveiterations.com/service/rest/repository/browse/maven-public/net/blay09/mods/craftingtweaks-common/
+
+    // Common (mojmap):
+    implementation "net.blay09.mods:craftingtweaks-common:${craftingtweaks_version}"
+    // NeoForge:
+    implementation "net.blay09.mods:craftingtweaks-neoforge:${craftingtweaks_version}"
+    // Fabric:
+    implementation "net.blay09.mods:craftingtweaks-fabric:${craftingtweaks_version}"
+    // Forge after Minecraft 1.20.6:
+    implementation "net.blay09.mods:craftingtweaks-forge:${craftingtweaks_version}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("net.blay09.mods:craftingtweaks-forge:${craftingtweaks_version}")
+}
+```

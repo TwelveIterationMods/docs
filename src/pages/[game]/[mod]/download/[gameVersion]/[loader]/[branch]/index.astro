@@ -3,15 +3,15 @@ import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon';
 import Layout from '../../../../../../../layouts/Layout.astro';
 
+export const prerender = false;
+
 export async function getStaticPaths() {
-    const gameVersions = ['1.20.1', '1.20.4', '1.20.6'];
-    const loaders = ['fabric', 'forge', 'neoforge'];
     const branches = ['release', 'snapshot'];
     const modEntries = await getCollection('mods');
-    return gameVersions.flatMap((gameVersion) =>
-        loaders.flatMap((loader) =>
-            branches.flatMap((branch) =>
-                modEntries.map((entry) => {
+    return modEntries.flatMap((entry) =>
+        entry.data.gameVersions.flatMap((gameVersion) =>
+            entry.data.loaders.flatMap((loader) =>
+                branches.flatMap((branch) => {
                     const parts = entry.slug.split('/');
                     return {
                         params: { game: parts[0], mod: parts[1], gameVersion, branch, loader },
@@ -66,7 +66,7 @@ async function searchMaven(
 const { entry, gameVersion, loader, branch } = Astro.props;
 const repository = branch === 'snapshot' ? 'maven-snapshots' : 'maven-releases';
 const modId = entry.data.modId;
-const versions = await searchMaven(repository, 'net.blay09.mods', modId + '-' + loader);
+const versions = await searchMaven(repository, 'net.blay09.mods', modId + '-' + loader.toLowerCase());
 const jars = versions.map((version) => {
     const jarAsset = version.assets.find(
         (asset) => asset.contentType == 'application/java-archive' && asset.maven2.extension === 'jar' && !asset.maven2.classifier
@@ -79,8 +79,7 @@ const jars = versions.map((version) => {
     };
 });
 const filteredJars = jars.filter((jar) => jar?.version.endsWith('+' + gameVersion));
-const friendlyLoader = loader === 'neoforge' ? 'NeoForge' : loader.charAt(0).toUpperCase() + loader.slice(1);
-const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + friendlyLoader + ')';
+const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + loader + ')';
 
 const humanizeFileSize = (bytes: number) => {
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -122,7 +121,7 @@ const humanizeVersion = (version?: string) => {
                 filteredJars.map((jar) => (
                     <tr>
                         <td>{humanizeVersion(jar.version)}</td>
-                        <td>{friendlyLoader}</td>
+                        <td>{loader}</td>
                         <td>{gameVersion}</td>
                         <td>{humanizeTimestamp(jar.lastModified)}</td>
                         <td>{humanizeFileSize(jar.fileSize)}</td>

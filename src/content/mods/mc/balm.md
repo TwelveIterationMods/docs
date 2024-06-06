@@ -4,6 +4,7 @@ description: Library mod required for all of BlayTheNinth's mods.
 cover: ./balm.png
 priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
+gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Library
 curseForgeSlug: balm
 modId: balm

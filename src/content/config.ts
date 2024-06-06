@@ -24,6 +24,7 @@ const modsCollection = defineCollection({
             icon: z.string().optional(),
             item: z.string().optional(),
             description: z.string(),
+            gameVersions: z.string().array().default([]),
             loaders: z.array(z.enum(['Forge', 'Fabric', 'NeoForge', 'Steam'])),
             category: z.enum(categories),
             github: z.string().optional(),

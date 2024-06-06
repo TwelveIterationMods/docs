@@ -4,6 +4,7 @@ description: Twitch Emotes and Image Preview. Also basically like BetterTTV but 
 cover: ./chat-tweaks.png
 priority: 800
 loaders: ['Forge']
+gameVersions: []
 category: Utilities
 curseForgeSlug: chat-tweaks
 modId: chattweaks

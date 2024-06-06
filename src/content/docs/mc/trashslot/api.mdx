@@ -3,3 +3,76 @@ title: Developer API
 type: guide
 icon: mdi:code-tags
 ---
+
+TrashSlot provides an API for developers to register custom layout handles for the TrashSlot drag-drop and snapping features.
+
+This guide will help you get started with the TrashSlot API.
+
+---
+
+### API Overview
+
+You can learn about the available API methods on [our GitHub repository](https://github.com/TwelveIterationMods/TrashSlot/tree/1.20.x/common/src/main/java/net/blay09/mods/trashslot/api).
+
+A good starting point is the `TrashSlotAPI` class.
+
+If you have any questions or need help, feel free to join our [Discord server](https://discord.gg/VAfZ2Nau6j).
+
+---
+
+### Adding TrashSlot to your Development Environment
+
+#### Using CurseMaven
+
+```groovy
+repositories {
+    maven { url "https://www.cursemaven.com" }
+}
+
+dependencies {
+    // Replace ${trashslot_file_id} with the id of the file you want to depend on. You can find it in the URL of the file on CurseForge (e.g. 5368374).
+
+    // NeoForge:
+    implementation "curse.maven:trashslot-235577:${trashslot_file_id}"
+    // Fabric:
+    implementation "curse.maven:trashslot-fabric-547689:${trashslot_file_id}"
+    // Forge after Minecraft 1.20.6:
+    implementation "curse.maven:trashslot-235577:${trashslot_file_id}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("curse.maven:trashslot-235577:${trashslot_file_id}")
+}
+```
+
+CurseMaven is great for building against officially released versions, but it does not provide access to snapshot versions or common jars (mojmap) for multi-loader environments.
+
+If you need access to those, you can use Twelve Iterations Maven instead.
+
+#### Using Twelve Iterations Maven
+
+```groovy
+repositories {
+    maven {
+        url "https://maven.twelveiterations.com/repository/maven-public/"
+
+        content {
+            includeGroup "net.blay09.mods"
+        }
+    }
+}
+
+dependencies {
+    // Replace ${trashslot_version} with the version you want to depend on.
+    // You can find the latest version for a given Minecraft version at https://maven.twelveiterations.com/service/rest/repository/browse/maven-public/net/blay09/mods/trashslot-common/
+
+    // Common (mojmap):
+    implementation "net.blay09.mods:trashslot-common:${trashslot_version}"
+    // NeoForge:
+    implementation "net.blay09.mods:trashslot-neoforge:${trashslot_version}"
+    // Fabric:
+    implementation "net.blay09.mods:trashslot-fabric:${trashslot_version}"
+    // Forge after Minecraft 1.20.6:
+    implementation "net.blay09.mods:trashslot-forge:${trashslot_version}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("net.blay09.mods:trashslot-forge:${trashslot_version}")
+}
+```

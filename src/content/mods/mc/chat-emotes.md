@@ -4,6 +4,7 @@ description: Twitch Emotes in Minecraft.
 cover: ./chat-emotes.png
 priority: 790
 loaders: ['Forge']
+gameVersions: []
 category: Utilities
 curseForgeSlug: eiramoticons
 modId: eiramoticons
