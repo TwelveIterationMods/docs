@@ -1,0 +1,18 @@
+---
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+    game: string;
+    namespace: string;
+}
+
+const { game, namespace } = Astro.props;
+
+const gallery = await getEntry('galleries', game + '/' + namespace.replace(':', '/'));
+const images = gallery?.data.images ?? [];
+---
+
+<div class="grid grid-cols-3 gap-4">
+    {images.map((image: any) => <Image src={image.file} alt={image.alt} />)}
+</div>

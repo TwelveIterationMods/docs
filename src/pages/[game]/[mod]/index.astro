@@ -8,6 +8,7 @@ import getGameImage from '../../../utils/image';
 import ForgeBadge from '../../../components/mc/ForgeBadge.astro';
 import FabricBadge from '../../../components/mc/FabricBadge.astro';
 import NeoForgeBadge from '../../../components/mc/NeoForgeBadge.astro';
+import ImageCarousel from '../../../components/GalleryCarousel.astro';
 import curseForgeLogo from './curseforge.svg';
 import discordLogo from './discord.svg';
 import githubLogo from './github.svg';
@@ -28,6 +29,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const game = entry.slug.split('/')[0];
+const mod = entry.slug.split('/')[1];
 const { Content } = await entry.render();
 
 const allItems = await getCollection('docs', (it) => {
@@ -166,6 +168,8 @@ const steamUrl = entry.data.steamId ? `https://steamcommunity.com/sharedfiles/fi
     </div>
 
     <div class="divider"></div>
+
+    <ImageCarousel game={game} namespace={mod + ':gallery'} />
 
     <ModSidebar entry={entry} slot="sidebar" />
 </Layout>

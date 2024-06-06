@@ -46,6 +46,19 @@ const docsCollection = defineCollection({
     }),
 });
 
+const galleriesCollection = defineCollection({
+    type: 'data',
+    schema: ({ image }) =>
+        z.object({
+            images: z
+                .object({
+                    file: image(),
+                    alt: z.string(),
+                })
+                .array(),
+        }),
+});
+
 const recipesCollection = defineCollection({
     type: 'data',
     schema: z.object({
@@ -113,6 +126,7 @@ export const collections = {
     games: gamesCollection,
     mods: modsCollection,
     docs: docsCollection,
+    galleries: galleriesCollection,
     recipes: recipesCollection,
     configs: configCollection,
     i18n: i18nCollection,

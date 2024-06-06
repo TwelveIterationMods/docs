@@ -1,0 +1,16 @@
+{
+    "images": [
+        {
+            "file": "./showcase.png",
+            "alt": "Waystone at the top of a mountain"
+        },
+        {
+            "file": "./waystone_selection.png",
+            "alt": "Screen for selecting a waystone to teleport to"
+        },
+        {
+            "file": "./inventory_button.png",
+            "alt": "Teleport button inside the player inventory"
+        }
+    ]
+}
