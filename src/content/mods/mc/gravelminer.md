@@ -4,6 +4,7 @@ description: Automatically (insta-)mines falling gravel blocks that get in your 
 cover: ./gravelminer.png
 priority: 860
 loaders: ['Forge', 'Fabric', 'NeoForge']
+gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: gravelminer
 modId: gravelminer

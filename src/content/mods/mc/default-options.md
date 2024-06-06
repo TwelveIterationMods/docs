@@ -4,6 +4,7 @@ description: A way for modpacks to ship a default (key) configuration without ha
 cover: ./default-options.png
 priority: 960
 loaders: ['Forge', 'Fabric', 'NeoForge']
+gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Utilities
 curseForgeSlug: default-options
 modId: defaultoptions
