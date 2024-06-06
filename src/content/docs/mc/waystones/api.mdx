@@ -3,3 +3,78 @@ title: Developer API
 type: guide
 icon: mdi:code-tags
 ---
+
+Waystones provides an API for developers to interact with the mod, extend certain areas of it, and react to events.
+
+This guide will help you get started with the Waystones API.
+
+---
+
+### API Overview
+
+You can learn about the available API methods on [our GitHub repository](https://github.com/TwelveIterationMods/Waystones/tree/1.20.x/common/src/main/java/net/blay09/mods/waystones/api).
+
+A good starting point is the `WaystonesAPI` class, or the various [events](https://github.com/TwelveIterationMods/Waystones/tree/1.20.x/common/src/main/java/net/blay09/mods/waystones/api/event) you can listen to.
+
+Events are posted on the regular NeoForge/Forge event bus. On Fabric or multi-loader environments, you can use e.g. `Balm.getEvents().onEvent(WaystoneActivatedEvent.class, this::onWaystoneActivated);` instead.
+
+If you have any questions or need help, feel free to join our [Discord server](https://discord.gg/VAfZ2Nau6j).
+
+---
+
+### Adding Waystones to your Development Environment
+
+#### Using CurseMaven
+
+```groovy
+repositories {
+    maven { url "https://www.cursemaven.com" }
+}
+
+dependencies {
+    // Replace ${waystones_file_id} with the id of the file you want to depend on. You can find it in the URL of the file on CurseForge (e.g. 3914527).
+
+    // NeoForge:
+    implementation "curse.maven:waystones-245755:${waystones_file_id}"
+    // Fabric:
+    implementation "curse.maven:waystones-fabric-500087:${waystones_file_id}"
+    // Forge after Minecraft 1.20.6:
+    implementation "curse.maven:waystones-245755:${waystones_file_id}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("curse.maven:waystones-245755:${waystones_file_id}")
+}
+```
+
+CurseMaven is great for building against officially released versions, but it does not provide access to snapshot versions or common jars (mojmap) for multi-loader environments.
+
+If you need access to those, you can use Twelve Iterations Maven instead.
+
+#### Using Twelve Iterations Maven
+
+```groovy
+repositories {
+    maven {
+        url "https://maven.twelveiterations.com/repository/maven-public/"
+
+        content {
+            includeGroup "net.blay09.mods"
+        }
+    }
+}
+
+dependencies {
+    // Replace ${waystones_version} with the version you want to depend on.
+    // You can find the latest version for a given Minecraft version at https://maven.twelveiterations.com/service/rest/repository/browse/maven-public/net/blay09/mods/waystones-common/
+
+    // Common (mojmap):
+    implementation "net.blay09.mods:waystones-common:${waystones_version}"
+    // NeoForge:
+    implementation "net.blay09.mods:waystones-neoforge:${waystones_version}"
+    // Fabric:
+    implementation "net.blay09.mods:waystones-fabric:${waystones_version}"
+    // Forge after Minecraft 1.20.6:
+    implementation "net.blay09.mods:waystones-forge:${waystones_version}"
+    // Forge before Minecraft 1.20.6:
+    implementation fg.deobf("net.blay09.mods:waystones-forge:${waystones_version}")
+}
+```
