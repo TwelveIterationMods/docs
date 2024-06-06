@@ -5,32 +5,43 @@ icon: mdi:book-open-variant
 priority: 1000
 ---
 
+import NoteBox from '../../../../components/NoteBox.astro';
+
 ### Table of Contents
 
 ### How to disable xp cost?
 
-In recent versions of Waystones, distance-based xp cost is disabled by default.
-Dimensional warps will still cost XP as governed by the `dimensionalWarpXpCost` config option.
+To completely disable all XP costs, set `enableCosts` to `false` in the [config file](./config).
 
-Set `maximumBaseXpCost` and `dimensionalWarpXpCost` to 0 in the config file.
+Alternatively, you can also tweak individual costs in the `warpRequirements` property.
+
+<NoteBox title="Older Versions of Minecraft">
+In some versions of Waystones, distance-based xp cost was disabled by default, while dimensional warps would still cost XP as governed by the `dimensionalWarpXpCost` config option.
+
+To completely disable XP cost in those versions, Set `maximumBaseXpCost` and `dimensionalWarpXpCost` to 0 in the config file.
+</NoteBox>
 
 ---
 
 ### How to enable xp cost?
 
-Set `waystoneXpCostMultiplier` to `1` and ensure `maximumBaseXpCost` is not set to `0` in the config file.
+To enable XP costs after they were disabled, set `enableCosts` to `true` in the [config file](./config).
 
-There are more xpCostMultiplier options for the different types of teleportation, so read through the config file to understand all possible options.
+If that doesn't work, your costs might be tweaks in the `warpRequirements` property. You can reset it to default by completing removing the line from your config file.
+
+<NoteBox title="Older Versions of Minecraft">
+Set `waystoneXpCostMultiplier` to `1`, and ensure `maximumBaseXpCost` is not set to `0` in the config file.
+
+There are more xpCostMultiplier options for the different types of teleportation, so read through the [config file](./config) to understand all possible options.
+</NoteBox>
 
 ---
 
 ### Warp Stone stuck at millions of seconds
 
-This issue has been fixed in recent versions.
+If you are in 1.18.2, 1.19.2, or 1.20.1 and later, **make sure you are on the latest version of Waystones** because this issue has been fixed.
 
-If you are in 1.18.2, 1.19.2, or 1.20.1 and later, **make sure you are on the latest version of Waystones**.
-
-If you are still encountering this on the latest release of one of the above versions, your server's time is likely not in sync with reality.
+If you are still encountering this on the latest release of Waystones, your server's time is likely not in sync with reality.
 Contact your server administrator to fix this.
 
 If you are encountering this on versions prior to 1.18.2, 1.19.2, or 1.20.1, or you're not running the latest version of Waystones on those versions,
@@ -89,6 +100,8 @@ Waystones only generate in villages generated through Vanilla Minecraft or certa
 Other generation mods may interfere with the generation of waystones in villages, especially ones that add new village types.
 
 Due to Minecraft limitations, it is not possible for Waystones to reliably generate in all modded village types.
+
+Some villages will still come without a waystone by default. You can change the [config option](./config) `spawnInVillages` to `FREQUENT` to force waystones to generate in almost all supported villages.
 
 ---
 
