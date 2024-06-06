@@ -7,8 +7,8 @@ loaders: [Forge, Fabric, NeoForge]
 category: Content Expansion
 item: waystones:waystone
 curseForgeId: 245755
-curseForgeSlug: waystones 
-modId: waystones 
+curseForgeSlug: waystones
+modId: waystones
 github: TwelveIterationMods/Waystones
 ---
 
