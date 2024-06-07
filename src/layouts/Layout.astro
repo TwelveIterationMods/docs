@@ -6,10 +6,11 @@ import logoImage from './logo.png';
 
 interface Props {
     title: string;
+    skipAds?: boolean;
     skipVideoAd?: boolean;
 }
 
-const { title, skipVideoAd } = Astro.props;
+const { title, skipAds, skipVideoAd } = Astro.props;
 
 const dev = import.meta.env.DEV;
 ---
@@ -49,7 +50,7 @@ const dev = import.meta.env.DEV;
             </script>
         )}
         
-        <script lang="javascript">
+        { !skipAds && (<script lang="javascript">
             const nitroAds = 'nitroAds' in window ? window.nitroAds : null;
             nitroAds?.createAd('ntr-sticky-side-rail', {
                 refreshTime: 30,
@@ -85,8 +86,8 @@ const dev = import.meta.env.DEV;
                 },
                 mediaQuery: '(min-width: 320px) and (max-width: 767px)',
             });
-        </script>
-        { !skipVideoAd && (<script lang="javascript">
+        </script>)}
+        { !skipAds && !skipVideoAd && (<script lang="javascript">
             const nitroAds2 = 'nitroAds' in window ? window.nitroAds : null;
             nitroAds2?.createAd('ntr-video', {
                 refreshTime: 30,
