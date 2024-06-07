@@ -15,7 +15,7 @@ export default defineConfig({
     integrations: [
         tailwind(),
         sitemap({
-            filter: (page) => !page.includes('/items/') && !page.equals('/download'),
+            filter: (page) => !page.includes('/items/'),
         }),
         mdx(),
         vue(),
