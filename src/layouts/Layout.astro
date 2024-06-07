@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, skipVideoAd } = Astro.props;
+
+const dev = import.meta.env.DEV;
 ---
 
 <!doctype html>
@@ -40,12 +42,19 @@ const { title, skipVideoAd } = Astro.props;
         </script>
         <script data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
 
-        <script>
-            const nitroAds = 'nitroAds' in window ? (window.nitroAds as any) : null;
+
+        { dev && (
+            <script lang="javascript">
+                dev = true
+            </script>
+        )}
+        
+        <script lang="javascript">
+            const nitroAds = 'nitroAds' in window ? window.nitroAds : null;
             nitroAds?.createAd('ntr-sticky-side-rail', {
                 refreshTime: 30,
                 format: 'rail',
-                demo: import.meta.env.DEV,
+                demo: dev,
                 rail: 'right',
                 railOffsetTop: 0,
                 railOffsetBottom: 0,
@@ -65,7 +74,7 @@ const { title, skipVideoAd } = Astro.props;
             nitroAds?.createAd('ntr-anchor', {
                 refreshTime: 30,
                 format: 'anchor',
-                demo: import.meta.env.DEV,
+                demo: dev,
                 anchor: 'bottom',
                 anchorPersistClose: true,
                 report: {
@@ -77,12 +86,12 @@ const { title, skipVideoAd } = Astro.props;
                 mediaQuery: '(min-width: 320px) and (max-width: 767px)',
             });
         </script>
-        { !skipVideoAd && (<script>
-            const nitroAds = 'nitroAds' in window ? (window.nitroAds as any) : null;
-            nitroAds?.createAd('ntr-video', {
+        { !skipVideoAd && (<script lang="javascript">
+            const nitroAds2 = 'nitroAds' in window ? window.nitroAds : null;
+            nitroAds2?.createAd('ntr-video', {
                 refreshTime: 30,
                 format: 'floating',
-                demo: import.meta.env.DEV,
+                demo: dev,
                 report: {
                     enabled: true,
                     icon: false,

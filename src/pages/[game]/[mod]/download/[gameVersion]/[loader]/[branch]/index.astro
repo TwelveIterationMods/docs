@@ -1,11 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import { Icon } from 'astro-icon';
 import { Image } from 'astro:assets';
-import curseForgeLogo from '../../../../curseforge.svg';
+import curseForgeLogo from '../../../../_curseforge.svg';
 import modrinthLogo from '../../../../_modrinth.svg';
 import Layout from '../../../../../../../layouts/Layout.astro';
-import searchMaven from '../../../../../../../utils/search-maven';
+import MavenTable from '../../../../../../../components/MavenTable.vue';
 
 export async function getStaticPaths() {
     const branches = ['release', 'snapshot'];
@@ -26,43 +25,8 @@ export async function getStaticPaths() {
 }
 
 const { entry, gameVersion, loader, branch } = Astro.props;
-const repository = branch === 'snapshot' ? 'maven-snapshots' : 'maven-releases';
-const modId = entry.data.modId;
-const versions = await searchMaven(repository, 'net.blay09.mods', modId + '-' + loader.toLowerCase());
-const jars = versions.map((version) => {
-    const jarAsset = version.assets.find(
-        (asset) => asset.contentType == 'application/java-archive' && asset.maven2.extension === 'jar' && !asset.maven2.classifier
-    );
-    return {
-        version: version.version,
-        downloadUrl: jarAsset?.downloadUrl.replace('maven-snapshots', 'maven-public').replace('maven-releases', 'maven-public') ?? '',
-        fileSize: jarAsset?.fileSize ?? 0,
-        lastModified: jarAsset?.lastModified,
-    };
-});
-const filteredJars = jars.filter((jar) => jar?.version.endsWith('+' + gameVersion));
+
 const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + loader + ')';
-
-const humanizeFileSize = (bytes: number) => {
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes === 0) return '0 Byte';
-    const i = Math.floor(Math.log(bytes) / Math.log(1024));
-    return parseFloat((bytes / Math.pow(1024, i)).toFixed(2)) + ' ' + sizes[i];
-};
-
-const humanizeTimestamp = (timestamp?: string) => {
-    if (!timestamp) {
-        return 'Unknown';
-    }
-
-    const date = new Date(timestamp);
-    return date.toLocaleString();
-};
-
-const humanizeVersion = (version?: string) => {
-    return version?.split('+')[0];
-};
-
 const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
 const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.data.modrinthSlug}` : null;
 ---
@@ -70,39 +34,9 @@ const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.
 <Layout title={title}>
     <h1 class="text-4xl text-center mb-4">{title}</h1>
 
-    <table class="table mb-4">
-        <thead>
-            <tr>
-                <th>Version</th>
-                <th>Loader</th>
-                <th>Game Version</th>
-                <th>Released at</th>
-                <th>File Size</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {
-                filteredJars.map((jar) => (
-                    <tr>
-                        <td>{humanizeVersion(jar.version)}</td>
-                        <td>{loader}</td>
-                        <td>{gameVersion}</td>
-                        <td>{humanizeTimestamp(jar.lastModified)}</td>
-                        <td>{humanizeFileSize(jar.fileSize)}</td>
-                        <td>
-                            <a
-                                href={'/download?v=' + encodeURIComponent(jar.downloadUrl)}
-                                class="btn btn-square btn-sm btn-success"
-                            >
-                                <Icon name="mdi:download" class="w-6" />
-                            </a>
-                        </td>
-                    </tr>
-                ))
-            }
-        </tbody>
-    </table>
+    <div class="text-center"></div>
+
+    <MavenTable client:load modData={entry.data} branch={branch} loader={loader} gameVersion={gameVersion} />
 
     <div class="divider"></div>
 
@@ -129,7 +63,7 @@ const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.
 
     <div class="divider"></div>
 
-    <div class="mb-4 flex justify-center">
+    <!--<div class="mb-4 flex justify-center">
         <a href="/sponsor"><img src="https://mods.twelveiterations.com/img/sponsor.png" alt="Support the Development for only $2 a month." /></a>
-    </div>
+    </div>-->
 </Layout>
