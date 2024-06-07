@@ -31,6 +31,14 @@ const brandButtons = {
         'background-color': '#ff784d',
         color: '#ffffff',
     },
+    '.btn-modrinth': {
+        'background-color': '#1BD96A',
+        color: '#000000',
+    },
+    '.btn-modrinth:hover': {
+        'background-color': '#13a455',
+        color: '#000000',
+    },
 	'.btn-github': {
 		'background-color': '#24292e',
 		color: '#ffffff',

@@ -8,6 +8,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: cooking-for-blockheads
+modrinthSlug: cooking-for-blockheads
 curseForgeId: 231484
 modId: cookingforblockheads
 github: TwelveIterationMods/CookingForBlockheads

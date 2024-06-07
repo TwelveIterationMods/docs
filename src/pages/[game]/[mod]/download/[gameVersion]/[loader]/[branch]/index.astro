@@ -1,66 +1,28 @@
 ---
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+import curseForgeLogo from '../../../../curseforge.svg';
+import modrinthLogo from '../../../../_modrinth.svg';
 import Layout from '../../../../../../../layouts/Layout.astro';
-
-export const prerender = false;
+import searchMaven from '../../../../../../../utils/search-maven';
 
 export async function getStaticPaths() {
     const branches = ['release', 'snapshot'];
     const modEntries = await getCollection('mods');
     return modEntries.flatMap((entry) =>
-        entry.data.gameVersions.flatMap((gameVersion) =>
-            entry.data.loaders.flatMap((loader) =>
+        entry.data.gameVersions.flatMap((gameVersion: string) =>
+            entry.data.loaders.flatMap((loader: string) =>
                 branches.flatMap((branch) => {
                     const parts = entry.slug.split('/');
                     return {
-                        params: { game: parts[0], mod: parts[1], gameVersion, branch, loader },
+                        params: { game: parts[0], mod: parts[1], gameVersion, branch, loader: loader.toLowerCase() },
                         props: { entry, gameVersion, loader, branch },
                     };
                 })
             )
         )
     );
-}
-
-async function searchMaven(
-    repository: string,
-    groupId: string,
-    artifactId: string
-): Promise<
-    {
-        version: string;
-        assets: {
-            downloadUrl: string;
-            fileSize: number;
-            lastModified: string;
-            maven2: {
-                extension: string;
-                classifier?: string;
-            };
-            contentType: string;
-        }[];
-    }[]
-> {
-    const nexusUrl = 'https://maven.twelveiterations.com/service/rest/v1/search';
-    const queryParams = new URLSearchParams({
-        repository: repository,
-        group: groupId,
-        name: artifactId,
-        sort: 'version',
-    });
-
-    try {
-        const response = await fetch(`${nexusUrl}?${queryParams.toString()}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data.items;
-    } catch (error) {
-        console.error('Error fetching artifact:', error);
-        return [];
-    }
 }
 
 const { entry, gameVersion, loader, branch } = Astro.props;
@@ -100,6 +62,9 @@ const humanizeTimestamp = (timestamp?: string) => {
 const humanizeVersion = (version?: string) => {
     return version?.split('+')[0];
 };
+
+const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
+const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.data.modrinthSlug}` : null;
 ---
 
 <Layout title={title}>
@@ -127,7 +92,7 @@ const humanizeVersion = (version?: string) => {
                         <td>{humanizeFileSize(jar.fileSize)}</td>
                         <td>
                             <a
-                                href={'/download?v=' + encodeURIComponent(Buffer.from(jar.downloadUrl).toString('base64'))}
+                                href={'/download?v=' + encodeURIComponent(jar.downloadUrl)}
                                 class="btn btn-square btn-sm btn-success"
                             >
                                 <Icon name="mdi:download" class="w-6" />
@@ -138,6 +103,29 @@ const humanizeVersion = (version?: string) => {
             }
         </tbody>
     </table>
+
+    <div class="divider"></div>
+
+    <p class="text-center text-lg opacity-80 mb-4">Looking for older versions?</p>
+
+    <div class="flex justify-center items-center gap-4">
+        {
+            curseForgeUrl && (
+                <a href={curseForgeUrl} class="btn btn-curseforge">
+                    <Image src={curseForgeLogo} alt="" class="w-6" />
+                    Downloads on CurseForge
+                </a>
+            )
+        }
+        {
+            modrinthUrl && (
+                <a href={modrinthUrl} class="btn btn-modrinth">
+                    <Image src={modrinthLogo} alt="" class="w-6" />
+                    Downloads on Modrinth
+                </a>
+            )
+        }
+    </div>
 
     <div class="divider"></div>
 

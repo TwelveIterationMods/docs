@@ -9,6 +9,7 @@ category: Content Expansion
 item: waystones:waystone
 curseForgeId: 245755
 curseForgeSlug: waystones
+modrinthSlug: waystones
 modId: waystones
 github: TwelveIterationMods/Waystones
 ---

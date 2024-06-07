@@ -8,6 +8,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: farming-for-blockheads
+modrinthSlug: farming-for-blockheads
 modId: farmingforblockheads
 curseForgeId: 261924
 ---

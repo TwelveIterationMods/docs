@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Library
 curseForgeSlug: balm
+modrinthSlug: balm
 modId: balm
 curseForgeId: 531761
 ---
