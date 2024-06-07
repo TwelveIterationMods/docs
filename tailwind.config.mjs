@@ -55,6 +55,14 @@ const brandButtons = {
         'background-color': '#0f1115',
         color: '#ffffff',
     },
+    '.btn-download': {
+        'background-color': '#388E3C',
+        color: '#ffffff',
+    },
+    '.btn-download:hover': {
+        'background-color': '#2E7D32',
+        color: '#ffffff',
+    },
 };
 
 /** @type {import('tailwindcss').Config} */

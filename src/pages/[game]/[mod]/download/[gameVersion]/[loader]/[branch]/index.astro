@@ -87,7 +87,7 @@ const latestJar = jars[0];
 
         {
             latestJar && (
-                <a href={'/download?v=' + encodeURIComponent(latestJar.downloadUrl)} class="btn btn-success">
+                <a href={'/download?v=' + encodeURIComponent(latestJar.downloadUrl)} class="btn btn-download">
                     <Icon name="mdi:download" class="w-6" />
                     <span>
                         <strong>Download</strong>
@@ -130,8 +130,8 @@ const latestJar = jars[0];
                         <td>{humanizeTimestamp(jar.lastModified)}</td>
                         <td>{humanizeFileSize(jar.fileSize)}</td>
                         <td>
-                            <a href={'/download?v=' + encodeURIComponent(jar.downloadUrl)} class="btn btn-square btn-sm btn-success">
-                                <Icon name="mdi:download" className="w-6" />
+                            <a href={'/download?v=' + encodeURIComponent(jar.downloadUrl)} class="btn btn-square btn-sm btn-download">
+                                <Icon name="mdi:download" className="w-5" />
                             </a>
                         </td>
                     </tr>
