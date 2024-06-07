@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: crafting-slots
+modrinthSlug: crafting-slots
 curseForgeId: 237581
 modId: craftingslots
 ---

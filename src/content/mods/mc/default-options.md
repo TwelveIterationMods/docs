@@ -7,6 +7,7 @@ loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.20.6', '1.20.4', '1.20.1']
 category: Utilities
 curseForgeSlug: default-options
+modrinthSlug: default-options
 modId: defaultoptions
 curseForgeId: 232131
 ---

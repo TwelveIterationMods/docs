@@ -8,7 +8,7 @@ if (!encodedUrl) {
     Astro.redirect('/');
 }
 
-const url = Buffer.from(decodeURIComponent(encodedUrl), 'base64').toString('ascii')
+const url = decodeURIComponent(encodedUrl)
 ---
 
 <Layout title="Download starting..." skipVideoAd={true}> <DelayedDownload client:idle delay={5000} url={url} /></Layout>
