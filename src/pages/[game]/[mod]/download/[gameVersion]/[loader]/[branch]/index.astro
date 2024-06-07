@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon';
 import curseForgeLogo from '../../../../_curseforge.svg';
@@ -8,7 +8,9 @@ import Layout from '../../../../../../../layouts/Layout.astro';
 import DownloadsFilter from '../../../../../../../components/DownloadsFilter.vue';
 import listModFiles from '../../../../../../../utils/list-mod-files';
 
-export async function getStaticPaths() {
+export const prerender = false;
+
+/*export async function getStaticPaths() {
     const branches = ['release', 'snapshot'];
     const modEntries = await getCollection('mods');
     return modEntries.flatMap((entry) =>
@@ -24,9 +26,16 @@ export async function getStaticPaths() {
             )
         )
     );
-}
+}*/
 
-const { entry, game, gameVersion, loader, branch } = Astro.props;
+const { game, mod, gameVersion, loader, branch } = Astro.params;
+const entry = await getEntry('mods', `${game}/${mod}`);
+if (!entry) {
+    return {
+        status: 404,
+        error: new Error(`Mod not found: ${game}/${mod}`),
+    };
+}
 
 const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + loader + ')';
 const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
@@ -119,33 +128,32 @@ const latestJar = jars[0];
         </tbody>
     </table>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<p class="text-center text-lg opacity-80 mb-4">Looking for older versions?</p>
+    <p class="text-center text-lg opacity-80 mb-4">Looking for older versions?</p>
 
-<div class="flex justify-center items-center gap-4">
-    {
-        curseForgeUrl && (
-            <a href={curseForgeUrl} class="btn btn-curseforge">
-                <Image src={curseForgeLogo} alt="" class="w-6" />
-                Downloads on CurseForge
-            </a>
-        )
-    }
-    {
-        modrinthUrl && (
-            <a href={modrinthUrl} class="btn btn-modrinth">
-                <Image src={modrinthLogo} alt="" class="w-6" />
-                Downloads on Modrinth
-            </a>
-        )
-    }
-</div>
+    <div class="flex justify-center items-center gap-4">
+        {
+            curseForgeUrl && (
+                <a href={curseForgeUrl} class="btn btn-curseforge">
+                    <Image src={curseForgeLogo} alt="" class="w-6" />
+                    Downloads on CurseForge
+                </a>
+            )
+        }
+        {
+            modrinthUrl && (
+                <a href={modrinthUrl} class="btn btn-modrinth">
+                    <Image src={modrinthLogo} alt="" class="w-6" />
+                    Downloads on Modrinth
+                </a>
+            )
+        }
+    </div>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<!--<div class="mb-4 flex justify-center">
+    <!--<div class="mb-4 flex justify-center">
         <a href="/sponsor"><img src="https://mods.twelveiterations.com/img/sponsor.png" alt="Support the Development for only $2 a month." /></a>
     </div>-->
-
 </Layout>
