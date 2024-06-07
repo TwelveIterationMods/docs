@@ -55,25 +55,28 @@ const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/mi
 const steamUrl = entry.data.steamId ? `https://steamcommunity.com/sharedfiles/filedetails/?id=${entry.data.steamId}` : null;
 
 const latestGameVersion = entry.data.gameVersions[0];
+const downloadUrl = `/${game}/${mod}/download/${latestGameVersion}/forge/release`;
 ---
 
 <Layout title={entry.data.title}>
     <div class="flex items-center justify-between">
-        <h1 class="text-5xl">{entry.data.title}</h1>
-        <a href={`/${game}/${mod}/download/${latestGameVersion}/forge/release`} class="btn btn-sm btn-square btn-success">
+        <div class="grid">
+            <h1 class="text-5xl">{entry.data.title}</h1>
+            {
+                'loaders' in entry.data && (
+                    <div class="flex gap-1 mt-4">
+                        {entry.data.loaders.includes('Forge') && <ForgeBadge />}
+                        {entry.data.loaders.includes('Fabric') && <FabricBadge />}
+                        {entry.data.loaders.includes('NeoForge') && <NeoForgeBadge />}
+                    </div>
+                )
+            }
+        </div>
+
+        <a href={downloadUrl} class="btn btn-square btn-download">
             <Icon name="mdi:download" class="w-6" />
         </a>
     </div>
-
-    {
-        'loaders' in entry.data && (
-            <div class="flex gap-1 mt-4">
-                {entry.data.loaders.includes('Forge') && <ForgeBadge />}
-                {entry.data.loaders.includes('Fabric') && <FabricBadge />}
-                {entry.data.loaders.includes('NeoForge') && <NeoForgeBadge />}
-            </div>
-        )
-    }
 
     <div class="divider"></div>
 
@@ -133,10 +136,10 @@ const latestGameVersion = entry.data.gameVersions[0];
         <div>
             <div class="flex flex-wrap gap-2">
                 {
-                    curseForgeUrl && (
-                        <a class="btn btn-curseforge max-lg:btn-block" href={curseForgeUrl}>
-                            <Image src={curseForgeLogo} alt="" class="w-6" />
-                            Download on CurseForge
+                    game === 'mc' && (
+                        <a class="btn btn-download max-lg:btn-block" href={downloadUrl}>
+                            <Icon name="mdi:download" class="w-6" />
+                            Downloads
                         </a>
                     )
                 }
@@ -145,7 +148,7 @@ const latestGameVersion = entry.data.gameVersions[0];
                     steamUrl && (
                         <a class="btn btn-steam" href={steamUrl}>
                             <Image src={steamLogo} alt="" class="w-6" />
-                            Download on Steam
+                            Steam Workshop
                         </a>
                     )
                 }

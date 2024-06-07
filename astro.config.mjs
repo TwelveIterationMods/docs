@@ -21,11 +21,8 @@ export default defineConfig({
         vue(),
     ],
     vite: {
-        resolve: {
-            alias: {
-                // workaround for svgo SSR issue in astro-icons
-                svgo: import.meta.env.PROD ? 'svgo/dist/svgo.browser.js' : 'svgo',
-            },
+        ssr: {
+            external: ['svgo'],
         },
     },
     markdown: {
