@@ -19,7 +19,7 @@ const gameVersion = ref(props.gameVersion);
 const loader = ref(props.loader);
 
 const updateUrl = () => {
-    window.location.href = `/${props.game}/${props.entry.data.modId}/download/${gameVersion.value}/${loader.value.toLowerCase()}/${props.branch}`;
+    window.location.href = `/${props.game}/${props.entry.data.modId}/download/${gameVersion.value}/${loader.value}/${props.branch}`;
 };
 </script>
 
@@ -37,7 +37,7 @@ const updateUrl = () => {
             <span class="label-text">Mod Loader</span>
         </div>
         <select class="select select-bordered" v-model="loader" @change="updateUrl">
-            <option v-for="loader in entry.data.loaders" :key="loader">{{ loader }}</option>
+            <option v-for="loader in entry.data.loaders" :key="loader" :value="loader.toLowerCase()">{{ loader }}</option>
         </select>
     </label>
 </template>
