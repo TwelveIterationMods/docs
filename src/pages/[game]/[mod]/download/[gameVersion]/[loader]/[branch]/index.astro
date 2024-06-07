@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon';
 import curseForgeLogo from '../../../../_curseforge.svg';
 import modrinthLogo from '../../../../_modrinth.svg';
 import Layout from '../../../../../../../layouts/Layout.astro';
+import DownloadsFilter from '../../../../../../../components/DownloadsFilter.vue';
 import listModFiles from '../../../../../../../utils/list-mod-files';
 
 export async function getStaticPaths() {
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
                     const parts = entry.slug.split('/');
                     return {
                         params: { game: parts[0], mod: parts[1], gameVersion, branch, loader: loader.toLowerCase() },
-                        props: { entry, gameVersion, loader, branch },
+                        props: { entry, game: parts[0], gameVersion, loader, branch },
                     };
                 })
             )
@@ -25,7 +26,7 @@ export async function getStaticPaths() {
     );
 }
 
-const { entry, gameVersion, loader, branch } = Astro.props;
+const { entry, game, gameVersion, loader, branch } = Astro.props;
 
 const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + loader + ')';
 const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
@@ -55,28 +56,13 @@ const jars = await listModFiles(entry.data.modId, gameVersion, loader.toLowerCas
 const latestJar = jars[0];
 ---
 
-<Layout title={title}>
+<Layout title={title} skipAds={true}>
     <h1 class="text-4xl text-center mb-4">{title}</h1>
 
     <div class="text-center"></div>
 
     <div class="flex items-end justify-center gap-4">
-        <label class="form-control w-full max-w-xs">
-            <div class="label">
-                <span class="label-text">Game Version</span>
-            </div>
-            <select class="select select-bordered">
-                {entry.data.gameVersions.map((gameVersion) => <option>{gameVersion}</option>)}
-            </select>
-        </label>
-        <label class="form-control w-full max-w-xs">
-            <div class="label">
-                <span class="label-text">Mod Loader</span>
-            </div>
-            <select class="select select-bordered">
-                {entry.data.loaders.map((loader) => <option>{loader}</option>)}
-            </select>
-        </label>
+        <DownloadsFilter client:load entry={entry} game={game} gameVersion={gameVersion} loader={loader} branch={branch} />
 
         {
             latestJar && (
@@ -132,7 +118,6 @@ const latestJar = jars[0];
             }
         </tbody>
     </table>
-</Layout>
 
 <div class="divider"></div>
 
@@ -162,3 +147,5 @@ const latestJar = jars[0];
 <!--<div class="mb-4 flex justify-center">
         <a href="/sponsor"><img src="https://mods.twelveiterations.com/img/sponsor.png" alt="Support the Development for only $2 a month." /></a>
     </div>-->
+
+</Layout>
