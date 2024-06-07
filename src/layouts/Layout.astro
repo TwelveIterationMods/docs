@@ -28,7 +28,7 @@ const dev = import.meta.env.DEV;
 
         <Tooltips interactive={false} delay={[15, 30]} placement="bottom" />
 
-        <script data-cfasync="false">
+        <script is:inline data-cfasync="false">
             window.nitroAds = window.nitroAds || {
                 createAd: function () {
                     return new Promise((e) => {
@@ -41,16 +41,16 @@ const dev = import.meta.env.DEV;
                 queue: [],
             };
         </script>
-        <script data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
+        <script is:inline data-cfasync="false" async src="https://s.nitropay.com/ads-1916.js"></script>
 
 
         { dev && (
-            <script lang="javascript">
+            <script is:inline>
                 dev = true
             </script>
         )}
         
-        { !skipAds && (<script lang="javascript">
+        { !skipAds && (<script is:inline>
             const nitroAds = 'nitroAds' in window ? window.nitroAds : null;
             nitroAds?.createAd('ntr-sticky-side-rail', {
                 refreshTime: 30,
@@ -87,7 +87,7 @@ const dev = import.meta.env.DEV;
                 mediaQuery: '(min-width: 320px) and (max-width: 767px)',
             });
         </script>)}
-        { !skipAds && !skipVideoAd && (<script lang="javascript">
+        { !skipAds && !skipVideoAd && (<script is:inline>
             const nitroAds2 = 'nitroAds' in window ? window.nitroAds : null;
             nitroAds2?.createAd('ntr-video', {
                 refreshTime: 30,

@@ -3,20 +3,24 @@
         <div :class="{ 'text-4xl font-bold': true, zoom: zoomText }">{{ formatNumber(Math.ceil(current)) }}{{ suffix ?? '' }}</div>
         <div class="text-gray-500">{{ label }}</div>
         <div v-if="showConfetti" class="confetti">
-            <span v-for="i in 30" :key="i" class="emoji" :style="getConfettiStyle(i)">🎉</span>
+            <span v-for="i in 30" :key="i" class="emoji" :style="getConfettiStyle()">🎉</span>
         </div>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watchEffect } from 'vue';
 
-const props = defineProps({
-    count: { type: Number, required: false, default: undefined },
-    suffix: { type: String, required: false, default: undefined },
-    label: { type: String, required: false, default: undefined },
-    animate: { type: Boolean, required: false, default: false },
-    time: { type: Number, required: false, default: 1000 },
+export interface Props {
+    count: number
+    suffix?: string
+    label?: string
+    animate?: boolean
+    time?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    time: 1000
 });
 
 const current = ref(0);
@@ -25,7 +29,7 @@ const step = computed(() => Math.ceil(props.count / (props.time / intervalTime))
 const showConfetti = computed(() => current.value >= 2e9);
 const zoomText = computed(() => current.value >= 1e9 && current.value < 1e9 + step.value);
 
-function formatNumber(num) {
+function formatNumber(num: number) {
     if (num >= 1e9) {
         return (num / 1e9).toFixed(0) + 'B';
     } else if (num >= 1e6) {
@@ -36,7 +40,7 @@ function formatNumber(num) {
     return num.toString();
 }
 
-let intervalHandle;
+let intervalHandle: any;
 
 onMounted(() => {
     intervalHandle = setInterval(() => {
@@ -52,7 +56,7 @@ onUnmounted(() => {
     clearInterval(intervalHandle);
 });
 
-const getConfettiStyle = (index) => ({
+const getConfettiStyle = () => ({
     animationDelay: `${Math.random() * 1}s`,
     left: `${Math.random() * 100}%`,
 });
