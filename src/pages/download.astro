@@ -2,13 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import DelayedDownload from '../components/DelayedDownload.vue';
 
+export const prerender = false;
+
 const encodedUrl = Astro.url.searchParams.get('v') ?? '';
 
 if (!encodedUrl) {
-    Astro.redirect('/');
+    return Astro.redirect('/');
 }
 
-const url = decodeURIComponent(encodedUrl)
+const url = decodeURIComponent(encodedUrl);
 ---
 
-<Layout title="Download starting..." skipVideoAd={true}> <DelayedDownload client:idle delay={5000} url={url} /></Layout>
+<Layout title="Download starting..." skipVideoAd={true}><DelayedDownload client:idle delay={5000} url={url} /></Layout>
