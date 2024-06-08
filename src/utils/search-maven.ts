@@ -5,6 +5,7 @@ export default async function searchMaven(
 ): Promise<
     {
         version: string;
+        repository: string;
         assets: {
             downloadUrl: string;
             fileSize: number;
