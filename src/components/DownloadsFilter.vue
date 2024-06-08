@@ -11,6 +11,7 @@ const props = defineProps<{
     };
     game: string;
     gameVersion: string;
+    previewVersion: string;
     loader: string;
     branch: string;
 }>();
@@ -19,6 +20,11 @@ const gameVersion = ref(props.gameVersion);
 const loader = ref(props.loader);
 
 const updateUrl = () => {
+    if (props.branch === 'release' && gameVersion.value === props.previewVersion) {
+        window.location.href = '/sponsor';
+        return;
+    }
+
     window.location.href = `/${props.game}/${props.entry.data.modId}/download/${gameVersion.value}/${loader.value}/${props.branch}`;
 };
 </script>
@@ -29,6 +35,14 @@ const updateUrl = () => {
             <span class="label-text">Game Version</span>
         </div>
         <select class="select select-bordered" v-model="gameVersion" @change="updateUrl">
+            <template v-if="branch === 'release'">
+                <option :value="previewVersion">{{ previewVersion }} (Patreon Preview)</option>
+            </template>
+            <template v-else>
+                <option :value="previewVersion">
+                    {{ previewVersion }}
+                </option>
+            </template>
             <option v-for="gameVersion in entry.data.gameVersions" :key="gameVersion">{{ gameVersion }}</option>
         </select>
     </label>

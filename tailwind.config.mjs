@@ -63,14 +63,27 @@ const brandButtons = {
         'background-color': '#2E7D32',
         color: '#ffffff',
     },
+    '.link-discord': {
+        color: '#7289da',
+    },
+    '.link-discord:hover': {
+        color: '#7289da',
+    },
+    '.border-patreon': {
+        'border-color': '#f96854',
+    }
 };
 
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-    safelist: ['badge-error', 'badge-warning', 'badge-success', 'badge-info'],
+    safelist: ['badge-error', 'badge-warning', 'badge-success', 'badge-info', 'border-primary', 'border-patreon'],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                patreon: '#f96854',
+            }
+        },
     },
     plugins: [require('daisyui')],
     daisyui: {
