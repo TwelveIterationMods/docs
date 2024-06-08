@@ -21,8 +21,11 @@ export default defineConfig({
         vue(),
     ],
     vite: {
-        ssr: {
-            external: ['svgo'],
+        // astro-icon workaround for SSR. This works on Cloudflare but not in dev...
+        resolve: {
+            alias: {
+                svgo: import.meta.env.PROD ? 'svgo/dist/svgo.browser.js' : 'svgo',
+            },
         },
     },
     markdown: {
