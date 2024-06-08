@@ -7,6 +7,7 @@ import modrinthLogo from '../../../../_modrinth.svg';
 import Layout from '../../../../../../../layouts/Layout.astro';
 import DownloadsFilter from '../../../../../../../components/DownloadsFilter.vue';
 import listModFiles from '../../../../../../../utils/list-mod-files';
+import NoteBox from '../../../../../../../components/NoteBox.astro';
 
 export const prerender = false;
 
@@ -36,10 +37,6 @@ if (!entry) {
         error: new Error(`Mod not found: ${game}/${mod}`),
     };
 }
-
-const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + loader + ')';
-const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
-const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.data.modrinthSlug}` : null;
 
 const humanizeFileSize = (bytes: number) => {
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -75,15 +72,57 @@ const humanizeLoader = (loader?: string) => {
 
 const jars = await listModFiles(entry.data.modId, gameVersion!, loader!, branch!);
 const latestJar = jars[0];
+
+const title = 'Download ' + entry.data.title + ' for Minecraft ' + gameVersion + ' (' + humanizeLoader(loader) + ')';
+const curseForgeUrl = entry.data.curseForgeSlug ? `https://www.curseforge.com/minecraft/mc-mods/${entry.data.curseForgeSlug}` : null;
+const modrinthUrl = entry.data.modrinthSlug ? `https://modrinth.com/mod/${entry.data.modrinthSlug}` : null;
+
+const previewVersion = '1.21';
 ---
 
 <Layout title={title} skipAds={true}>
-    <h1 class="text-4xl text-center mb-4">{title}</h1>
+    <h1 class="text-4xl text-center mb-4">
+        {title}
+        {branch === 'snapshot' && <span class="text-patreon"> (Patreon Preview)</span>}
+    </h1>
 
-    <div class="text-center"></div>
+    <div class="flex gap-6 justify-center mb-4">
+        {
+            game === 'mc' && entry.data.modId !== 'balm' && (
+                <div class="w-1/3">
+                    <NoteBox title="Required Dependency" className="h-full">
+                        {entry.data.title} requires <strong>Balm</strong> to function.
+                        <br />
+                        Download and install it alongside this mod.
+                        <div class="mt-2">
+                            <a href={`/mc/balm/download/${gameVersion}/${loader}/${branch}`} target="_blank" class="btn btn-sm btn-primary">
+                                Download Balm
+                            </a>
+                        </div>
+                    </NoteBox>
+                </div>
+            )
+        }
+
+        {
+            previewVersion && branch !== 'snapshot' && (
+                <div class="w-1/3">
+                    <NoteBox title={'Minecraft ' + previewVersion} color="patreon" className="h-full">
+                        Preview versions of some mods are now available to Patreon supporters!
+                        <div class="mt-2">
+                            <a href="/sponsor" class="btn btn-sm btn-patreon">
+                                Become a Patron
+                            </a>{' '}
+                            to get early access.
+                        </div>
+                    </NoteBox>
+                </div>
+            )
+        }
+    </div>
 
     <div class="flex items-end justify-center gap-4">
-        <DownloadsFilter client:load entry={entry} game={game!} gameVersion={gameVersion!} loader={loader!} branch={branch!} />
+        <DownloadsFilter client:load entry={entry} game={game!} gameVersion={gameVersion!} loader={loader!} branch={branch!} previewVersion={previewVersion} />
 
         {
             latestJar && (
@@ -136,6 +175,21 @@ const latestJar = jars[0];
                         </td>
                     </tr>
                 ))
+            }
+            {
+                !jars.length && (
+                    <tr>
+                        <td colspan="6" class="text-center text-lg text-base-content/80">
+                            No files found.
+                            { branch === 'snapshot' && loader !== 'fabric' && (
+                                <span>Preview versions are usually available for Fabric only. <a href={`/${entry.slug}/download/${gameVersion}/fabric/snapshot`} class="link link-hover link-primary">(View Fabric versions)</a></span>
+                            )}
+                            { branch === 'snapshot' && loader === 'fabric' && (
+                                <span>Check the Patreon channel on <a href="https://discord.gg/VAfZ2Nau6j" class="link link-hover link-discord">Discord</a> for updates on preview releases.</span>
+                            )}
+                        </td>
+                    </tr>
+                )
             }
         </tbody>
     </table>
