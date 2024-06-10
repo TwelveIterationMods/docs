@@ -49,6 +49,11 @@ const dev = import.meta.env.DEV;
                 dev = true
             </script>
         )}
+        { !dev && (
+            <script is:inline>
+                dev = false
+            </script>
+        )}
         
         { !skipAds && (<script is:inline>
             const nitroAds = 'nitroAds' in window ? window.nitroAds : null;
