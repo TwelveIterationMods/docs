@@ -28,6 +28,10 @@ const dev = import.meta.env.DEV;
 
         <Tooltips interactive={false} delay={[15, 30]} placement="bottom" />
 
+        <!-- Cloudflare Web Analytics -->
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "97d9e23edd394babad0e90b7a75b66fa"}'></script>
+        <!-- End Cloudflare Web Analytics -->
+
         <script is:inline data-cfasync="false">
             window.nitroAds = window.nitroAds || {
                 createAd: function () {
