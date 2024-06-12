@@ -22,7 +22,7 @@ const startDownload = () => {
     }, 2000);
 };
 
-onMounted(() => {
+/*onMounted(() => {
     const interval = setInterval(() => {
         if (countdown.value > 0) {
             countdown.value -= 1;
@@ -43,7 +43,7 @@ onMounted(() => {
             position: 'top-right',
         },
     });
-});
+});*/
 </script>
 
 <template>
