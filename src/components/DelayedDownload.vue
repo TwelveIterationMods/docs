@@ -22,7 +22,7 @@ const startDownload = () => {
     }, 2000);
 };
 
-/*onMounted(() => {
+onMounted(() => {
     const interval = setInterval(() => {
         if (countdown.value > 0) {
             countdown.value -= 1;
@@ -32,7 +32,7 @@ const startDownload = () => {
         }
     }, 1000);
 
-    const nitroAds = 'nitroAds' in window ? (window.nitroAds as any) : null;
+    /*const nitroAds = 'nitroAds' in window ? (window.nitroAds as any) : null;
     nitroAds.createAd('ntr-download-video', {
         format: 'video-nc',
         demo: import.meta.env.DEV,
@@ -42,8 +42,8 @@ const startDownload = () => {
             wording: 'Report Ad',
             position: 'top-right',
         },
-    });
-});*/
+    });*/
+});
 </script>
 
 <template>
