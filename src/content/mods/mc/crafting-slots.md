@@ -4,7 +4,7 @@ description: Adds an inventory crafting table and a normal portable one.
 priority: 830
 cover: ./crafting-slots.png
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: crafting-slots
 modrinthSlug: crafting-slots
