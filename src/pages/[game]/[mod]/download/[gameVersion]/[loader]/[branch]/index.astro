@@ -83,7 +83,7 @@ const previewVersion = '';
 <Layout title={title} skipAds={true}>
     <h1 class="text-4xl text-center mb-4">
         {title}
-        {branch === 'snapshot' && <span class="text-patreon"> (Patreon Preview)</span>}
+        {branch === 'snapshot' && previewVersion && <span class="text-patreon"> (Patreon Preview)</span>}
     </h1>
 
     <div class="flex gap-6 justify-center mb-4">
