@@ -5,7 +5,8 @@ priority: 700
 badge: Soon
 cover: ./crafting-for-blockheads.png
 icon: mdi:anvil
-loaders: ['Forge', 'Fabric', 'NeoForge']
+loaders: ['Forge']
+gameVersions: ['1.20.1']
 category: Content Expansion
 modId: craftingforblockheads
 github: TwelveIterationMods/CraftingForBlockheads

@@ -4,7 +4,7 @@ description: Adjusts water physics when digging sand near water to prevent ugly.
 cover: ./pretty-beaches.png
 priority: 870
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: pretty-beaches
 modrinthSlug: pretty-beaches

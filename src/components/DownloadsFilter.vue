@@ -35,10 +35,10 @@ const updateUrl = () => {
             <span class="label-text">Game Version</span>
         </div>
         <select class="select select-bordered" v-model="gameVersion" @change="updateUrl">
-            <template v-if="branch === 'release'">
+            <template v-if="branch === 'release' && previewVersion">
                 <option :value="previewVersion">{{ previewVersion }} (Patreon Preview)</option>
             </template>
-            <template v-else>
+            <template v-else-if="previewVersion">
                 <option :value="previewVersion">
                     {{ previewVersion }}
                 </option>
