@@ -3,7 +3,8 @@ title: Forbidden Smoothies
 description: Not yet released
 cover: ./balm.png
 priority: 860
-loaders: ['Forge', 'Fabric', 'NeoForge']
+loaders: ['Forge']
+gameVersions: ['1.20.1']
 category: Library
 curseForgeSlug: forbidden-smoothies
 modId: forbiddensmoothies
