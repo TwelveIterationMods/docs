@@ -120,3 +120,25 @@ Waystones initialize and receive a unique ID when they are loaded, so simply exp
 You need to un-initialize the waystone before exporting the structure. To do so, right-click it with a bamboo stick while in creative mode.
 
 Make sure to save the structure before reloading the world or chunk as that would re-initialize the waystone.
+
+---
+
+### How do I disable interdimensional teleport?
+
+To disable teleporting between waystones in different dimensions (i.e. only allowing teleports within the same dimension), use a warp requirement as follows:
+
+```
+[is_interdimensional] refuse("Cannot teleport to another dimension.")
+```
+
+---
+
+### How do I disable intradimensional teleport?
+
+To disable teleporting between waystones of the same dimension (i.e. only allowing teleports from one dimension to another), use a warp requirement as follows:
+
+```
+[is_not_interdimensional] refuse("Cannot teleport within the same dimension.")
+```
+
+---
