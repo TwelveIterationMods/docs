@@ -6,3 +6,106 @@ icon: mdi:cogs
 import ConfigTable from '../../../../components/ConfigTable.astro'
 
 <ConfigTable game="mc" mod="waystones" />
+
+---
+
+## Warp Requirements
+
+Warp Requirements are defined in the following format:
+
+```
+[condition1, condition2] modifier()
+```
+
+Example:
+
+```
+[is_not_interdimensional] scaled_add_xp_cost(distance, 0.01)
+[is_interdimensional] add_xp_cost(27)
+[source_is_warp_plate] multiply_xp_cost(0)
+[target_is_global] multiply_xp_cost(0)
+min_xp_cost(0)
+max_xp_cost(27)
+[source_is_inventory_button] add_cooldown(inventory_button, 300)
+```
+
+These definitions are run in-order. Modifiers will only run if all conditions pass.
+
+For example, to disallow interdimensional warps to and from the end, you could use the following requirement:
+
+```
+[is_interdimensional, involves_dimension(minecraft:the_end)] refuse("You cannot warp to or from The End.")
+```
+
+### Modifiers
+
+|Modifier|Description|Example|
+|---|---|---|
+|add_level_cost(levels)|Adds the specified amount to the warp level cost|add_level_cost(1)|
+|multiply_level_cost(levels)|Multiplies the warp level cost by the specified amount|multiply_level_cost(2)|
+|scaled_add_level_cost(variable, scale)|Adds levels to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_level_cost(distance, 0.01)|
+|min_level_cost(levels)|Clamps the level cost to the given minimum value.|min_level_cost(1)|
+|max_level_cost(levels)|Clamps the level cost to the given maximum value.|max_level_cost(3)|
+|add_xp_cost(levels)|Adds the specified amount to the warp XP cost|add_xp_cost(1)|
+|multiply_xp_cost(levels)|Multiplies the warp XP cost by the specified amount|multiply_xp_cost(2)|
+|scaled_add_xp_cost(variable, scale)|Adds levels to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_xp_cost(distance, 0.01)|
+|min_xp_cost(levels)|Clamps the XP cost to the given minimum value.|min_xp_cost(1)|
+|max_xp_cost(levels)|Clamps the XP cost to the given maximum value.|max_xp_cost(3)|
+|add_cooldown(seconds)|Adds the specified amount to the warp cooldown|add_cooldown(60)|
+|multiply_cooldown(multiplier)|Multiplies the warp cooldown by the specified amount|multiply_cooldown(2)|
+|scaled_add_cooldown(variable, scale)|Adds seconds to the cooldown of the warp in the amount of the specified variable and scale factor|scaled_add_cooldown(distance, 0.01)|
+|min_cooldown(seconds)|Clamps the cooldown to the given minimum value.|min_cooldown(30)|
+|max_cooldown(seconds)|Clamps the cooldown to the given maximum value.|max_cooldown(120)|
+|add_item_cost(item, count)|Adds the specified amount to the warp item cost|add_item_cost(minecraft:diamond, 1)|
+|multiply_item_cost(item, multiplier)|Multiplies the warp item cost by the specified amount|multiply_item_cost(minecraft:diamond, 2)|
+|scaled_add_item_cost(variable, item, scale)|Adds items to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_item_cost(distance, minecraft:diamond, 0.01)|
+|min_item_cost(item, min)|Clamps the item cost to the given minimum value.|min_item_cost(minecraft:diamond, 1)|
+|max_item_cost(item, max)|Clamps the item cost to the given maximum value.|max_item_cost(minecraft:diamond, 3)|
+|refuse(message)|Refuses the warp with the specified message. Prepend message with $ to use a translation key.|refuse("You are not allowed to warp here.") or refuse("$your.custom.translation.key")|
+
+### Conditions
+
+|Condition|Description|Example|
+|---|---|---|
+|is_interdimensional|Passes if the warp is between two dimensions|[is_interdimensional]|
+|is_not_interdimensional|Passes if the warp is within the same dimension|[is_not_interdimensional]|
+|source_is_warp_plate|Passes if the warp originates from a warp plate|[source_is_warp_plate]|
+|source_is_not_warp_plate|Passes if the warp does not originate from a warp plate|[source_is_not_warp_plate]|
+|source_is_waystone|Passes if the warp originates from a waystone|[source_is_waystone]|
+|source_is_not_waystone|Passes if the warp does not originate from a waystone|[source_is_not_waystone]|
+|source_is_portstone|Passes if the warp originates from a portstone|[source_is_portstone]|
+|source_is_not_portstone|Passes if the warp does not originate from a portstone|[source_is_not_portstone]|
+|source_is_sharestone|Passes if the warp originates from a sharestone|[source_is_sharestone]|
+|source_is_not_sharestone|Passes if the warp does not originate from a sharestone|[source_is_not_sharestone]|
+|source_is_inventory_button|Passes if the warp originates from the inventory button|[source_is_inventory_button]|
+|source_is_not_inventory_button|Passes if the warp does not originate from the inventory button|[source_is_not_inventory_button]|
+|target_is_warp_plate|Passes if the warp destination is a warp plate|[target_is_warp_plate]|
+|target_is_not_warp_plate|Passes if the warp destination is not a warp plate|[target_is_not_warp_plate]|
+|target_is_waystone|Passes if the warp destination is a waystone|[target_is_waystone]|
+|target_is_not_waystone|Passes if the warp destination is not a waystone|[target_is_not_waystone]|
+|target_is_portstone|Passes if the warp destination is a portstone|[target_is_portstone]|
+|target_is_not_portstone|Passes if the warp destination is not a portstone|[target_is_not_portstone]|
+|target_is_sharestone|Passes if the warp destination is a sharestone|[target_is_sharestone]|
+|target_is_not_sharestone|Passes if the warp destination is not a sharestone|[target_is_not_sharestone]|
+|target_is_global|Passes if the warp destination is a global waystone|[target_is_global]|
+|target_is_not_global|Passes if the warp destination is not a global waystone|[target_is_not_global]|
+|is_with_pets|Passes if the warp is performed with pets|[is_with_pets]|
+|is_not_with_pets|Passes if the warp is not performed with pets|[is_not_with_pets]|
+|is_with_leashed|Passes if the warp is performed with leashed entities|[is_with_leashed]|
+|is_not_with_leashed|Passes if the warp is not performed with leashed entities|[is_not_with_leashed]|
+|source_is_dimension(namespace:path)|Passes if the warp originates from the specified dimension|[source_is_dimension(minecraft:overworld)]|
+|source_is_not_dimension(namespace:path)|Passes if the warp does not originate from the specified dimension|[source_is_not_dimension(minecraft:the_nether)]|
+|target_is_dimension(namespace:path)|Passes if the warp destination is the specified dimension|[target_is_dimension(minecraft:the_end)]|
+|target_is_not_dimension(namespace:path)|Passes if the warp destination is not the specified dimension|[target_is_not_dimension(minecraft:overworld)]|
+|involves_dimension(namespace:path)|Passes if the warp involves the specified dimension|[involves_dimension(minecraft:the_nether)]|
+|not_involves_dimension(namespace:path)|Passes if the warp does not involve the specified dimension|[involves_not_dimension(minecraft:overworld)]|
+|is_within_distance(distance)|Passes if the warp is within the specified distance|[is_within_distance(100)]|
+|is_not_within_distance(distance)|Passes if the warp is not within the specified distance|[is_not_within_distance(100)]|
+
+### Variables
+
+|Variable|Description|
+|---|---|
+|distance|The distance to the warp destination|
+|leashed|The amount of leashed entities included in the warp|
+|pets|The amount of pets included in the warp|
