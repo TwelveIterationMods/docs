@@ -11,7 +11,7 @@ import NoteBox from '../../../../components/NoteBox.astro';
 
 ### How to disable xp cost?
 
-To completely disable all XP costs, set `enableCosts` to `false` in the [config file](./config).
+To completely disable all XP costs, set `enableCosts` to `false` in the [config file](../config).
 
 Alternatively, you can also tweak individual costs in the `warpRequirements` property.
 
@@ -25,14 +25,14 @@ To completely disable XP cost in those versions, Set `maximumBaseXpCost` and `di
 
 ### How to enable xp cost?
 
-To enable XP costs after they were disabled, set `enableCosts` to `true` in the [config file](./config).
+To enable XP costs after they were disabled, set `enableCosts` to `true` in the [config file](../config).
 
 If that doesn't work, your costs might be tweaks in the `warpRequirements` property. You can reset it to default by completing removing the line from your config file.
 
 <NoteBox title="Older Versions of Minecraft">
 Set `waystoneXpCostMultiplier` to `1`, and ensure `maximumBaseXpCost` is not set to `0` in the config file.
 
-There are more xpCostMultiplier options for the different types of teleportation, so read through the [config file](./config) to understand all possible options.
+There are more xpCostMultiplier options for the different types of teleportation, so read through the [config file](../config) to understand all possible options.
 </NoteBox>
 
 ---
@@ -101,7 +101,7 @@ Other generation mods may interfere with the generation of waystones in villages
 
 Due to Minecraft limitations, it is not possible for Waystones to reliably generate in all modded village types.
 
-Some villages will still come without a waystone by default. You can change the [config option](./config) `spawnInVillages` to `FREQUENT` to force waystones to generate in almost all supported villages.
+Some villages will still come without a waystone by default. You can change the [config option](../config) `spawnInVillages` to `FREQUENT` to force waystones to generate in almost all supported villages.
 
 ---
 
