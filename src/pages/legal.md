@@ -4,7 +4,7 @@ layout: ../layouts/MarkdownLayout.astro
 
 # Legal Notice
 
-#### Angaben gemäß § 5 TMG
+#### Angaben gemäß § 5 DDG
 
 ```
 Jean Baker
