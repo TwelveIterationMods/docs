@@ -27,3 +27,24 @@ If you want to change the default price of a preset's items, you can override th
 Market Items are now defined using Minecraft's recipe system, with each item being defined in its own individual file.
 
 That means you can easily override these in a data pack by placing a file at the same location, or using a mod like CraftTweaker and its `addJsonRecipe()` function.
+
+### Note for Minecraft 1.20.6+
+
+Minecraft 1.20.6 and above have replaced NBT in items with components. Reference the [Minecraft Wiki](https://minecraft.wiki/w/Data_component_format) for a list of components.
+
+This example adds an enchantment as well as a localized custom name to an enchanted book:
+
+```json
+{
+  "type": "farmingforblockheads:market",
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {"minecraft:wind_burst": 3}
+      },
+      "minecraft:custom_name": "[{\"translate\": \"enchantment.minecraft.wind_burst\"}, {\"text\": \" 3\"}]"
+    }
+  }
+}
+```
