@@ -56,11 +56,11 @@ For example, to disallow interdimensional warps to and from the end, you could u
 |scaled_add_xp_cost(variable, scale)|Adds levels to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_xp_cost(distance, 0.01)|
 |min_xp_cost(levels)|Clamps the XP cost to the given minimum value.|min_xp_cost(1)|
 |max_xp_cost(levels)|Clamps the XP cost to the given maximum value.|max_xp_cost(3)|
-|add_cooldown(seconds)|Adds the specified amount to the warp cooldown|add_cooldown(60)|
-|multiply_cooldown(multiplier)|Multiplies the warp cooldown by the specified amount|multiply_cooldown(2)|
-|scaled_add_cooldown(variable, scale)|Adds seconds to the cooldown of the warp in the amount of the specified variable and scale factor|scaled_add_cooldown(distance, 0.01)|
-|min_cooldown(seconds)|Clamps the cooldown to the given minimum value.|min_cooldown(30)|
-|max_cooldown(seconds)|Clamps the cooldown to the given maximum value.|max_cooldown(120)|
+|add_cooldown(name, seconds)|Adds the specified amount to the warp cooldown|add_cooldown(my_cooldown, 60)|
+|multiply_cooldown(name, multiplier)|Multiplies the warp cooldown by the specified amount|multiply_cooldown(my_cooldown, 2)|
+|scaled_add_cooldown(name, variable, scale)|Adds seconds to the cooldown of the warp in the amount of the specified variable and scale factor|scaled_add_cooldown(my_cooldown, distance, 0.01)|
+|min_cooldown(name, seconds)|Clamps the cooldown to the given minimum value.|min_cooldown(my_cooldown, 30)|
+|max_cooldown(name, seconds)|Clamps the cooldown to the given maximum value.|max_cooldown(my_cooldown, 120)|
 |add_item_cost(item, count)|Adds the specified amount to the warp item cost|add_item_cost(minecraft:diamond, 1)|
 |multiply_item_cost(item, multiplier)|Multiplies the warp item cost by the specified amount|multiply_item_cost(minecraft:diamond, 2)|
 |scaled_add_item_cost(variable, item, scale)|Adds items to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_item_cost(distance, minecraft:diamond, 0.01)|
