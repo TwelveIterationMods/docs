@@ -8,7 +8,7 @@ gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: hardcore-revival
 modrinthSlug: hardcore-revival
-modId: hardcore-revival
+modId: hardcorerevival
 curseForgeId: 274036
 ---
 
