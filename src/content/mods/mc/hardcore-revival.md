@@ -4,7 +4,7 @@ description: Help your friends back up after they die (if you can make it in tim
 cover: ./hardcore-revival.png
 priority: 880
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.2', '1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: hardcore-revival
 modrinthSlug: hardcore-revival
