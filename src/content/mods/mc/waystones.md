@@ -4,7 +4,7 @@ description: Teleport back to activated waystones. For Survival, Adventure or Se
 priority: 1000
 cover: ./waystones.png
 loaders: [Forge, Fabric, NeoForge]
-gameVersions: ['1.21.2', '1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 item: waystones:waystone
 curseForgeId: 245755
