@@ -4,7 +4,7 @@ description: Adds a trash slot to the inventory screen that allows deletion of u
 priority: 970
 cover: ./trashslot.png
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21.2', '1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: trashslot
 modrinthSlug: trashslot
