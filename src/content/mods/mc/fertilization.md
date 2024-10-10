@@ -4,7 +4,7 @@ description: Adds additional variants of bone meal for all your fertilization ne
 cover: ./fertilization.png
 priority: 840
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.2', '1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: fertilization
 modrinthSlug: fertilization
