@@ -43,6 +43,7 @@ const docsCollection = defineCollection({
         title: z.string(),
         item: z.string().optional(),
         icon: z.string().optional(),
+        badge: z.string().optional(),
         type: z.enum(['item', 'guide']),
         priority: z.number().default(0),
     }),

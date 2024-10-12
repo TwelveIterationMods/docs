@@ -1,0 +1,36 @@
+---
+title: Migration to 1.21.2
+type: guide
+icon: mdi:swap-horizontal
+badge: new
+---
+
+import NoteBox from '../../../../components/NoteBox.astro';
+
+import FarmingForBlockheadsMigrateToOneTwentyoneTwo from '../../../../components/tools/mc/migrations/FarmingForBlockheadsMigrateToOneTwentyoneTwo.vue';
+
+### Migrate Farming for Blockheads data to 1.21.2+
+
+<NoteBox title="Using data from before 1.20.4?">
+This tool can only migrate data that was already updated for the changes in Minecraft 1.20.4+.
+
+If you have older data, try using the [previous migrator](../migration-to-1204) first.
+</NoteBox>
+
+<FarmingForBlockheadsMigrateToOneTwentyoneTwo client:load />
+
+### How to migrate presets
+
+"Presets" have been replaced by Defaults, which are hierarchical and managed through a `farmingforblockheads/defaults.json` file in a datapack.
+
+Defaults go from generic to specific, with each part separated by a period.
+
+For example, a modded seed market recipe may specify the default `default.seeds.farmersdelight`, which will lookup a default in order from right-to-left:
+
+- If `defaults.json` defines a default for `default.seeds.farmersdelight`, that will be used.
+- Otherwise, if `defaults.json` defines a default for `default.seeds`, that will be used.
+- Otherwise, it will fall back to the `default` key that comes shipped with Farming for Blockheads (cost: 1 emerald)
+
+Similarly, you can now enable a whole set of items (e.g. all mushrooms) by adding `default.mushrooms` to your `includedPresets` config option.
+
+Farming for Blockheads will additionally read defaults from the config folder at `config/farmingforblockheads/defaults.json` as an easier alternative to datapacks.
