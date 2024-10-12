@@ -1,0 +1,118 @@
+---
+title: Customization (1.20.4 - 1.21.1)
+type: guide
+icon: mdi:puzzle-edit
+---
+
+### Table of Contents
+
+### Market Presets
+
+Market Presets are somewhat comparable to data packs - they control whether a set of Market Items should be available, and control their default payments.
+
+Farming for Blockheads ships with a set of market presets for various supported mods, some of which are disabled by default.
+
+You can enable additional presets or disable default presets in the config file.
+
+#### Creating your own Market Presets
+
+If you're creating a data pack, it's a good idea to bundle a market preset with it so that users can easily override payment items for your whole set of items.
+
+Market Presets are stored in a folder called `market_presets` and behave like any other data resource, i.e. they are namespaced and must be referenced as such.
+
+For mod compatibility packs, the namespace should be the mod id, while the path should describe the content of the presets, e.g. `minecraft:animal_eggs`.
+
+**Example:**
+
+```json
+{
+    "enabled": false,
+    "payment": {
+        "ingredient": {
+            "item": "minecraft:diamond"
+        },
+        "count": 1
+    }
+}
+```
+
+### Market Categories
+
+Each Market Category adds a new tab to the Market menu. You can add your own categories by creating a data pack.
+
+Market Categories are stored in a folder called `market_categories` and behave like any other data resource, i.e. they are namespaced and must be referenced as such.
+
+Farming for Blockheads ships with four default categories: `farmingforblockheads:seeds`, `farmingforblockheads:saplings`, `farmingforblockheads:flowers` and `farmingforblockheads:other`.
+
+**Example:**
+
+```json
+{
+    "tooltip": {
+        "translate": "category.farmingforblockheads.flowers"
+    },
+    "icon": {
+        "item": "minecraft:dandelion"
+    },
+    "sortIndex": 30
+}
+```
+
+### Market Items
+
+Market Items are the items that are available for purchase in the Market. You can add your own purchaseable items by creating a data pack.
+
+As these items are defined using Minecraft's recipe system, you can also easily use a mod like CraftTweaker to define them via CraftTweaker's `addJsonRecipe()`.
+
+Farming for Blockheads' default recipes are located within `recipes/market/<modId>/<itemId>`, but this is just convention to avoid accidental recipe collisions.
+
+**Example:**
+
+```json
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:other",
+  "preset": "minecraft:animal_eggs",
+  "result": {
+    "item": "minecraft:cat_spawn_egg"
+  }
+}
+```
+
+#### NBT / Components and Enchanted Items
+
+##### Minecraft 1.20.6 and above
+
+```json
+{
+  "type": "farmingforblockheads:market",
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {"minecraft:wind_burst": 3}
+      },
+      "minecraft:custom_name": "[{\"translate\": \"enchantment.minecraft.wind_burst\"}, {\"text\": \" 3\"}]"
+    }
+  }
+}
+```
+
+##### Minecraft 1.20.4
+
+```json
+{
+  "type": "farmingforblockheads:market",
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "tag": {
+      "StoredEnchantments": [
+        {
+          "id": "minecraft:wind_burst",
+          "lvl": 3
+        }
+      ]
+    }
+  }
+}
+```
