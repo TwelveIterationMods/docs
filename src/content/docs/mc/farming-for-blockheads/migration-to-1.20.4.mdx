@@ -6,11 +6,17 @@ icon: mdi:swap-horizontal
 
 import NoteBox from '../../../../components/NoteBox.astro';
 
-import FarmingForBlockheadsRegistryToRecipe from '../../../../components/tools/mc/migrations/FarmingForBlockheadsRegistryToRecipe.vue';
+import FarmingForBlockheadsMigrateToOneTwentyFour from '../../../../components/tools/mc/migrations/FarmingForBlockheadsMigrateToOneTwentyFour.vue';
 
-### Farming for Blockheads Registry JSON files to 1.20.4+ Recipe Format
+### Migrate Farming for Blockheads data to 1.20.4+
 
-<FarmingForBlockheadsRegistryToRecipe client:load />
+<NoteBox title="Trying to migrate to 1.21.2?">
+This tool only migrates data that from versions prior to Minecraft 1.20.4 to the format required by Minecraft 1.20.4 up until including 1.21.1.
+
+If you have data that was already migrated to 1.20.4 but need to use it in 1.21.2, try using the [next migrator](../migration-to-1.21.2) instead.
+</NoteBox>
+
+<FarmingForBlockheadsMigrateToOneTwentyFour client:load />
 
 ### How to migrate Group Overrides
 

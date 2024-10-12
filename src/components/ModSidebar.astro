@@ -54,6 +54,7 @@ const sortedGuides = allGuides.sort((a, b) => {
                                     </div>
                                 )}
                                 {item.data.title}
+                                {item.data.badge && <span class="badge badge-secondary">{item.data.badge}</span>}
                             </a>
                         </li>
                     ))}
@@ -76,6 +77,7 @@ const sortedGuides = allGuides.sort((a, b) => {
                                     </div>
                                 )}
                                 {guide.data.title}
+                                {guide.data.badge && <span class="badge badge-secondary">{guide.data.badge}</span>}
                             </a>
                         </li>
                     ))}
