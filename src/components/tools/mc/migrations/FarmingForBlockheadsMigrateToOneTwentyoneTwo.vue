@@ -76,29 +76,17 @@ function migrate(fileName: string, data: any) {
             defaults,
             conditions: [
                 {
-                    type: 'farmingforblockheads:preset_enabled',
-                    preset: defaults,
-                },
-                {
                     type: 'forge:mod_loaded',
                     mod: modId,
                 },
             ],
             'fabric:load_conditions': [
                 {
-                    condition: 'farmingforblockheads:preset_enabled',
-                    preset: defaults,
-                },
-                {
                     condition: 'fabric:all_mods_loaded',
                     values: [modId],
                 },
             ],
             'neoforge:conditions': [
-                {
-                    type: 'farmingforblockheads:preset_enabled',
-                    preset: defaults,
-                },
                 {
                     type: 'neoforge:mod_loaded',
                     modid: modId,
