@@ -27,7 +27,7 @@ function determineModId(result: { item: string }) {
     return parts.length === 2 ? parts[0] : 'minecraft';
 }
 
-function determineDefaults(preset: string) {
+function determineDefaults(preset: string, result: { item: string }) {
     const parts = preset.split(':');
     const modId = parts.length === 2 ? parts[0] : 'minecraft';
     const group = parts.length === 2 ? parts[1] : parts[0];
@@ -46,7 +46,7 @@ function determineDefaults(preset: string) {
             newGroup = 'fertilizers';
             break;
     }
-    return 'selling.' + newGroup + '.' + modId;
+    return 'selling.' + newGroup + '.' + modId + '.' + result.item.substring(result.item.indexOf(':') + 1)
 }
 
 function determineCategory(defaults: string) {
@@ -65,7 +65,7 @@ function migrate(fileName: string, data: any) {
     logs.value.push({ type: 'info', message: `Migrating ${fileName}...` });
 
     const modId = determineModId(data.result);
-    const defaults = determineDefaults(data.preset);
+    const defaults = determineDefaults(data.preset, data.result);
     const expectedCategory = determineCategory(defaults);
     const output = {
         path: fileName,
