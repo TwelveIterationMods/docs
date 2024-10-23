@@ -4,7 +4,7 @@ description: Basic inventory tweaks. Lightweight and compatible.
 cover: ./inventory-essentials.png
 priority: 940
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.3','1.21.1','1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: inventory-essentials
 modrinthSlug: inventory-essentials

@@ -4,7 +4,7 @@ description: Allows you to rotate, balance or clear the crafting matrix by the p
 priority: 980
 cover: ./crafting-tweaks.png
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.3','1.21.1','1.21', '1.20.6', '1.20.4', '1.20.1']
 category: Quality of Life
 curseForgeSlug: crafting-tweaks
 modrinthSlug: crafting-tweaks
