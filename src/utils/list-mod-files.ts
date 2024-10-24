@@ -14,6 +14,14 @@ const extractGameVersion = (version: string, snapshot: boolean) => {
     return 'Unknown';
 };
 
+function isGameVersionCompatibleWith(gameVersion: string, jarGameVersion: string) {
+    const compatibleVersions: Record<string, string[]> = {
+        '1.21.3': ['1.21.2'],
+        '1.21.1': ['1.21'],
+    }
+    return jarGameVersion === gameVersion || compatibleVersions[gameVersion]?.includes(jarGameVersion);
+}
+
 export default async function listModFiles(
     modId: string,
     gameVersion: string,
@@ -41,6 +49,6 @@ export default async function listModFiles(
             lastModified: jarAsset?.lastModified ?? new Date().toISOString(),
         };
     });
-    const filteredJars = jars.filter((jar) => jar?.gameVersion === gameVersion);
+    const filteredJars = jars.filter((jar) => isGameVersionCompatibleWith(gameVersion, jar?.gameVersion));
     return filteredJars;
 }
