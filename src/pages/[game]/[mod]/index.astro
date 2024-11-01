@@ -12,7 +12,7 @@ import ImageCarousel from '../../../components/GalleryCarousel.astro';
 import curseForgeLogo from './_curseforge.svg';
 import discordLogo from './_discord.svg';
 import githubLogo from './_github.svg';
-import steamLogo from './_github.svg';
+import steamLogo from './_steam.svg';
 import { Icon } from 'astro-icon';
 import BecomePatronButton from '../../../components/BecomePatronButton.astro';
 
@@ -73,9 +73,13 @@ const downloadUrl = `/${game}/${mod}/download/${latestGameVersion}/neoforge/rele
             }
         </div>
 
-        <a href={downloadUrl} class="btn btn-square btn-download">
-            <Icon name="mdi:download" class="w-6" />
-        </a>
+        {
+            game === 'mc' && (
+                <a href={downloadUrl} class="btn btn-square btn-download">
+                    <Icon name="mdi:download" class="w-6" />
+                </a>
+            )
+        }
     </div>
 
     <div class="divider"></div>
@@ -167,13 +171,17 @@ const downloadUrl = `/${game}/${mod}/download/${latestGameVersion}/neoforge/rele
                 }
             </div>
 
-            <div class="mt-6">
-                <div class="text-xl font-bold mb-2 lg:hidden">Support the Development</div>
-                <div class="text-xl font-bold mb-2 max-lg:hidden">Support the Development on Patreon</div>
-                <p class="mb-1">Developing mods takes a lot of time and effort.</p>
-                <p class="mb-4">If you enjoy my work, consider supporting me on Patreon.</p>
-                <BecomePatronButton />
-            </div>
+            {
+                entry.data.patreonCallout && (
+                    <div class="mt-6">
+                        <div class="text-xl font-bold mb-2 lg:hidden">Support the Development</div>
+                        <div class="text-xl font-bold mb-2 max-lg:hidden">Support the Development on Patreon</div>
+                        <p class="mb-1">Developing mods takes a lot of time and effort.</p>
+                        <p class="mb-4">If you enjoy my work, consider supporting me on Patreon.</p>
+                        <BecomePatronButton />
+                    </div>
+                )
+            }
         </div>
     </div>
 

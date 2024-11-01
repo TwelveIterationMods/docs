@@ -32,6 +32,7 @@ const modsCollection = defineCollection({
             curseForgeSlug: z.string().optional(),
             modrinthSlug: z.string().optional(),
             steamId: z.number().optional(),
+            patreonCallout: z.boolean().default(true),
             modId: z.string(),
             priority: z.number().default(0),
         }),

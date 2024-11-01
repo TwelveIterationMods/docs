@@ -29,7 +29,7 @@ const sortedGuides = allGuides.sort((a, b) => {
     <ul class="menu p-0 rounded-box mb-2 text-lg">
         <li>
             <a href={`/${game}/${mod}`}>
-                {modData?.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8 h-8" />}
+                {modData?.data.item && <img src={getGameImage(game, modData.data.item)} class="w-8 h-8 pixel" />}
                 {modData?.data.icon && (
                     <div class="w-8 h-8 flex items-center justify-center">
                         <Icon name={modData.data.icon} class="w-6" />
@@ -47,7 +47,7 @@ const sortedGuides = allGuides.sort((a, b) => {
                     {sortedItems.map((item) => (
                         <li>
                             <a href={`/${item.slug}`} class={item.slug === entry.slug ? 'active' : ''}>
-                                {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-8 h-8" />}
+                                {item.data.item && <img src={getGameImage(game, item.data.item)} class="w-8 h-8 pixel" />}
                                 {item.data.icon && (
                                     <div class="w-8 h-8 flex items-center justify-center">
                                         <Icon name={item.data.icon} class="w-6" />
@@ -70,7 +70,7 @@ const sortedGuides = allGuides.sort((a, b) => {
                     {sortedGuides.map((guide) => (
                         <li>
                             <a href={`/${guide.slug}`} class={guide.slug === entry.slug ? 'active' : ''}>
-                                {guide.data.item && <img src={getGameImage(game, guide.data.item)} class="w-8" />}
+                                {guide.data.item && <img src={getGameImage(game, guide.data.item)} class="w-8 pixel" />}
                                 {guide.data.icon && (
                                     <div class="w-8 flex items-center justify-center">
                                         <Icon name={guide.data.icon} class="w-6" />
@@ -88,3 +88,11 @@ const sortedGuides = allGuides.sort((a, b) => {
     }
     <a href={`/${game}`} class="btn btn-block btn-sm">Back to Mods</a>
 </div>
+
+<style>
+    .pixel {
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+    }
+</style>
