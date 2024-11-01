@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getEntry } from 'astro:content';
 import Tags from '../../utils/tags';
-import { ref, computed, onMounted, onUnmounted, watchEffect } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import getGameImage from '../../utils/image';
 import { redirectMappings } from '../../utils/redirects';
 
@@ -44,14 +44,14 @@ const itemUrl = computed(() => {
 
 let variantTicker: ReturnType<typeof setInterval> | null = null;
 
+const tickVariant = () => {
+    if (variants.value.length > 0) {
+        currentIndex.value = (currentIndex.value + 1) % variants.value.length;
+    }
+}
+
 onMounted(() => {
-    watchEffect(() => {
-        if (variants.value.length > 0) {
-            variantTicker = setInterval(() => {
-                currentIndex.value = (currentIndex.value + 1) % variants.value.length;
-            }, 1000);
-        }
-    });
+    variantTicker = setInterval(tickVariant, 1500);
 });
 
 onUnmounted(() => {

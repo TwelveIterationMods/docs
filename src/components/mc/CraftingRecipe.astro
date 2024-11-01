@@ -54,12 +54,12 @@ const result = typeof recipeData?.result === 'object' && (recipeData?.result?.it
         [0, 1, 2].map((col) => (
             <>
                 {[0, 1, 2].map((row) => (
-                    <>{matrix[row][col] && <MinecraftItem class:list={'recipe-row-' + row + ' recipe-col-' + col} item={matrix[row][col]} />}</>
+                    <>{matrix[row][col] && <MinecraftItem client:idle class:list={'recipe-row-' + row + ' recipe-col-' + col} item={matrix[row][col]} />}</>
                 ))}
             </>
         ))
     }
-    {result && <MinecraftItem class:list="recipe-result" item={result} />}
+    {result && <MinecraftItem client:idle class:list="recipe-result" item={result} />}
 </div>
 
 <style is:global lang="scss">

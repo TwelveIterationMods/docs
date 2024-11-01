@@ -12,8 +12,8 @@ const result = recipeData?.result as string;
 ---
 
 <div class="minecraft-smelting mt-3">
-    {input && <MinecraftItem class:list="smelting-input" item={input} />}
-    {result && <MinecraftItem class:list="smelting-result" item={result} />}
+    {input && <MinecraftItem client:idle class:list="smelting-input" item={input} />}
+    {result && <MinecraftItem client:idle class:list="smelting-result" item={result} />}
 </div>
 
 <style is:global lang="scss">
