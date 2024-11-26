@@ -5,7 +5,7 @@ priority: 990
 cover: ./cooking-for-blockheads.png
 item: cookingforblockheads:white_oven
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21.1', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.3', '1.21.1', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: cooking-for-blockheads
 modrinthSlug: cooking-for-blockheads
