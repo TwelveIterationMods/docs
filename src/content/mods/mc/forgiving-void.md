@@ -4,7 +4,7 @@ description: Makes the void hate you a little less (and vice-versa). Fall down a
 cover: ./forgiving-void.png
 priority: 900
 loaders: ['Forge', 'Fabric', 'NeoForge']
-gameVersions: ['1.21.3','1.21.1', '1.20.6', '1.20.4', '1.20.1']
+gameVersions: ['1.21.4','1.21.3','1.21.1', '1.20.6', '1.20.4', '1.20.1']
 category: Content Expansion
 curseForgeSlug: forgiving-void
 modrinthSlug: forgiving-void
