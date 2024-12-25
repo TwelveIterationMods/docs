@@ -10,6 +10,7 @@ import FabricBadge from '../../../components/mc/FabricBadge.astro';
 import NeoForgeBadge from '../../../components/mc/NeoForgeBadge.astro';
 import ImageCarousel from '../../../components/GalleryCarousel.astro';
 import curseForgeLogo from './_curseforge.svg';
+import nodecraftPanel from './nodecraft.jpg';
 import discordLogo from './_discord.svg';
 import githubLogo from './_github.svg';
 import steamLogo from './_steam.svg';
@@ -174,14 +175,18 @@ const downloadUrl = `/${game}/${mod}/download/${latestGameVersion}/neoforge/rele
             {
                 entry.data.patreonCallout && (
                     <div class="mt-6">
-                        <div class="text-xl font-bold mb-2 lg:hidden">Support the Development</div>
-                        <div class="text-xl font-bold mb-2 max-lg:hidden">Support the Development on Patreon</div>
-                        <p class="mb-1">Developing mods takes a lot of time and effort.</p>
-                        <p class="mb-4">If you enjoy my work, consider supporting me on Patreon.</p>
+                        <div class="text-xl font-bold mb-2">Support the Development</div>
                         <BecomePatronButton />
                     </div>
                 )
             }
+
+            <div class="mt-6">
+                <div class="text-xl font-bold mb-2">Host a Server</div>
+                <a href="https://nodecraft.com/r/blay">
+                    <Image src={nodecraftPanel} alt="Blay is a Nodecraft Partner! Use code BLAY at nodecraft.com to get the best available discount." width="460" />
+                </a>
+            </div>
         </div>
     </div>
 
