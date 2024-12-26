@@ -1,14 +1,14 @@
 ---
 title: Forbidden Smoothies
-description: Not yet released
-cover: ./balm.png
+description: Adds a Blender and Printer block, allowing conversion of items based on weighted custom shapeless recipes.
+cover: ./forbidden-smoothies.png
 priority: 860
 loaders: ['Forge']
 gameVersions: ['1.20.1']
-category: Library
+category: Content Expansion
 curseForgeSlug: forbidden-smoothies
 modId: forbiddensmoothies
-curseForgeId: 531761
+curseForgeId: 956081
 ---
 
 This mod is not yet available.
