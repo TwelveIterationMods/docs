@@ -39,7 +39,7 @@ These definitions are run in-order. Modifiers will only run if all conditions pa
 For example, to disallow interdimensional warps to and from the end, you could use the following requirement:
 
 ```
-[is_interdimensional, involves_dimension(minecraft:the_end)] refuse("You cannot warp to or from The End.")
+[is_interdimensional, involves_dimension(minecraft:the_end)] refuse(You cannot warp to or from The End.)
 ```
 
 ### Modifiers
@@ -66,7 +66,7 @@ For example, to disallow interdimensional warps to and from the end, you could u
 |scaled_add_item_cost(variable, item, scale)|Adds items to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_item_cost(distance, minecraft:diamond, 0.01)|
 |min_item_cost(item, min)|Clamps the item cost to the given minimum value.|min_item_cost(minecraft:diamond, 1)|
 |max_item_cost(item, max)|Clamps the item cost to the given maximum value.|max_item_cost(minecraft:diamond, 3)|
-|refuse(message)|Refuses the warp with the specified message. Prepend message with $ to use a translation key.|refuse("You are not allowed to warp here.") or refuse("$your.custom.translation.key")|
+|refuse(message)|Refuses the warp with the specified message. Prepend message with $ to use a translation key.|refuse(You are not allowed to warp here.) or refuse($your.custom.translation.key)|
 
 ### Conditions
 
