@@ -16,7 +16,7 @@
       "item": "excompressum:compressed_hammer_diamond"
     },
     "I": {
-      "tag": "forge:ingots/steel"
+      "tag": "c:ingots/steel"
     }
   },
   "conditions": [
@@ -24,7 +24,7 @@
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:ingots/steel"
+        "tag": "c:ingots/steel"
       }
     }
   ]

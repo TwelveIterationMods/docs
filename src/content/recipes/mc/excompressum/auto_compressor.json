@@ -13,10 +13,10 @@
       "item": "minecraft:crafting_table"
     },
     "B": {
-      "tag": "forge:storage_blocks/iron"
+      "item": "minecraft:iron_block"
     },
     "I": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     }
   }
 }

@@ -11,7 +11,7 @@
   ],
   "key": {
     "G": {
-      "tag": "forge:dyes/green"
+      "tag": "c:dyes/green"
     },
     "N": {
       "item": "minecraft:gold_nugget"

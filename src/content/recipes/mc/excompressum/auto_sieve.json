@@ -10,17 +10,17 @@
   ],
   "key": {
     "G": {
-      "tag": "forge:glass_panes/colorless"
+      "item": "minecraft:glass_pane"
     },
     "S": {
       "type": "excompressum:nihilo_item",
       "value": "SIEVE"
     },
     "I": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "B": {
-      "tag": "forge:storage_blocks/iron"
+      "item": "minecraft:iron_block"
     }
   },
   "conditions": [

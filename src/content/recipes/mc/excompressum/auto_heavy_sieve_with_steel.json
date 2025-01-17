@@ -10,16 +10,16 @@
   ],
   "key": {
     "G": {
-      "tag": "forge:glass_panes/colorless"
+      "item": "minecraft:glass_pane"
     },
     "S": {
       "tag": "excompressum:heavy_sieve"
     },
     "I": {
-      "tag": "forge:ingots/steel"
+      "tag": "c:ingots/steel"
     },
     "B": {
-      "tag": "forge:storage_blocks/steel"
+      "tag": "c:storage_blocks/steel"
     }
   },
   "conditions": [
@@ -30,14 +30,14 @@
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",
-            "tag": "forge:ingots/steel"
+            "tag": "C:ingots/steel"
           }
         },
         {
           "type": "forge:not",
           "value": {
             "type": "forge:tag_empty",
-            "tag": "forge:storage_blocks/steel"
+            "tag": "c:storage_blocks/steel"
           }
         }
       ]

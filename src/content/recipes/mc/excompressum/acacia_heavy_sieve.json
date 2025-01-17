@@ -10,7 +10,7 @@
   ],
   "key": {
     "s": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     },
     "p": {
       "item": "minecraft:acacia_log"

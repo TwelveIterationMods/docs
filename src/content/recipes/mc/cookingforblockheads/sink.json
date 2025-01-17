@@ -9,7 +9,7 @@
       "item": "minecraft:terracotta"
     },
     "I": {
-      "tag": "c:ingots/iron"
+      "item": "minecraft:iron_ingot"
     }
   },
   "pattern": [

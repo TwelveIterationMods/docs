@@ -10,13 +10,13 @@
   ],
   "key": {
     "S": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     },
     "R": {
-      "tag": "forge:dusts/redstone"
+      "item": "minecraft:redstone"
     },
     "G": {
-      "tag": "forge:dusts/glowstone"
+      "item": "minecraft:glowstone"
     }
   }
 }

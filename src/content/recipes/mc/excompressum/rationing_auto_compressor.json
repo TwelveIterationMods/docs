@@ -13,7 +13,7 @@
       "item": "excompressum:auto_compressor"
     },
     "G": {
-      "tag": "forge:ingots/gold"
+      "item": "minecraft:gold_ingot"
     }
   }
 }

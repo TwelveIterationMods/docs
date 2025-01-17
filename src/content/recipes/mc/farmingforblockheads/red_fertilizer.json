@@ -11,7 +11,7 @@
   ],
   "key": {
     "R": {
-      "tag": "forge:dyes/red"
+      "tag": "c:dyes/red"
     },
     "N": {
       "item": "minecraft:gold_nugget"

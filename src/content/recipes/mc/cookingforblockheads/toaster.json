@@ -9,7 +9,7 @@
       "item": "minecraft:iron_trapdoor"
     },
     "I": {
-      "tag": "c:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "L": {
       "item": "minecraft:lava_bucket"

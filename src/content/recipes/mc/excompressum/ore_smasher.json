@@ -10,13 +10,13 @@
   ],
   "key": {
     "S": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     },
     "C": {
       "item": "minecraft:crafting_table"
     },
     "D": {
-      "tag": "forge:gems/diamond"
+      "tag": "c:gems/diamond"
     }
   }
 }

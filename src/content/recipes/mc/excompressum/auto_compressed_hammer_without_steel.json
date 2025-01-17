@@ -16,16 +16,16 @@
       "item": "excompressum:compressed_hammer_diamond"
     },
     "I": {
-      "tag": "forge:ingots/iron"
+      "item": "minecraft:iron_ingot"
     },
     "B": {
-      "tag": "forge:storage_blocks/iron"
+      "item": "minecraft:iron_block"
     }
   },
   "conditions": [
     {
       "type": "forge:tag_empty",
-      "tag": "forge:ingots/steel"
+      "tag": "c:ingots/steel"
     }
   ]
 }
