@@ -1,0 +1,14 @@
+[
+    {
+        "name": "rulesets",
+        "type": "List",
+        "description": "IDs of inbuilt rulesets to enable. For example, \"waystones:generated_waystones\" makes all generated waystones unbreakable.",
+        "defaultValue": []
+    },
+    {
+        "name": "rules",
+        "type": "List",
+        "description": "List of custom rules with comma-separated parameters in parentheses. Conditions can be defined as comma-separated list in square brackets. Will be applied in order.",
+        "defaultValue": []
+    }
+]

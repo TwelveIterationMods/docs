@@ -1,0 +1,74 @@
+---
+title: Configuration
+type: guide
+icon: mdi:cogs
+---
+import ConfigTable from '../../../../components/ConfigTable.astro'
+import NoteBox from '../../../../components/NoteBox.astro'
+
+<ConfigTable game="mc" mod="unbreakables" />
+
+---
+
+## Unbreakable Rules
+
+Unbreakable Rules are defined in the following format:
+
+```
+[condition1, condition2] modifier()
+```
+
+Example:
+
+```
+[is_block(minecraft:dirt)] refuse(You cannot break dirt)
+[is_tag(minecraft:planks)] refuse(You cannot break planks)
+[is_state(lit, true)] refuse(You cannot break lit furnaces)
+```
+
+These definitions are run in-order. Modifiers will only run if all conditions pass.
+
+For example, to disallow generated waystones from being broken, you could use the following rule:
+
+```
+[is_tag(waystones:waystones), is_not_state(origin, player)] refuse($chat.waystones.cannot_break_waystone)
+```
+
+### Modifiers
+
+|Modifier|Description|Example|
+|---|---|---|
+|add_level_cost(levels)|Adds the specified amount to the warp level cost|add_level_cost(1)|
+|multiply_level_cost(levels)|Multiplies the warp level cost by the specified amount|multiply_level_cost(2)|
+|scaled_add_level_cost(variable, scale)|Adds levels to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_level_cost(distance, 0.01)|
+|min_level_cost(levels)|Clamps the level cost to the given minimum value.|min_level_cost(1)|
+|max_level_cost(levels)|Clamps the level cost to the given maximum value.|max_level_cost(3)|
+|add_xp_cost(levels)|Adds the specified amount to the warp XP cost|add_xp_cost(1)|
+|multiply_xp_cost(levels)|Multiplies the warp XP cost by the specified amount|multiply_xp_cost(2)|
+|scaled_add_xp_cost(variable, scale)|Adds levels to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_xp_cost(distance, 0.01)|
+|min_xp_cost(levels)|Clamps the XP cost to the given minimum value.|min_xp_cost(1)|
+|max_xp_cost(levels)|Clamps the XP cost to the given maximum value.|max_xp_cost(3)|
+|add_item_cost(item, count)|Adds the specified amount to the warp item cost|add_item_cost(minecraft:diamond, 1)|
+|multiply_item_cost(item, multiplier)|Multiplies the warp item cost by the specified amount|multiply_item_cost(minecraft:diamond, 2)|
+|scaled_add_item_cost(variable, item, scale)|Adds items to the cost of the warp in the amount of the specified variable and scale factor|scaled_add_item_cost(distance, minecraft:diamond, 0.01)|
+|min_item_cost(item, min)|Clamps the item cost to the given minimum value.|min_item_cost(minecraft:diamond, 1)|
+|max_item_cost(item, max)|Clamps the item cost to the given maximum value.|max_item_cost(minecraft:diamond, 3)|
+|refuse(message)|Refuses the warp with the specified message. Prepend message with $ to use a translation key.|refuse(You are not allowed to warp here.) or refuse($your.custom.translation.key)|
+
+### Conditions
+
+|Condition|Description|Example|
+|---|---|---|
+|is_block(namespace:path)|Passes if the block is the specified block|[is_block(minecraft:dirt)]|
+|is_not_block(namespace:path)|Passes if the block is not the specified block|[is_not_block(minecraft:dirt)]|
+|is_tag(namespace:path)|Passes if the block has the specified tag|[is_tag(waystones:waystones)]|
+|is_not_tag(namespace:path)|Passes if the block does not have the specified tag|[is_not_tag(waystones:waystones)]|
+|is_state(state, value)|Passes if the block has the specified state|[is_state(lit, true)]|
+|is_not_state(state, value)|Passes if the block does not have the specified state|[is_not_state(waystones:origin, player)]|
+|is_in_dimension(namespace:path)|Passes if the block is within the specified dimension|[is_in_dimension(minecraft:the_nether)]|
+|is_not_in_dimension(namespace:path)|Passes if the block is not within the specified dimension|[is_not_in_dimension(minecraft:overworld)]|
+
+### Variables
+
+|Variable|Description|
+|---|---|

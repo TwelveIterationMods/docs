@@ -1,0 +1,23 @@
+---
+title: Customization
+type: guide
+icon: mdi:puzzle-edit
+---
+import NoteBox from '../../../../components/NoteBox.astro'
+
+### Table of Contents
+
+### Providing rulesets through datapacks
+
+This is mainly useful for modders, since regular users can simply define rules within the config files.
+
+Mods or datapacks can include ruleset json files under `data/<namespace>/unbreakables/<path>.json`, which allows players to enable the ruleset through the `rulesets` config option.
+
+Example ruleset from Waystones:
+```json
+{
+  "rules": [
+    "[is_tag(waystones:waystones), is_not_state(origin, player)] refuse($chat.waystones.cannot_break_waystone)"
+  ]
+}
+```
