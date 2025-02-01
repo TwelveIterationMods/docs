@@ -113,6 +113,18 @@ Refer to the respective guides (e.g. Minecraft Wiki for data packs, or CraftTwea
 
 ---
 
+### How do I make generated waystones unbreakable?
+
+You can use the mod [Unbreakables](https://www.curseforge.com/minecraft/mc-mods/unbreakables), which Waystones has inbuilt support for.
+
+In `config/unbreakables-common.toml`, enable the `waystones:generated_waystones` ruleset to disallow breaking of generated waystones.
+
+```toml
+rulesets = [ "waystones:generated_waystones" ]
+```
+
+---
+
 ### How do I export a waystone in a structure?
 
 Waystones initialize and receive a unique ID when they are loaded, so simply exporting a waystone block within a structure would result in all generated waystones having the same identity.
