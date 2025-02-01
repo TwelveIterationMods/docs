@@ -59,7 +59,7 @@ For example, to disallow generated waystones from being broken, you could use th
 
 |Condition|Description|Example|
 |---|---|---|
-|is_block(namespace:path)|Passes if the block is the specified block|[is_block(minecraft:dirt)]|
+|is_block(namespace:path)|Passes if the block is the specified block|[is_block(minecraft:dirt) or is_block(#minecraft:planks)]|
 |is_not_block(namespace:path)|Passes if the block is not the specified block|[is_not_block(minecraft:dirt)]|
 |is_tag(namespace:path)|Passes if the block has the specified tag|[is_tag(waystones:waystones)]|
 |is_not_tag(namespace:path)|Passes if the block does not have the specified tag|[is_not_tag(waystones:waystones)]|
@@ -67,6 +67,30 @@ For example, to disallow generated waystones from being broken, you could use th
 |is_not_state(state, value)|Passes if the block does not have the specified state|[is_not_state(waystones:origin, player)]|
 |is_in_dimension(namespace:path)|Passes if the block is within the specified dimension|[is_in_dimension(minecraft:the_nether)]|
 |is_not_in_dimension(namespace:path)|Passes if the block is not within the specified dimension|[is_not_in_dimension(minecraft:overworld)]|
+|is_in_biome(namespace:path)|Passes if the block is within the specified biome|[is_in_biome(minecraft:desert)]|
+|is_not_in_biome(namespace:path)|Passes if the block is not within the specified biome|[is_not_in_biome(minecraft:desert)]|
+|has_effect(namespace:path, minimumLevel)|Passes if the player has the specified effect|[has_effect(minecraft:strength, 1)]|
+|not_has_effect(namespace:path)|Passes if the player does not have the specified effect|[not_has_effect(minecraft:strength)]|
+|is_tool(namespace:path)|Passes if the player is holding the specified tool|[is_tool(minecraft:diamond_pickaxe)]|
+|is_not_tool(namespace:path)|Passes if the player is not holding the specified tool|[is_not_tool(minecraft:diamond_pickaxe)]|
+|is_enchanted(namespace:path, minimumLevel)|Passes if the player's tool holds the given enchantment|[is_enchanted(minecraft:silk_touch, 1)]|
+|is_not_enchanted(namespace:path, minimumLevel)|Passes if the player's tool does not hold the given enchantment|[is_not_enchanted(minecraft:silk_touch, 1)]|
+|players_nearby(distance, minimum)|Passes if there are enough other players within range|[players_nearby(10, 1)]|
+|not_players_nearby(distance, minimum)|Passes if there are enough other players within range|[not_players_nearby(10, 1)]|
+|mobs_nearby(distance, minimum)|Passes if there are enough mobs within range|[mobs_nearby(10, 1)]|
+|not_mobs_nearby(distance, minimum)|Passes if there are enough mobs within range|[not_mobs_nearby(10, 1)]|
+|animals_nearby(distance, minimum)|Passes if there are enough animals within range|[animals_nearby(10, 1)]|
+|not_animals_nearby(distance, minimum)|Passes if there are enough animals within range|[not_animals_nearby(10, 1)]|
+|entity_nearby(namespace:path, distance, minimum)|Passes if there are enough entities within range|[entity_nearby(minecraft:pig, 10, 1)]|
+|not_entity_nearby(namespace:path, distance, minimum)|Passes if there are enough entities within range|[not_entity_nearby(minecraft:pig, 10, 1)]|
+|is_above_y(y)|Passes if the block is above the given y-level|[is_above_y(100)]|
+|is_below_y(y)|Passes if the block is below the given y-level|[is_below_y(100)]|
+|is_within(minX, minY, minZ, maxX, maxY, maxZ)|Passes if the block is within the given region|[is_within(0, 0, 0, 100, 100, 100)]|
+|is_not_within(minX, minY, minZ, maxX, maxY, maxZ)|Passes if the player is not within the given region|[is_not_within(0, 0, 0, 100, 100, 100)]|
+|is_at(x, y, z)|Passes if the block is at the given coordinates|[is_at(0, 0, 0)]|
+|is_not_at(x, y, z)|Passes if the block is not at the given coordinates|[is_not_at(0, 0, 0)]|
+|is_near(x, y, z, distance)|Passes if the block is within the given distance of the given coordinates|[is_near(0, 0, 0, 10)]|
+|is_not_near(x, y, z, distance)|Passes if the block is not within the given distance of the given coordinates|[is_not_near(0, 0, 0, 10)]|
 
 ### Variables
 
