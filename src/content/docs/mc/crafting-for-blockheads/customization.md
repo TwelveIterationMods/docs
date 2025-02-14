@@ -160,7 +160,7 @@ The `meets_predicate` predicate verifies that a specific other predicate is met.
 
 Be careful not to create circular dependencies with this predicate, or you will crash with a StackOverflowException.
 
-```json
+````json
 {
     "type": "meets_predicate",
     "predicate": "craftingforblockheads:workbench_used"
@@ -176,7 +176,7 @@ The `has_advancement` predicate verifies that the player has a specific advancem
     "type": "has_advancement",
     "advancement": "minecraft:story/mine_stone"
 }
-```
+````
 
 ### has_gamestage (GameStages mod)
 
@@ -376,18 +376,14 @@ Translation files can be added in resource packs, and the various modpack custom
     "modid": "craftingforblockheads",
     "preset": "demo",
     "predicates": {
-        "workbench_used": [
-            {
-                "type": "workshop_core",
-                "block": "craftingforblockheads:workbench"
-            }
-        ],
-        "metalworking": [
-            {
-                "type": "workshop_has",
-                "block": "minecraft:anvil"
-            }
-        ]
+        "workbench_used": {
+            "type": "workshop_core",
+            "block": "craftingforblockheads:workbench"
+        },
+        "metalworking": {
+            "type": "workshop_has",
+            "block": "minecraft:anvil"
+        }
     },
     "groups": {
         "minecraft:oak_button": [
