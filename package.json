@@ -24,7 +24,8 @@
     "sharp": "^0.33.4",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
-    "vue": "^3.4.27"
+    "vue": "^3.4.27",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "daisyui": "^4.12.2",
