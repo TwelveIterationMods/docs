@@ -80,8 +80,6 @@ BalmPermissions permissions = Balm.<BalmPermissions>modProxy()
 
 This code creates a permissions system that integrates with fabric-permissions-api (third-party-mod) when available, but falls back to a standard implementation when the API isn't present.
 
-
-
 ### Requirements for Proxy Classes
 
 Implementation classes loaded through the mod proxy system must:
