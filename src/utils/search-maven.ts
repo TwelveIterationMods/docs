@@ -33,13 +33,35 @@ export default async function searchMaven(
         queryParams.set('version', version);
     }
 
+    let allItems: any[] | PromiseLike<{
+        version: string; name: string; repository: string; assets: {
+            downloadUrl: string;
+            fileSize: number;
+            lastModified: string;
+            maven2: {
+                extension: string;
+                classifier?: string;
+            };
+            contentType: string;
+        }[];
+    }[]> = [];
+    let continuationToken = null;
+
     try {
-        const response = await fetch(`${nexusUrl}?${queryParams.toString()}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data.items;
+        do {
+            if (continuationToken) {
+                queryParams.set('continuationToken', continuationToken);
+            }
+            const response = await fetch(`${nexusUrl}?${queryParams.toString()}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            allItems = allItems.concat(data.items);
+            continuationToken = data.continuationToken;
+        } while (continuationToken);
+
+        return allItems;
     } catch (error) {
         console.error('Error fetching artifact:', error);
         return [];
