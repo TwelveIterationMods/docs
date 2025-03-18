@@ -9,6 +9,7 @@ category: Utilities
 curseForgeSlug: chat-tweaks
 modId: chattweaks
 curseForgeId: 243506
+discontinued: true
 ---
 
 This mod provides various tweaks and features to the Minecraft chat while staying close to the look and feel of the Vanilla chat.

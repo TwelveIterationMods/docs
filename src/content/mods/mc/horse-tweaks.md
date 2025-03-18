@@ -8,6 +8,7 @@ category: Content Expansion
 curseForgeSlug: horse-tweaks
 modId: horsetweaks
 curseForgeId: 291218
+discontinued: true
 ---
 
 This mod adds various saddle upgrades to improve the abilities of your horses, as well as some minor subtle tweaks aiming to reduce horse frustration. Upgrades can be applied to saddles by crafting a saddle along with the appropriate items.

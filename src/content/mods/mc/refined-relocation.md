@@ -8,6 +8,7 @@ category: Content Expansion
 curseForgeSlug: refined-relocation-2
 modId: refinedrelocation2
 curseForgeId: 247135
+discontinued: true
 ---
 
 This mod adds Sorting Chests that can be configured through various filters and form a sorting network.

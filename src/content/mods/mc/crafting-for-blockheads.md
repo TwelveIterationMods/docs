@@ -2,7 +2,6 @@
 title: Crafting for Blockheads
 description: Crafting for Blockheads is a customizable workbench mod that combines ideas from Cooking for Blockheads and opens them up to wider areas of crafting.
 priority: 700
-badge: Soon
 cover: ./crafting-for-blockheads.png
 icon: mdi:anvil
 loaders: ['Forge']

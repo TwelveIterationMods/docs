@@ -8,6 +8,7 @@ category: Utilities
 curseForgeSlug: subheads
 modId: subheads
 curseForgeId: 236798
+discontinued: true
 ---
 
 This is a Headcrumbs addon that adds the skins of your Twitch subscribers to the Headcrumbs mobs.

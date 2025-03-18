@@ -8,6 +8,7 @@ category: Utilities
 curseForgeSlug: twitch-chat-integration
 modId: twitchintegration
 curseForgeId: 245491
+discontinued: true
 ---
 
 This mod adds Twitch Chat to Minecraft. You can use it to keep track of chat while playing or just make your viewers feel special by having them appear in Minecraft Chat.

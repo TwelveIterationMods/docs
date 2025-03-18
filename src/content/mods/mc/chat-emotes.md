@@ -9,6 +9,7 @@ category: Utilities
 curseForgeSlug: eiramoticons
 modId: eiramoticons
 curseForgeId: 230849
+discontinued: true
 ---
 
 This mod adds emoticons to Minecraft chat.

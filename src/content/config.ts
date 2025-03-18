@@ -35,6 +35,7 @@ const modsCollection = defineCollection({
             patreonCallout: z.boolean().default(true),
             modId: z.string(),
             priority: z.number().default(0),
+            discontinued: z.boolean().default(false),
         }),
 });
 
@@ -44,7 +45,7 @@ const exclusivesCollection = defineCollection({
         z.object({
             title: z.string(),
             gameVersion: z.string(),
-            loaders: z.array(z.enum(['Forge', 'Fabric', 'NeoForge', 'Steam']))
+            notes: z.record(z.string(), z.string()).default({})
         }),
 });
 

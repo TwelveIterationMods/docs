@@ -8,6 +8,7 @@ category: Quality of Life
 curseForgeSlug: thaumcraft-inventory-scanning
 modId: tcinventoryscan
 curseForgeId: 238003
+discontinued: true
 ---
 
 This mod lets you scan items in your inventory for aspects without having to drop them on the ground first.

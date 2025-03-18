@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import Layout from '../../../layouts/Layout.astro';
 import MarkdownDocument from '../../../components/MarkdownDocument.astro';
 import listLatestFiles from '../../../utils/list-latest-files';
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon';
 
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('exclusives');
@@ -23,23 +23,28 @@ const gameVersion = entry.data.gameVersion;
 const { Content } = await entry.render();
 
 const allMods = await getCollection('mods', (it) => {
-    return it.slug.startsWith('mc/');
+    return it.slug.startsWith('mc/') && !it.data.discontinued;
 });
+
+const jars = await listLatestFiles(gameVersion!, 'snapshot');
+const latestByMod = jars.reduce<Record<string, Record<string, (typeof jars)[0]>>>((acc, jar) => {
+    if (jar.loader === 'common') return acc;
+    if (!acc[jar.name]) {
+        acc[jar.name] = {};
+    }
+    acc[jar.name][jar.loader] = jar;
+    return acc;
+}, {});
+
 const sortedMods = allMods.sort((a, b) => {
     return b.data.priority - a.data.priority;
 });
-
-const loaders = ['fabric', 'neoforge', 'forge']
-const jars = await listLatestFiles(gameVersion!, 'snapshot');
-const latestByModAndLoader = null
 ---
 
 <Layout title={entry.data.title}>
     <MarkdownDocument data={entry.data}>
         <Content />
     </MarkdownDocument>
-
-    {JSON.stringify(jars)}
 
     <table class="table table-zebra w-full">
         <thead>
@@ -54,9 +59,17 @@ const latestByModAndLoader = null
                 sortedMods.map((mod) => (
                     <tr class="hover">
                         <td>
-                            <div class="flex items-center justify-center">
-                                <Icon name="mdi:check" class="text-success w-8 h-8" />
-                            </div>
+                            {latestByMod[mod.data.modId] && (
+                                <div class="flex items-center justify-center">
+                                    <Icon name="mdi:check" class="text-success w-8 h-8" />
+                                </div>
+                            )}
+
+                            {!latestByMod[mod.data.modId] && (
+                                <div class="flex items-center justify-center">
+                                    <Icon name="mdi:close" class="text-error w-8 h-8" />
+                                </div>
+                            )}
                         </td>
 
                         <td>
@@ -74,8 +87,14 @@ const latestByModAndLoader = null
                                 </div>
                             </div>
                         </td>
+                        <td />
                         <td>
-
+                            {entry.data.notes[mod.data.modId] && (
+                                <div class="flex items-center gap-2">
+                                    <Icon name="mdi:warning" class="text-warning w-5 h-5" />
+                                    {entry.data.notes[mod.data.modId]}
+                                </div>
+                            )}
                         </td>
                     </tr>
                 ))

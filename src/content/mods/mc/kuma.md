@@ -8,4 +8,5 @@ category: Library
 curseForgeSlug: kuma
 modId: kuma
 curseForgeId: 1027078
+discontinued: true
 ---
