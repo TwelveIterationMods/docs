@@ -33,7 +33,9 @@ const latestByMod = jars.reduce<Record<string, Record<string, (typeof jars)[0]>>
     if (!acc[jar.name]) {
         acc[jar.name] = {};
     }
-    acc[jar.name][jar.loader] = jar;
+    if (!acc[jar.name][jar.loader]) {
+        acc[jar.name][jar.loader] = jar;
+    }
     return acc;
 }, {});
 
