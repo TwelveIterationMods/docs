@@ -32,7 +32,6 @@ export default async function searchMaven(
     if (version) {
         queryParams.set('version', version);
     }
-    console.log(queryParams)
 
     try {
         const response = await fetch(`${nexusUrl}?${queryParams.toString()}`);

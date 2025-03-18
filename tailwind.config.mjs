@@ -77,7 +77,7 @@ const brandButtons = {
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-    safelist: ['badge-error', 'badge-warning', 'badge-success', 'badge-info', 'border-primary', 'border-patreon'],
+    safelist: ['badge-error', 'badge-warning', 'badge-success', 'badge-info', 'border-primary', 'border-patreon', 'border-error'],
     theme: {
         extend: {
             colors: {
