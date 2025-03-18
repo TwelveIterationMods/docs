@@ -99,6 +99,7 @@ export default {
                     success: '#388E3C',
                     info: '#29B6F6',
                     'base-100': '#0D1B2A',
+                    '--rounded-btn': '0',
                     ...brandButtons,
                 },
                 'twelve-light': {
@@ -111,6 +112,7 @@ export default {
                     success: '#66BB6A',
                     info: '#64B5F6',
                     'base-100': '#FDF6E3',
+                    '--rounded-btn': '0',
                     ...brandButtons,
                 },
             },
