@@ -4,6 +4,10 @@ gameVersion: '1.21.5'
 notes:
   waystones: Worlds from previous versions are not (yet?) compatible.
   cookingforblockheads: Models will not display correctly.
+  excompressum: Models will not display correctly.
+  kleeslabs: KleeSlabs now exclusively uses tags to determine supported slabs.
+  forbiddensmoothies: Likely only later this year.
+  craftingforblockheads: Likely only later this year.
 ---
 import NoteBox from '../../../components/NoteBox.astro'
 
@@ -26,3 +30,15 @@ If you're looking for long-term stability, consider remaining on Minecraft 1.20.
 <NoteBox title="Known Issue: Custom model renderers will not display correctly" color="error">
 Custom models, such as those from Cooking for Blockheads, will not display correctly yet.
 </NoteBox>
+
+---
+
+<NoteBox title="Supported Mod Loaders" color="info">
+- Fabric releases are usually the first to come out, and it's also the only mod loader supported on pre-releases.
+- NeoForge releases usually follow within a few days of the full release.
+- Forge releases may be delayed. **It is recommended to switch to NeoForge or Fabric.**
+</NoteBox>
+
+---
+
+### Status and Downloads
