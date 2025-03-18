@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../../layouts/Layout.astro';
+import MarkdownDocument from '../../../components/MarkdownDocument.astro';
+import listLatestFiles from '../../../utils/list-latest-files';
+import { Icon } from 'astro-icon'
+
+export async function getStaticPaths() {
+    const exclusiveEntries = await getCollection('exclusives');
+    return exclusiveEntries.map((entry) => {
+        const parts = entry.slug.split('/');
+        return {
+            params: { game: parts[0], gameVersion: entry.data.gameVersion },
+            props: { entry },
+        };
+    });
+}
+
+const { entry } = Astro.props;
+const game = entry.slug.split('/')[0];
+const gameVersion = entry.data.gameVersion;
+const { Content } = await entry.render();
+
+const allMods = await getCollection('mods', (it) => {
+    return it.slug.startsWith('mc/');
+});
+const sortedMods = allMods.sort((a, b) => {
+    return b.data.priority - a.data.priority;
+});
+
+const loaders = ['fabric', 'neoforge', 'forge']
+const jars = await listLatestFiles(gameVersion!, 'snapshot');
+const latestByModAndLoader = null
+---
+
+<Layout title={entry.data.title}>
+    <MarkdownDocument data={entry.data}>
+        <Content />
+    </MarkdownDocument>
+
+    {JSON.stringify(jars)}
+
+    <table class="table table-zebra w-full">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Mod</th>
+                <th>Downloads</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                sortedMods.map((mod) => (
+                    <tr class="hover">
+                        <td>
+                            <div class="flex items-center justify-center">
+                                <Icon name="mdi:check" class="text-success w-8 h-8" />
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="flex items-center space-x-3">
+                                {mod.data.cover && (
+                                    <div class="avatar">
+                                        <div class="mask mask-squircle w-12 h-12">
+                                            <Image src={mod.data.cover} alt="" width={48} height={48} />
+                                        </div>
+                                    </div>
+                                )}
+                                <div>
+                                    <div class="font-bold">{mod.data.title}</div>
+                                    {mod.data.badge && <div class="badge badge-secondary badge-sm">{mod.data.badge}</div>}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</Layout>

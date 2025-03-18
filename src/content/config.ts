@@ -38,6 +38,17 @@ const modsCollection = defineCollection({
         }),
 });
 
+const exclusivesCollection = defineCollection({
+    type: 'content',
+    schema: () =>
+        z.object({
+            title: z.string(),
+            gameVersion: z.string(),
+            loaders: z.array(z.enum(['Forge', 'Fabric', 'NeoForge', 'Steam']))
+        }),
+});
+
+
 const docsCollection = defineCollection({
     type: 'content',
     schema: z.object({
@@ -129,6 +140,7 @@ const configCollection = defineCollection({
 export const collections = {
     games: gamesCollection,
     mods: modsCollection,
+    exclusives: exclusivesCollection,
     docs: docsCollection,
     galleries: galleriesCollection,
     recipes: recipesCollection,

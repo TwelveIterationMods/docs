@@ -1,10 +1,12 @@
 export default async function searchMaven(
     repository: string,
     groupId: string,
-    artifactId: string
+    artifactId?: string,
+    version?: string
 ): Promise<
     {
         version: string;
+        name: string;
         repository: string;
         assets: {
             downloadUrl: string;
@@ -22,9 +24,15 @@ export default async function searchMaven(
     const queryParams = new URLSearchParams({
         repository: repository,
         group: groupId,
-        name: artifactId,
         sort: 'version',
     });
+    if (artifactId) {
+        queryParams.set('name', artifactId);
+    }
+    if (version) {
+        queryParams.set('version', version);
+    }
+    console.log(queryParams)
 
     try {
         const response = await fetch(`${nexusUrl}?${queryParams.toString()}`);
