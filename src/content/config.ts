@@ -49,6 +49,15 @@ const exclusivesCollection = defineCollection({
         }),
 });
 
+const releasesCollection = defineCollection({
+    type: 'content',
+    schema: () =>
+        z.object({
+            title: z.string(),
+            gameVersion: z.string(),
+            notes: z.record(z.string(), z.string()).default({})
+        }),
+});
 
 const docsCollection = defineCollection({
     type: 'content',
@@ -142,6 +151,7 @@ export const collections = {
     games: gamesCollection,
     mods: modsCollection,
     exclusives: exclusivesCollection,
+    releases: releasesCollection,
     docs: docsCollection,
     galleries: galleriesCollection,
     recipes: recipesCollection,

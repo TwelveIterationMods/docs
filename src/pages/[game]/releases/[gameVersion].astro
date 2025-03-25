@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../../layouts/Layout.astro';
+import MarkdownDocument from '../../../components/MarkdownDocument.astro';
+import listLatestFiles from '../../../utils/list-latest-files';
+import FabricIcon from '../../../components/mc/FabricIcon.astro';
+import NeoForgeIcon from '../../../components/mc/NeoForgeIcon.astro';
+import ForgeIcon from '../../../components/mc/ForgeIcon.astro';
+import { Icon } from 'astro-icon';
+import humanizeLoader from '../../../utils/humanize-loader';
+
+export async function getStaticPaths() {
+    const exclusiveEntries = await getCollection('releases');
+    return exclusiveEntries.map((entry) => {
+        const parts = entry.slug.split('/');
+        return {
+            params: { game: parts[0], gameVersion: entry.data.gameVersion },
+            props: { entry },
+        };
+    });
+}
+
+const { entry } = Astro.props;
+const game = entry.slug.split('/')[0];
+const gameVersion = entry.data.gameVersion;
+const { Content } = await entry.render();
+
+const allMods = await getCollection('mods', (it) => {
+    return it.slug.startsWith('mc/') && !it.data.discontinued;
+});
+
+const jars = await listLatestFiles(gameVersion!, 'release');
+const latestByMod = jars.reduce<Record<string, Record<string, (typeof jars)[0]>>>((acc, jar) => {
+    if (jar.loader === 'common') return acc;
+    if (!acc[jar.name]) {
+        acc[jar.name] = {};
+    }
+    if (!acc[jar.name][jar.loader]) {
+        acc[jar.name][jar.loader] = jar;
+    }
+    return acc;
+}, {});
+
+const sortedMods = allMods.sort((a, b) => {
+    const aHasLatest = !!latestByMod[a.data.modId];
+    const bHasLatest = !!latestByMod[b.data.modId];
+    if (aHasLatest !== bHasLatest) {
+        return bHasLatest ? 1 : -1;
+    }
+    const aHasNewBadge = a.data.badge === 'New';
+    const bHasNewBadge = b.data.badge === 'New';
+    if (aHasNewBadge !== bHasNewBadge) {
+        return bHasNewBadge ? 1 : -1;
+    }
+    return b.data.priority - a.data.priority;
+});
+
+const curseForgeGameVersionTypeIdForLoader = (loader: string) => {
+    switch (loader) {
+        case 'forge':
+            return 1;
+        case 'fabric':
+            return 4;
+        case 'neoforge':
+            return 6;
+    }
+};
+---
+
+<Layout title={entry.data.title}>
+    <MarkdownDocument data={entry.data}>
+        <Content />
+    </MarkdownDocument>
+
+    <table class="table table-zebra w-full">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Mod</th>
+                <th>CurseForge</th>
+                <th>Modrinth</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                sortedMods.map((mod) => (
+                    <tr class="hover">
+                        <td>
+                            {latestByMod[mod.data.modId] && (
+                                <div class="flex items-center justify-center">
+                                    <Icon name="mdi:check" class="text-success w-8 h-8" />
+                                </div>
+                            )}
+
+                            {!latestByMod[mod.data.modId] && (
+                                <div class="flex items-center justify-center">
+                                    <Icon name="mdi:close" class="text-error w-8 h-8" />
+                                </div>
+                            )}
+                        </td>
+
+                        <td>
+                            <div class="flex items-center space-x-3">
+                                {mod.data.cover && (
+                                    <div class="avatar">
+                                        <div class="mask mask-squircle w-12 h-12">
+                                            <Image src={mod.data.cover} alt="" width={48} height={48} />
+                                        </div>
+                                    </div>
+                                )}
+                                <div>
+                                    <div class="font-bold">{mod.data.title}</div>
+                                    {mod.data.badge && <div class="badge badge-secondary badge-sm">{mod.data.badge}</div>}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            {latestByMod[mod.data.modId] && (
+                                <div class="flex gap-2">
+                                    {Object.entries(latestByMod[mod.data.modId])
+                                        .sort(([a], [b]) => {
+                                            const order = { fabric: 0, neoforge: 1, forge: 2 };
+                                            return (order[a as keyof typeof order] || 0) - (order[b as keyof typeof order] || 0);
+                                        })
+                                        .map(([loader, jar]) => (
+                                            <a
+                                                href={`https://www.curseforge.com/minecraft/mc-mods/${mod.data.curseForgeSlug}/files/all?page=1&pageSize=20&version=${entry.data.gameVersion}&gameVersionTypeId=${curseForgeGameVersionTypeIdForLoader(loader)}`}
+                                                class="btn btn-ghost btn-sm"
+                                            >
+                                                {loader === 'fabric' && <FabricIcon />}
+                                                {loader === 'neoforge' && <NeoForgeIcon />}
+                                                {loader === 'forge' && <ForgeIcon />}
+                                                {humanizeLoader(loader)}
+                                            </a>
+                                        ))}
+                                </div>
+                            )}
+                        </td>
+                        <td>
+                            {latestByMod[mod.data.modId] && (
+                                <div class="flex gap-2">
+                                    {Object.entries(latestByMod[mod.data.modId])
+                                        .sort(([a], [b]) => {
+                                            const order = { fabric: 0, neoforge: 1, forge: 2 };
+                                            return (order[a as keyof typeof order] || 0) - (order[b as keyof typeof order] || 0);
+                                        })
+                                        .map(([loader, jar]) => (
+                                            <a
+                                                href={`https://modrinth.com/mod/${mod.data.modrinthSlug}/versions?g=${entry.data.gameVersion}&l=${loader}`}
+                                                class="btn btn-ghost btn-sm"
+                                            >
+                                                {loader === 'fabric' && <FabricIcon />}
+                                                {loader === 'neoforge' && <NeoForgeIcon />}
+                                                {loader === 'forge' && <ForgeIcon />}
+                                                {humanizeLoader(loader)}
+                                            </a>
+                                        ))}
+                                </div>
+                            )}
+                        </td>
+                        <td>
+                            {entry.data.notes[mod.data.modId] && (
+                                <div class="flex items-center gap-2">
+                                    <Icon name="mdi:warning" class="text-warning w-5 h-5" />
+                                    {entry.data.notes[mod.data.modId]}
+                                </div>
+                            )}
+                        </td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</Layout>

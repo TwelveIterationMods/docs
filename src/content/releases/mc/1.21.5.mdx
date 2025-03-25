@@ -1,17 +1,17 @@
 ---
-title: Preview Releases for Minecraft 1.21.5
+title: Releases for Minecraft 1.21.5
 gameVersion: '1.21.5'
 notes:
   waystones: Waystone names from previous worlds will appear in \"quotes\".
-  cookingforblockheads: Models will not display correctly on Fabric.
-  excompressum: Models will not display correctly on Fabric.
+  cookingforblockheads: Fabric release delayed due to missing API.
+  excompressum: Fabric release delayed due to missing API.
   kleeslabs: KleeSlabs now exclusively uses tags to determine supported slabs.
   forbiddensmoothies: Likely only later this year.
   craftingforblockheads: Likely only later this year.
 ---
 import NoteBox from '../../../components/NoteBox.astro'
 
-## Preview Releases for Minecraft 1.21.5
+## Releases for Minecraft 1.21.5
 
 ---
 
@@ -25,16 +25,14 @@ If you choose to upgrade an old world, it is **strongly recommended** to make a 
 
 ---
 
-<NoteBox title="Known Issue: Custom model renderers will not display correctly" color="error">
-On Fabric, custom models, such as those from Cooking for Blockheads, will not display correctly yet.
+<NoteBox title="Cooking for Blockheads and Ex Compressum on Fabric" color="error">
+Fabric has not yet re-added its extra models API, which these mods depend on.
 </NoteBox>
 
 ---
 
-<NoteBox title="Supported Mod Loaders" color="info">
-- Fabric preview releases are usually the first to come out.
-- NeoForge preview releases usually follow within a few days of a pre-release.
-- Forge does not receive preview releases, and full releases may be delayed. **It is recommended to switch to NeoForge or Fabric.**
+<NoteBox title="Updates for Minecraft Forge" color="info">
+- Mod updates for Minecraft Forge may be delayed. **It is recommended to switch to NeoForge or Fabric.**
 </NoteBox>
 
 ---
