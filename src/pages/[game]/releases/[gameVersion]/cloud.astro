@@ -56,17 +56,19 @@ const sortedMods = availableMods.sort((a, b) => {
             sortedMods.map((mod) => (
             <div class={`card w-64 bg-base-300 shadow-xl ${mod.data.badge === 'New' ? 'border-2 border-yellow-500 bg-gradient-to-br' : ''}`}>
                     <div class="card-body p-4">
-                        <div class="flex items-center gap-4">
-                            {mod.data.cover && (
-                                <div class="avatar">
-                                    <div class="mask mask-squircle w-8 h-8">
-                                        <Image src={mod.data.cover} alt="" width={32} height={32} />
+                        <a href={`/mc/${mod.slug.split('/')[1]}`} class="no-underline">
+                            <div class="flex items-center gap-4">
+                                {mod.data.cover && (
+                                    <div class="avatar">
+                                        <div class="mask mask-squircle w-8 h-8">
+                                            <Image src={mod.data.cover} alt="" width={32} height={32} />
+                                        </div>
                                     </div>
-                                </div>
-                            )}
-                            <h2 class="card-title text-base">{mod.data.title}</h2>
-                            {mod.data.badge && <span class="badge badge-secondary badge-sm">{mod.data.badge}</span>}
-                        </div>
+                                )}
+                                <h2 class="card-title text-base">{mod.data.title}</h2>
+                                {mod.data.badge && <span class="badge badge-secondary badge-sm">{mod.data.badge}</span>}
+                            </div>
+                        </a>
                         <div class="flex gap-1">
                             {Object.entries(latestByMod[mod.data.modId])
                                 .sort(([a], [b]) => {
