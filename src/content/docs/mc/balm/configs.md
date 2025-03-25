@@ -190,9 +190,11 @@ Properties marked as `.synced()` or `@Synced` will be synced from server to clie
 
 On Forge and NeoForge, local configs are managed by the mod loader and Balm acts as an access and sync layer.
 On Fabric, Balm manages local configs itself using a subset of the TOML format. 
-The resulting TOML files are identical in both format and naming.
+The resulting TOML files are identical in both format and naming. However, Fabric uses the `StringRepresentable` of an enum for values while Neo/Forge use the enum's name (ignore-case).
 
 Note that only the config types "common" and "client" are supported across all three mod loaders. While the Fabric version could technically support other custom types as well, using them is not recommended unless you are building a mod exclusively for Fabric.
+
+Fabric configs are loaded instantly upon registration. On NeoForge, only configs of type "startup" are loaded instantly.
 
 ## Supported Config Screen
 
