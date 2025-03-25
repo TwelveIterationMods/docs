@@ -5,7 +5,9 @@ import Layout from '../../../layouts/Layout.astro';
 import MarkdownDocument from '../../../components/MarkdownDocument.astro';
 import listLatestFiles from '../../../utils/list-latest-files';
 import FabricIcon from '../../../components/mc/FabricIcon.astro';
+import NeoForgeIcon from '../../../components/mc/NeoForgeIcon.astro';
 import { Icon } from 'astro-icon';
+import humanizeLoader from '../../../utils/humanize-loader';
 
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('exclusives');
@@ -107,7 +109,8 @@ const sortedMods = allMods.sort((a, b) => {
                                     {Object.entries(latestByMod[mod.data.modId]).map(([loader, jar]) => (
                                         <a href={jar.downloadUrl} class="btn btn-ghost btn-sm">
                                             {loader === 'fabric' && <FabricIcon />}
-                                            {loader.charAt(0).toUpperCase() + loader.slice(1)}
+                                            {loader === 'neoforge' && <NeoForgeIcon />}
+                                            {humanizeLoader(loader)}
                                         </a>
                                     ))}
                                 </div>

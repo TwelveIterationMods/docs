@@ -8,6 +8,7 @@ import Layout from '../../../../../../../layouts/Layout.astro';
 import DownloadsFilter from '../../../../../../../components/DownloadsFilter.vue';
 import listModFiles from '../../../../../../../utils/list-mod-files';
 import NoteBox from '../../../../../../../components/NoteBox.astro';
+import humanizeLoader from '../../../../../../../utils/humanize-loader';
 
 export const prerender = false;
 
@@ -56,18 +57,6 @@ const humanizeTimestamp = (timestamp?: string) => {
 
 const humanizeVersion = (version?: string) => {
     return version?.split('+')[0];
-};
-
-const humanizeLoader = (loader?: string) => {
-    if (!loader) {
-        return 'Unknown';
-    }
-
-    if (loader === 'neoforge') {
-        return 'NeoForge';
-    }
-
-    return loader.charAt(0).toUpperCase() + loader.slice(1);
 };
 
 const jars = await listModFiles(entry.data.modId, gameVersion!, loader!, branch!);
