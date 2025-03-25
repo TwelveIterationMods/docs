@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import Layout from '../../../layouts/Layout.astro';
-import MarkdownDocument from '../../../components/MarkdownDocument.astro';
-import listLatestFiles from '../../../utils/list-latest-files';
-import FabricIcon from '../../../components/mc/FabricIcon.astro';
-import NeoForgeIcon from '../../../components/mc/NeoForgeIcon.astro';
-import ForgeIcon from '../../../components/mc/ForgeIcon.astro';
+import Layout from '../../../../layouts/Layout.astro';
+import MarkdownDocument from '../../../../components/MarkdownDocument.astro';
+import listLatestFiles from '../../../../utils/list-latest-files';
+import FabricIcon from '../../../../components/mc/FabricIcon.astro';
+import NeoForgeIcon from '../../../../components/mc/NeoForgeIcon.astro';
+import ForgeIcon from '../../../../components/mc/ForgeIcon.astro';
 import { Icon } from 'astro-icon';
-import humanizeLoader from '../../../utils/humanize-loader';
+import humanizeLoader from '../../../../utils/humanize-loader';
 
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('releases');
