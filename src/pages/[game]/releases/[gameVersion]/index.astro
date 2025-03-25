@@ -111,7 +111,7 @@ const curseForgeGameVersionTypeIdForLoader = (loader: string) => {
                                     </div>
                                 )}
                                 <div>
-                                    <div class="font-bold">{mod.data.title}</div>
+                                    <div class="font-bold"><a href={`/mc/${mod.slug.split('/')[1]}`}>{mod.data.title}</a></div>
                                     {mod.data.badge && <div class="badge badge-secondary badge-sm">{mod.data.badge}</div>}
                                 </div>
                             </div>
