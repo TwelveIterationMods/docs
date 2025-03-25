@@ -106,13 +106,18 @@ const sortedMods = allMods.sort((a, b) => {
                         <td>
                             {latestByMod[mod.data.modId] && (
                                 <div class="flex gap-2">
-                                    {Object.entries(latestByMod[mod.data.modId]).map(([loader, jar]) => (
-                                        <a href={jar.downloadUrl} class="btn btn-ghost btn-sm">
-                                            {loader === 'fabric' && <FabricIcon />}
-                                            {loader === 'neoforge' && <NeoForgeIcon />}
-                                            {humanizeLoader(loader)}
-                                        </a>
-                                    ))}
+                                    {Object.entries(latestByMod[mod.data.modId])
+                                        .sort(([a], [b]) => {
+                                            const order = { fabric: 0, neoforge: 1, forge: 2 };
+                                            return (order[a as keyof typeof order] || 0) - (order[b as keyof typeof order] || 0);
+                                        })
+                                        .map(([loader, jar]) => (
+                                            <a href={jar.downloadUrl} class="btn btn-ghost btn-sm">
+                                                {loader === 'fabric' && <FabricIcon />}
+                                                {loader === 'neoforge' && <NeoForgeIcon />}
+                                                {humanizeLoader(loader)}
+                                            </a>
+                                        ))}
                                 </div>
                             )}
                         </td>
