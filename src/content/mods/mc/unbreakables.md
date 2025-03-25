@@ -3,7 +3,6 @@ title: Unbreakables
 description: Configure blocks to be unbreakable under certain conditions. Compatible with Waystones.
 priority: 1000
 cover: ./unbreakables.png
-badge: New
 loaders: [Forge, Fabric, NeoForge]
 gameVersions: ['1.21.4','1.21.1', '1.20.1']
 category: Utilities

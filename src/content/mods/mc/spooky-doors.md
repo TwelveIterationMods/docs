@@ -2,7 +2,6 @@
 title: Spooky Doors
 description: Doors, but they're scary like in Horror Games
 cover: ./spooky-doors.png
-badge: New
 priority: 1001
 loaders: ['Forge', 'Fabric', 'NeoForge']
 gameVersions: ['1.21.4', '1.21.1', '1.20.1']
