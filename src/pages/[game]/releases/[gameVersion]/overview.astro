@@ -60,11 +60,11 @@ const sortedMods = availableMods.sort((a, b) => {
             <p class="text-base-content text-opacity-60 mt-2 text-lg">Made with ❤️ by BlayTheNinth</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="flex flex-wrap justify-center gap-4">
             {
                 sortedMods.map((mod) => (
                     <div
-                        class={`card bg-base-300 shadow-xl transition-all duration-300 hover:scale-105 border opacity-90 hover:opacity-100 ${mod.data.badge === 'New' ? 'border-2 border-yellow-500 bg-gradient-to-br' : 'border-base-200'}`}
+                        class={`card bg-base-300 shadow-xl transition-all duration-300 hover:scale-105 border opacity-90 hover:opacity-100 ${mod.data.badge === 'New' ? 'border-2 border-yellow-500 bg-gradient-to-br' : 'border-base-200'} w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.667rem)] lg:w-[calc(25%-0.75rem)]`}
                     >
                         <div class="card-body p-4">
                             <a href={`/mc/${mod.slug.split('/')[1]}`} class="no-underline">
@@ -102,7 +102,7 @@ const sortedMods = availableMods.sort((a, b) => {
                     </div>
                 ))
             }
-        </div>
+        </div>        
 
         <div class="mt-8 text-center">
             <BecomePatronButton />
