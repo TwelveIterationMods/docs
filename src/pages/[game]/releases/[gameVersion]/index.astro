@@ -10,6 +10,8 @@ import ForgeIcon from '../../../../components/mc/ForgeIcon.astro';
 import { Icon } from 'astro-icon';
 import humanizeLoader from '../../../../utils/humanize-loader';
 
+export const prerender = false;
+
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('releases');
     return exclusiveEntries.map((entry) => {

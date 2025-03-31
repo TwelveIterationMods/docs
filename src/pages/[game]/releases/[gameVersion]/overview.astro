@@ -9,6 +9,8 @@ import ForgeIcon from '../../../../components/mc/ForgeIcon.astro';
 import humanizeLoader from '../../../../utils/humanize-loader';
 import BecomePatronButton from '../../../../components/BecomePatronButton.astro';
 
+export const prerender = false;
+
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('releases');
     return exclusiveEntries.map((entry) => {

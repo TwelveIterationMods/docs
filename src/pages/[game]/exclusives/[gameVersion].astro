@@ -9,6 +9,8 @@ import NeoForgeIcon from '../../../components/mc/NeoForgeIcon.astro';
 import { Icon } from 'astro-icon';
 import humanizeLoader from '../../../utils/humanize-loader';
 
+export const prerender = false;
+
 export async function getStaticPaths() {
     const exclusiveEntries = await getCollection('exclusives');
     return exclusiveEntries.map((entry) => {
