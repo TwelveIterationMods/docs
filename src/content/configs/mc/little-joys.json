@@ -1,0 +1,78 @@
+[
+    { "name": "baseChance", "type": "float", "description": "The base chance for a drop rush to occur.", "defaultValue": 0.02 },
+    { "name": "baseChance", "type": "float", "description": "The base chance for a gold rush to occur.", "defaultValue": 0.02 },
+    {
+        "name": "minimumDistanceBetween",
+        "type": "int",
+        "description": "The minimum distance between fishing spots, preventing them from spawning too close together.",
+        "defaultValue": 128
+    },
+    { "name": "spawnDistance", "type": "int", "description": "The distance fishing spots will spawn from the player.", "defaultValue": 8 },
+    {
+        "name": "spawnIntervalSeconds",
+        "type": "float",
+        "description": "The seconds that must pass after a fishing spot appeared before another fishing spot can appear for a player.",
+        "defaultValue": 300.0
+    },
+    {
+        "name": "afterFishingCooldownSeconds",
+        "type": "float",
+        "description": "The seconds that must pass after fishing a fishing spot before another fishing spot can appear for a player.",
+        "defaultValue": 600.0
+    },
+    {
+        "name": "fishingRangeTolerance",
+        "type": "int",
+        "description": "The maximum distance a bobber can be from a fishing spot to still trigger it.",
+        "defaultValue": 3
+    },
+    {
+        "name": "secondsUntilLured",
+        "type": "float",
+        "description": "Fishing spots will lure fish quicker than regular water. Set to -1 to disable.",
+        "defaultValue": 2.0
+    },
+    {
+        "name": "totalLimitPerChunk",
+        "type": "int",
+        "description": "The limit of fishing spots that can spawn in a given chunk overall. Once this many fishing spots have spawned, the chunk will never spawn any again. Set to -1 to disable.",
+        "defaultValue": -1
+    },
+    {
+        "name": "projectForwardDistance",
+        "type": "int",
+        "description": "The offset applied to the spawn area in the direction the player is facing. Set to 0 to center it around the player.",
+        "defaultValue": 4
+    },
+    {
+        "name": "minimumDistanceBetween",
+        "type": "int",
+        "description": "The minimum distance between dig spots, preventing them from spawning too close together.",
+        "defaultValue": 128
+    },
+    { "name": "spawnDistance", "type": "int", "description": "The distance dig spots will spawn from the player.", "defaultValue": 32 },
+    {
+        "name": "spawnIntervalSeconds",
+        "type": "float",
+        "description": "The seconds that must pass after a dig spot appeared before another dig spot can appear for a player.",
+        "defaultValue": 300.0
+    },
+    {
+        "name": "afterDiggingCooldownSeconds",
+        "type": "float",
+        "description": "The seconds that must pass after digging a dig spot before another dig spot can appear for a player.",
+        "defaultValue": 600.0
+    },
+    {
+        "name": "totalLimitPerChunk",
+        "type": "int",
+        "description": "The limit of dig spots that can spawn in a given chunk overall. Once this many dig spots have spawned, the chunk will never spawn any again. Set to -1 to disable.",
+        "defaultValue": 1
+    },
+    {
+        "name": "projectForwardDistance",
+        "type": "int",
+        "description": "The offset applied to the spawn area in the direction the player is facing. Set to 0 to center it around the player.",
+        "defaultValue": 25
+    }
+]

@@ -1,0 +1,102 @@
+---
+title: Customization
+type: guide
+icon: mdi:puzzle-edit
+---
+
+import NoteBox from '../../../../components/NoteBox.astro';
+
+### Table of Contents
+
+### Editing existing content
+
+By default, Little Joys ships with event "recipes" for all Vanilla content - that means dig spots for most naturally generated blocks, drop rushes for most crops, gold rushes for most ores and fishing spots on water.
+
+These recipes can be manipulated through data packs or other customization mods just like any other recipe.
+
+You can find the default recipes [in the GitHub repository](https://github.com/TwelveIterationMods/LittleJoys/tree/1.20.1/common/src/main/resources/data/littlejoys/recipes).
+
+Additionally, the mod comes with loot tables for all dig spots and fishing spots, also [found on the GitHub repository](https://github.com/TwelveIterationMods/LittleJoys/tree/1.20.1/common/src/generated/resources/data/littlejoys/loot_tables) for reference.
+
+### Adding additional content
+
+You can also add additional recipes in the same manner as above. Recipes can be weighted and the mod will randomly pick one that matches for the given location. 
+
+#### Dig Spots
+
+```json
+{
+    "type": "littlejoys:dig_spot",
+    "eventCondition": {
+        "type": "above_state",
+        "state": {
+            "Name": "minecraft:sand"
+        }
+    },
+    "lootTable": "littlejoys:dig_spot/sand",
+    "weight": 1
+}
+```
+
+#### Fishing Spots
+
+```json
+{
+    "type": "littlejoys:fishing_spot",
+    "eventCondition": {
+        "type": "all",
+        "conditions": [
+            {
+                "type": "above_fluid_source"
+            },
+            {
+                "type": "can_see_sky"
+            }
+        ]
+    },
+    "lootTable": "littlejoys:fishing_spot/water",
+    "weight": 1
+}
+```
+
+#### Drop Rushes
+
+```json
+{
+  "type": "littlejoys:drop_rush",
+  "eventCondition": {
+    "type": "is_state",
+    "state": {
+      "Name": "minecraft:wheat",
+      "Properties": {
+        "age": "7"
+      }
+    }
+  },
+  "lootTable": "minecraft:blocks/wheat",
+  "chanceMultiplier": 1.0,
+  "rolls": 8,
+  "seconds": 12.5,
+  "range": 8,
+  "weight": 1
+}
+```
+
+#### Gold Rushes
+
+```json
+{
+  "type": "littlejoys:gold_rush",
+  "eventCondition": {
+    "type": "is_state",
+    "state": {
+      "Name": "minecraft:coal_ore"
+    }
+  },
+  "lootTable": "minecraft:blocks/coal_ore",
+  "chanceMultiplier": 0.5,
+  "seconds": 7.0,
+  "maxDropsPerSecond": -1,
+  "weight": 1
+}
+```
